@@ -17,14 +17,29 @@ class CatalogScreen extends StatelessWidget {
         future: getCatalog(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
+            // return GridView(
+            //   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            //       maxCrossAxisExtent: 2),
+            //       children: [
+
+            //       ],
+            // );
             return GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
+                crossAxisCount: 2,
+                childAspectRatio: 1.3,
+              ),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) => Container(
-                height: 200,
-                width: 200,
-                child: Image.network(snapshot.data![index]['img_url']),
+                margin: EdgeInsets.all(50),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  image: DecorationImage(
+                      image: NetworkImage(
+                        snapshot.data![index]['img_url'],
+                      ),
+                      fit: BoxFit.fitWidth),
+                ),
               ),
             );
           } else if (snapshot.connectionState == ConnectionState.waiting) {
