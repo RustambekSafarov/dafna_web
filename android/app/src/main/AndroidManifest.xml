@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dafna">
+    package="com.example.dafna_web">
    <application
-        android:label="dafna"
+        android:label="dafna_web"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

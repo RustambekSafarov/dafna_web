@@ -1,4 +1,4 @@
-package com.example.dafna
+package com.example.dafna_web
 
 import io.flutter.embedding.android.FlutterActivity
 

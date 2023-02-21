@@ -1,8 +1,9 @@
 // ignore_for_file: unused_element
 
-import 'package:dafna/screens/catalog_screen.dart';
-import 'package:dafna/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'screens/catalog_screen.dart';
+import 'screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());

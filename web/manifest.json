@@ -1,6 +1,6 @@
 {
-    "name": "dafna",
-    "short_name": "dafna",
+    "name": "dafna_web",
+    "short_name": "dafna_web",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

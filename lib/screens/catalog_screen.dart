@@ -1,6 +1,7 @@
-import 'package:dafna/service/dafna_api.dart';
-import 'package:dafna/widget/app_bar_view.dart';
 import 'package:flutter/material.dart';
+
+import '../service/dafna_api.dart';
+import '../widget/app_bar_view.dart';
 
 class CatalogScreen extends StatelessWidget {
   const CatalogScreen({super.key});
@@ -17,28 +18,23 @@ class CatalogScreen extends StatelessWidget {
         future: getCatalog(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            // return GridView(
-            //   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            //       maxCrossAxisExtent: 2),
-            //       children: [
-
-            //       ],
-            // );
             return GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 1.3,
               ),
               itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) => Container(
-                margin: EdgeInsets.all(50),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  image: DecorationImage(
-                      image: NetworkImage(
-                        snapshot.data![index]['img_url'],
-                      ),
-                      fit: BoxFit.fitWidth),
+              itemBuilder: (context, index) => InkWell(
+                child: Container(
+                  margin: EdgeInsets.all(50),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    image: DecorationImage(
+                        image: NetworkImage(
+                          snapshot.data![index]['img_url'],
+                        ),
+                        fit: BoxFit.fitWidth),
+                  ),
                 ),
               ),
             );
