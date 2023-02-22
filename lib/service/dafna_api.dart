@@ -24,3 +24,15 @@ Future<List> getContact() async {
   return data['contacts'];
 }
 
+String newgetUrl = 'https://ogabek007.pythonanywhere.com/';
+
+Future<List> getnewprodouct() async {
+  final response = await http.get(Uri.parse('$newgetUrl/dafna_app/get_new_prodouct/'));
+
+  // If the server did return a 200 OK response,
+  // then parse the JSON.
+  Map data = jsonDecode(response.body);
+  return data['prodoucts'];
+}
+
+

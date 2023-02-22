@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../service/dafna_api.dart';
-import '../widget/app_bar_view.dart';
+import '../widget/appbar_view.dart';
 
 class CatalogScreen extends StatelessWidget {
   const CatalogScreen({super.key});
@@ -31,7 +32,7 @@ class CatalogScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     image: DecorationImage(
-                        image: NetworkImage( 
+                        image: NetworkImage(
                           snapshot.data![index]['img_url'],
                         ),
                         fit: BoxFit.fitWidth),
@@ -40,13 +41,17 @@ class CatalogScreen extends StatelessWidget {
               ),
             );
           } else if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+              child: SpinKitThreeBounce(
+                size: 30,
+                color: Colors.black,
+              ),
+            );
           } else {
             throw Exception('Error a');
           }
         },
       ),
     );
-
   }
 }

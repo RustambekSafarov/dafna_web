@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'drawer_view.dart';
@@ -15,22 +17,14 @@ class _MyWidgetState extends State<AppBarView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: 130,
-      color: Color(0xFF03a1e3),
-      width: double.infinity,
+    return Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 50, left: 30, top: 5),
+          const SizedBox(height: 12),
+          FittedBox(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                const SizedBox(width: 50),
                 TextButton(
                   onPressed: () =>
                       Navigator.pushReplacementNamed(context, '/home'),
@@ -42,6 +36,7 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 15),
                 TextButton(
                   onPressed: () => Navigator.pushReplacementNamed(
                     context,
@@ -55,6 +50,7 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 15),
                 TextButton(
                   onPressed: () {},
                   child: const Text(
@@ -65,10 +61,18 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 15),
                 TextButton(
-                    onPressed: () {},
-                    child: const Text('Kontaklar',
-                        style: TextStyle(color: Colors.white))),
+                  onPressed: () {},
+                  child: const Text(
+                    'Kontaklar',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 15),
                 TextButton(
                   onPressed: () {},
                   child: const Text(
@@ -79,6 +83,7 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 15),
                 TextButton(
                   onPressed: () {},
                   child: const Text(
@@ -89,6 +94,7 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 15),
                 Container(
                   alignment: Alignment.center,
                   height: 25,
@@ -105,7 +111,7 @@ class _MyWidgetState extends State<AppBarView> {
                         fontWeight: FontWeight.w300),
                   ),
                 ),
-                const SizedBox(width: 80),
+                const SizedBox(width: 200),
                 TextButton(
                   onPressed: () {},
                   child: const Text(
@@ -117,17 +123,11 @@ class _MyWidgetState extends State<AppBarView> {
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 7,
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 59, left: 50),
+          FittedBox(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(
-                  width: 25,
-                ),
                 SizedBox(
                     width: 120,
                     height: 80,
@@ -172,18 +172,23 @@ class _MyWidgetState extends State<AppBarView> {
                       suffixIcon: const Icon(Icons.search),
                       hintText: 'Men ...ni qidirayabman',
                       hintStyle:
-                          const TextStyle(fontSize: 12, color: Colors.white),
+                          const TextStyle(fontSize: 13, color: Colors.white),
                       filled: true,
                       // focusColor: const Color.fromARGB(255, 5, 52, 80),
                       fillColor: const Color(0xFF4bbedd),
                       border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(18),
                       ),
                     ),
                   ),
                 ),
+                const SizedBox(
+                  width: 20,
+                ),
                 InkWell(
                   child: Column(
+                    
                     children: const [
                       Icon(
                         Icons.location_on,
@@ -192,10 +197,40 @@ class _MyWidgetState extends State<AppBarView> {
                       ),
                       Text(
                         'Manzillar',
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w300,
+                        ),
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                InkWell(
+                  child: Column(
+                    children: const [
+                      Icon(
+                        Icons.person,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                      Text(
+                        'Ro\'yxattan\no\'tish ',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  width: 20,
                 ),
                 InkWell(
                   child: Column(
@@ -216,24 +251,8 @@ class _MyWidgetState extends State<AppBarView> {
                     ],
                   ),
                 ),
-                InkWell(
-                  child: Column(
-                    children: const [
-                      Icon(
-                        Icons.person_add,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      Text(
-                        'Ro\'yxattan o\'tish ',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                    ],
-                  ),
+                const SizedBox(
+                  width: 20,
                 ),
                 InkWell(
                   child: Column(

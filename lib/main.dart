@@ -19,12 +19,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.blue,
-        // useMaterial3: true,
       ),
       routes: {
         HomeScreen.routeName: (context) => const HomeScreen(),
         CatalogScreen.routeName: (context) => const CatalogScreen(),
-        Contactcreen.routeName:(context) => const Contactcreen()
+        Contactcreen.routeName: (context) => const Contactcreen()
       },
       initialRoute: '/home',
     );

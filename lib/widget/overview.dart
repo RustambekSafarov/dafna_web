@@ -1,15 +1,15 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:dafna_web/service/dafna_api.dart';
+import 'package:dafna_web/widget/pageview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class OverView extends StatefulWidget {
   const OverView({super.key});
 
   @override
-  State<OverView> createState() => _OverViewState(); 
+  State<OverView> createState() => _OverViewState();
 }
 
 class _OverViewState extends State<OverView> {
@@ -27,9 +27,7 @@ class _OverViewState extends State<OverView> {
                   children: [
                     Image.network(
                         'https://mebel.dafna.uz/uploads/sliders/s_1672982886.jpg'),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -40,9 +38,8 @@ class _OverViewState extends State<OverView> {
                         )
                       ],
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                    const SizedBox(height: 15),
+                    // IntroPage()
                   ],
                 ),
               ),
@@ -54,6 +51,7 @@ class _OverViewState extends State<OverView> {
                   // crossAxisSpacing: 20,
                 ),
                 delegate: SliverChildBuilderDelegate(
+                  childCount: 4,
                   (context, index) => InkWell(
                     onTap: () {},
                     child: Padding(
@@ -67,20 +65,21 @@ class _OverViewState extends State<OverView> {
                       ),
                     ),
                   ),
-                  childCount: 4,
                 ),
               ),
+            
+              //BULMADIKU BUNI ISHLATSAM XATO BUB KETYABDI ISHLATIB KUR
             ],
           );
         } else if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
             child: SpinKitThreeBounce(
-              size: 50,
+              size: 30,
               color: Colors.black,
             ),
           );
         } else {
-          return Text('Error');
+          return const Text('Error');
         }
       },
     ));
