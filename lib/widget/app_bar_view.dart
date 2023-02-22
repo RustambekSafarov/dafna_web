@@ -48,7 +48,10 @@ class _MyWidgetState extends State<AppBarView> {
                     child: const Text('Vedio sharhlar',
                         style: TextStyle(color: Colors.white))),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.pushReplacementNamed(
+                          context,
+                          '/contact',
+                        ),
                     child: const Text('Kontaklar',
                         style: TextStyle(color: Colors.white))),
                 TextButton(
@@ -126,17 +129,20 @@ class _MyWidgetState extends State<AppBarView> {
                       color: Colors.white,
                     )),
                 SizedBox(
-                  width: 550,
-                  height: 40,
+                  width: 600,
+                  height: 35,
                   child: TextField(
                     controller: _controller,
                     decoration: InputDecoration(
                       suffixIcon: const Icon(Icons.search),
                       hintText: 'Men ...ni qidirayabman',
+                      hintStyle:
+                          const TextStyle(fontSize: 12, color: Colors.white),
                       filled: true,
                       // focusColor: const Color.fromARGB(255, 5, 52, 80),
                       fillColor: const Color.fromARGB(255, 101, 161, 218),
                       border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(18),
                       ),
                     ),
@@ -146,13 +152,13 @@ class _MyWidgetState extends State<AppBarView> {
                   child: Column(
                     children: const [
                       Icon(
-                        Icons.location_city,
+                        Icons.location_on,
                         color: Colors.white,
                         size: 20,
                       ),
                       Text(
                         'Manzillar',
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        style: TextStyle(color: Color.fromARGB(255, 128, 92, 92), fontSize: 15),
                       ),
                     ],
                   ),

@@ -12,3 +12,15 @@ Future<List> getCatalog() async {
   Map data = jsonDecode(response.body);
   return data['katalogs'];
 }
+
+String contactUrl = 'https://ogabek007.pythonanywhere.com/';
+
+Future<List> getContact() async {
+  final response = await http.get(Uri.parse('$contactUrl/dafna_app/get_contact/'));
+
+  // If the server did return a 200 OK response,
+  // then parse the JSON.
+  Map data = jsonDecode(response.body);
+  return data['contacts'];
+}
+

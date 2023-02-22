@@ -1,5 +1,6 @@
 // ignore_for_file: unused_element
 
+import 'package:dafna_web/screens/contact_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/catalog_screen.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         HomeScreen.routeName: (context) => const HomeScreen(),
         CatalogScreen.routeName: (context) => const CatalogScreen(),
+        Contactcreen.routeName:(context) => const Contactcreen()
       },
       initialRoute: '/home',
     );
