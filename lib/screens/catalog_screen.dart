@@ -25,8 +25,9 @@ class CatalogScreen extends StatelessWidget {
               ),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) => InkWell(
+                onTap: () {},
                 child: Container(
-                  margin:const EdgeInsets.all(50),
+                  margin: EdgeInsets.all(50),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     image: DecorationImage(

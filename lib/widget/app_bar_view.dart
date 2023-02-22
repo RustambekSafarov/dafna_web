@@ -18,7 +18,7 @@ class _MyWidgetState extends State<AppBarView> {
     return Container(
       alignment: Alignment.center,
       height: 130,
-      color: Colors.blue,
+      color: Color(0xFF03a1e3),
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -32,36 +32,63 @@ class _MyWidgetState extends State<AppBarView> {
               children: [
                 const SizedBox(width: 50),
                 TextButton(
-                    onPressed: () =>
-                        Navigator.pushReplacementNamed(context, '/home'),
-                    child: const Text('Asosiy',
-                        style: TextStyle(color: Colors.white))),
+                  onPressed: () =>
+                      Navigator.pushReplacementNamed(context, '/home'),
+                  child: const Text(
+                    'Asosiy',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
                 TextButton(
-                    onPressed: () => Navigator.pushReplacementNamed(
-                          context,
-                          '/catalog',
-                        ),
-                    child: const Text('Katalog',
-                        style: TextStyle(color: Colors.white))),
+                  onPressed: () => Navigator.pushReplacementNamed(
+                    context,
+                    '/catalog',
+                  ),
+                  child: const Text(
+                    'Katalog',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Vedio sharhlar',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
                 TextButton(
                     onPressed: () {},
-                    child: const Text('Vedio sharhlar',
-                        style: TextStyle(color: Colors.white))),
-                TextButton(
-                    onPressed: () => Navigator.pushReplacementNamed(
-                          context,
-                          '/contact',
-                        ),
                     child: const Text('Kontaklar',
                         style: TextStyle(color: Colors.white))),
                 TextButton(
-                    onPressed: () {},
-                    child: const Text('Bandlik',
-                        style: TextStyle(color: Colors.white))),
+                  onPressed: () {},
+                  child: const Text(
+                    'Bandlik',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
                 TextButton(
-                    onPressed: () {},
-                    child: const Text('Fikr Qoldiring',
-                        style: TextStyle(color: Colors.white))),
+                  onPressed: () {},
+                  child: const Text(
+                    'Fikr Qoldiring',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
                 Container(
                   alignment: Alignment.center,
                   height: 25,
@@ -72,7 +99,10 @@ class _MyWidgetState extends State<AppBarView> {
                   ),
                   child: const Text(
                     'Chegirmalar',
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w300),
                   ),
                 ),
                 const SizedBox(width: 80),
@@ -122,7 +152,7 @@ class _MyWidgetState extends State<AppBarView> {
                           },
                         );
                       });
-                      print(menu);
+                      // print(menu);
                     },
                     icon: const Icon(
                       Icons.menu,
@@ -132,6 +162,11 @@ class _MyWidgetState extends State<AppBarView> {
                   width: 600,
                   height: 35,
                   child: TextField(
+                    style: const TextStyle(
+                      // color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal,
+                    ),
                     controller: _controller,
                     decoration: InputDecoration(
                       suffixIcon: const Icon(Icons.search),
@@ -140,9 +175,8 @@ class _MyWidgetState extends State<AppBarView> {
                           const TextStyle(fontSize: 12, color: Colors.white),
                       filled: true,
                       // focusColor: const Color.fromARGB(255, 5, 52, 80),
-                      fillColor: const Color.fromARGB(255, 101, 161, 218),
+                      fillColor: const Color(0xFF4bbedd),
                       border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(18),
                       ),
                     ),
@@ -158,7 +192,7 @@ class _MyWidgetState extends State<AppBarView> {
                       ),
                       Text(
                         'Manzillar',
-                        style: TextStyle(color: Color.fromARGB(255, 128, 92, 92), fontSize: 15),
+                        style: TextStyle(color: Colors.white, fontSize: 15),
                       ),
                     ],
                   ),
@@ -173,7 +207,11 @@ class _MyWidgetState extends State<AppBarView> {
                       ),
                       Text(
                         'Savat',
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w300,
+                        ),
                       ),
                     ],
                   ),
@@ -188,7 +226,11 @@ class _MyWidgetState extends State<AppBarView> {
                       ),
                       Text(
                         'Ro\'yxattan o\'tish ',
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w300,
+                        ),
                       ),
                     ],
                   ),
@@ -203,7 +245,11 @@ class _MyWidgetState extends State<AppBarView> {
                       ),
                       Text(
                         'Sevimlilar',
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w300,
+                        ),
                       ),
                     ],
                   ),
