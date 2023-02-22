@@ -18,11 +18,11 @@ class _MyWidgetState extends State<AppBarView> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: [
-          const SizedBox(height: 12),
-          FittedBox(
-            child: Row(
+      child: FittedBox(
+        child: Column(
+          children: [
+            const SizedBox(height: 12),
+            Row(
               // mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 TextButton(
@@ -52,7 +52,8 @@ class _MyWidgetState extends State<AppBarView> {
                 ),
                 const SizedBox(width: 15),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () =>
+                      Navigator.pushReplacementNamed(context, '/productPage'),
                   child: const Text(
                     'Vedio sharhlar',
                     style: TextStyle(
@@ -121,12 +122,10 @@ class _MyWidgetState extends State<AppBarView> {
                 ),
               ],
             ),
-          ),
-          const SizedBox(
-            height: 7,
-          ),
-          FittedBox(
-            child: Row(
+            const SizedBox(
+              height: 7,
+            ),
+            Row(
               children: [
                 SizedBox(
                     width: 120,
@@ -135,7 +134,6 @@ class _MyWidgetState extends State<AppBarView> {
                         Image.network('https://mebel.dafna.uz/img/logo.png')),
                 IconButton(
                     onPressed: () {
-                      menu = !menu;
                       setState(() {
                         showDialog(
                           context: context,
@@ -171,6 +169,7 @@ class _MyWidgetState extends State<AppBarView> {
                     decoration: InputDecoration(
                       suffixIcon: const Icon(Icons.search),
                       hintText: 'Men ...ni qidirayabman',
+                      // focusColor: Colors.white30,
                       hintStyle:
                           const TextStyle(fontSize: 13, color: Colors.white),
                       filled: true,
@@ -188,7 +187,6 @@ class _MyWidgetState extends State<AppBarView> {
                 ),
                 InkWell(
                   child: Column(
-                    
                     children: const [
                       Icon(
                         Icons.location_on,
@@ -274,9 +272,9 @@ class _MyWidgetState extends State<AppBarView> {
                   ),
                 ),
               ],
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

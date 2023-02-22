@@ -6,6 +6,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class ProdouctPage extends StatefulWidget {
   // ignore: prefer_const_declarations
+  static const routeName = '/productPage';
+
   static final String id = 'introPage';
   const ProdouctPage({super.key});
 
@@ -21,7 +23,7 @@ class _IntroPageState extends State<ProdouctPage> {
   @override
   void initState() {
     Timer.periodic(const Duration(seconds: 5), (timer) {
-      if (_currentPage < 4) {
+      if (_currentPage < 100) {
         _currentPage++;
       } else {
         _currentPage = 0;
@@ -72,41 +74,41 @@ class _IntroPageState extends State<ProdouctPage> {
                 }
               },
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 50),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: _buildIndictor(),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(bottom: 50),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: _buildIndictor(),
+            //   ),
+            // ),
           ],
         ),
       ),
     );
   }
 
-  Widget _indictor(bool isActive) {
-    return AnimatedContainer(
-      height: isActive ? 10 : 6,
-      width: isActive ? 50 : 50,
-      margin: const EdgeInsets.only(right: 5),
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        borderRadius: BorderRadius.circular(5),
-      ),
-      duration: const Duration(milliseconds: 300),
-    );
-  }
+  // Widget _indictor(bool isActive) {
+  //   return AnimatedContainer(
+  //     height: isActive ? 10 : 6,
+  //     width: isActive ? 50 : 50,
+  //     margin: const EdgeInsets.only(right: 5),
+  //     decoration: BoxDecoration(
+  //       color: Colors.blue,
+  //       borderRadius: BorderRadius.circular(5),
+  //     ),
+  //     duration: const Duration(milliseconds: 300),
+  //   );
+  // }
 
-  List<Widget> _buildIndictor() {
-    List<Widget> indicators = [];
-    for (int i = 0; i < 3; i++) {
-      if (_currentPage == i) {
-        indicators.add(_indictor(true));
-      } else {
-        indicators.add(_indictor(false));
-      }
-    }
-    return indicators;
-  }
+  // List<Widget> _buildIndictor() {
+  //   List<Widget> indicators = [];
+  //   for (int i = 0; i < 3; i++) {
+  //     if (_currentPage == i) {
+  //       indicators.add(_indictor(true));
+  //     } else {
+  //       indicators.add(_indictor(false));
+  //     }
+  //   }
+  //   return indicators;
+  // }
 }

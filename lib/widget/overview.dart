@@ -47,8 +47,6 @@ class _OverViewState extends State<OverView> {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
                   childAspectRatio: 1.4,
-                  // mainAxisSpacing: 20,
-                  // crossAxisSpacing: 20,
                 ),
                 delegate: SliverChildBuilderDelegate(
                   childCount: 4,
@@ -67,7 +65,7 @@ class _OverViewState extends State<OverView> {
                   ),
                 ),
               ),
-            
+
               //BULMADIKU BUNI ISHLATSAM XATO BUB KETYABDI ISHLATIB KUR
             ],
           );
