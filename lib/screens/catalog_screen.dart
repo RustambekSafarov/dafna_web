@@ -11,7 +11,7 @@ class CatalogScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AppBarView(),
+        title: const AppBarView(),
         toolbarHeight: 122,
       ),
       body: FutureBuilder(
@@ -25,8 +25,9 @@ class CatalogScreen extends StatelessWidget {
               ),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) => InkWell(
+                onTap: () {},
                 child: Container(
-                  margin: EdgeInsets.all(50),
+                  margin: const EdgeInsets.all(50),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     image: DecorationImage(

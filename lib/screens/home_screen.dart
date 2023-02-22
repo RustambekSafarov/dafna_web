@@ -1,3 +1,4 @@
+import 'package:dafna_web/widget/overview.dart';
 import 'package:flutter/material.dart';
 import '../widget/app_bar_view.dart';
 
@@ -14,9 +15,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AppBarView(),
+        title: const AppBarView(),
         toolbarHeight: 120,
       ),
+      body: const OverView(),
     );
   }
 }
