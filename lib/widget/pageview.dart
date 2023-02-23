@@ -48,7 +48,7 @@ class _IntroPageState extends State<ProdouctPage> {
         body: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            FutureBuilder(
+            FutureBuilder( 
               future: getnewprodouct(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
