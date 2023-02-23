@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'drawer_view.dart';
@@ -15,22 +17,14 @@ class _MyWidgetState extends State<AppBarView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: 130,
-      color: Color(0xFF03a1e3),
-      width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 50, left: 30, top: 5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
+    return Center(
+      child: FittedBox(
+        child: Column(
+          children: [
+            const SizedBox(height: 12),
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                const SizedBox(width: 50),
                 TextButton(
                   onPressed: () =>
                       Navigator.pushReplacementNamed(context, '/home'),
@@ -42,6 +36,7 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 15),
                 TextButton(
                   onPressed: () => Navigator.pushReplacementNamed(
                     context,
@@ -55,8 +50,10 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 15),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () =>
+                      Navigator.pushReplacementNamed(context, '/productPage'),
                   child: const Text(
                     'Vedio sharhlar',
                     style: TextStyle(
@@ -65,6 +62,7 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 15),
                 TextButton(
                   onPressed: () {},
                   child: const Text(
@@ -75,6 +73,7 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 15),
                 TextButton(
                   onPressed: () {},
                   child: const Text(
@@ -85,6 +84,7 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 15),
                 TextButton(
                   onPressed: () {},
                   child: const Text(
@@ -95,6 +95,7 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 15),
                 Container(
                   alignment: Alignment.center,
                   height: 25,
@@ -111,7 +112,7 @@ class _MyWidgetState extends State<AppBarView> {
                         fontWeight: FontWeight.w300),
                   ),
                 ),
-                const SizedBox(width: 80),
+                const SizedBox(width: 200),
                 TextButton(
                   onPressed: () {},
                   child: const Text(
@@ -121,19 +122,11 @@ class _MyWidgetState extends State<AppBarView> {
                 ),
               ],
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 59, left: 50),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            const SizedBox(
+              height: 7,
+            ),
+            Row(
               children: [
-                const SizedBox(
-                  width: 25,
-                ),
                 SizedBox(
                     width: 120,
                     height: 80,
@@ -141,7 +134,6 @@ class _MyWidgetState extends State<AppBarView> {
                         Image.network('https://mebel.dafna.uz/img/logo.png')),
                 IconButton(
                     onPressed: () {
-                      menu = !menu;
                       setState(() {
                         showDialog(
                           context: context,
@@ -165,8 +157,8 @@ class _MyWidgetState extends State<AppBarView> {
                       color: Colors.white,
                     )),
                 SizedBox(
-                  width: 550,
-                  height: 40,
+                  width: 600,
+                  height: 35,
                   child: TextField(
                     style: const TextStyle(
                       // color: Colors.white,
@@ -177,31 +169,27 @@ class _MyWidgetState extends State<AppBarView> {
                     decoration: InputDecoration(
                       suffixIcon: const Icon(Icons.search),
                       hintText: 'Men ...ni qidirayabman',
+                      // focusColor: Colors.white30,
+                      hintStyle:
+                          const TextStyle(fontSize: 13, color: Colors.white),
                       filled: true,
                       // focusColor: const Color.fromARGB(255, 5, 52, 80),
                       fillColor: const Color(0xFF4bbedd),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide: const BorderSide(width: 0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide:
-                            const BorderSide(width: 0, color: Colors.blue),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide:
-                            const BorderSide(width: 0, color: Colors.blue),
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(18),
                       ),
                     ),
                   ),
+                ),
+                const SizedBox(
+                  width: 20,
                 ),
                 InkWell(
                   child: Column(
                     children: const [
                       Icon(
-                        Icons.location_city,
+                        Icons.location_on,
                         color: Colors.white,
                         size: 20,
                       ),
@@ -215,6 +203,32 @@ class _MyWidgetState extends State<AppBarView> {
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                InkWell(
+                  child: Column(
+                    children: const [
+                      Icon(
+                        Icons.person,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                      Text(
+                        'Ro\'yxattan\no\'tish ',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  width: 20,
                 ),
                 InkWell(
                   child: Column(
@@ -235,24 +249,8 @@ class _MyWidgetState extends State<AppBarView> {
                     ],
                   ),
                 ),
-                InkWell(
-                  child: Column(
-                    children: const [
-                      Icon(
-                        Icons.person_add,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      Text(
-                        'Ro\'yxattan o\'tish ',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                    ],
-                  ),
+                const SizedBox(
+                  width: 20,
                 ),
                 InkWell(
                   child: Column(
@@ -274,9 +272,9 @@ class _MyWidgetState extends State<AppBarView> {
                   ),
                 ),
               ],
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

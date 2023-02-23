@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../service/dafna_api.dart';
-import '../widget/app_bar_view.dart';
+import '../widget/appbar_view.dart';
 
 class CatalogScreen extends StatelessWidget {
   const CatalogScreen({super.key});
@@ -27,7 +28,7 @@ class CatalogScreen extends StatelessWidget {
               itemBuilder: (context, index) => InkWell(
                 onTap: () {},
                 child: Container(
-                  margin: const EdgeInsets.all(50),
+                  margin: EdgeInsets.all(50),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     image: DecorationImage(
@@ -40,43 +41,17 @@ class CatalogScreen extends StatelessWidget {
               ),
             );
           } else if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+              child: SpinKitThreeBounce(
+                size: 30,
+                color: Colors.black,
+              ),
+            );
           } else {
             throw Exception('Error a');
           }
         },
       ),
     );
-    // return CustomScrollView(
-    //   // appBar: ,
-    //   slivers: [
-    //     SliverAppBar(
-    //       title: AppBarView(),
-    //     ),
-    //     SliverToBoxAdapter(
-    //       child: FutureBuilder(
-    //         future: getCatalog(),
-    //         builder: (context, snapshot) {
-    //           if (snapshot.hasData) {
-    //             return GridView.builder(
-    //               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-    //                   crossAxisCount: 2),
-    //               itemCount: snapshot.data!.length,
-    //               itemBuilder: (context, index) => Container(
-    //                 height: 200,
-    //                 width: 200,
-    //                 child: Image.network(snapshot.data![index]['img_url']),
-    //               ),
-    //             );
-    //           } else if (snapshot.connectionState == ConnectionState.waiting) {
-    //             return const Center(child: CircularProgressIndicator());
-    //           } else {
-    //             throw Exception('Error');
-    //           }
-    //         },
-    //       ),
-    //     ),
-    //   ],
-    // );
   }
 }
