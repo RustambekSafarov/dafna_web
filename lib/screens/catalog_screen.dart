@@ -26,6 +26,9 @@ class CatalogScreen extends StatelessWidget {
               ),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) => InkWell(
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
                 onTap: () {},
                 child: Container(
                   margin: EdgeInsets.all(50),

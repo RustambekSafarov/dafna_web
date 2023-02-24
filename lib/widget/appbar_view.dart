@@ -128,13 +128,14 @@ class _MyWidgetState extends State<AppBarView> {
             Row(
               children: [
                 SizedBox(
-                    width: 120,
-                    height: 80,
-                    child:
-                        Image.network('https://mebel.dafna.uz/img/logo.png')),
+                  width: 120,
+                  height: 80,
+                  child: Image.network('https://mebel.dafna.uz/img/logo.png'),
+                ),
                 IconButton(
-                    onPressed: () {
-                      setState(() {
+                  onPressed: () {
+                    setState(
+                      () {
                         showDialog(
                           context: context,
                           builder: (context) {
@@ -149,13 +150,15 @@ class _MyWidgetState extends State<AppBarView> {
                             );
                           },
                         );
-                      });
-                      // print(menu);
-                    },
-                    icon: const Icon(
-                      Icons.menu,
-                      color: Colors.white,
-                    )),
+                      },
+                    );
+                    // print(menu);
+                  },
+                  icon: const Icon(
+                    Icons.menu,
+                    color: Colors.white,
+                  ),
+                ),
                 SizedBox(
                   width: 600,
                   height: 35,

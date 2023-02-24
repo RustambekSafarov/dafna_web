@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'screens/catalog_screen.dart';
 import 'screens/home_screen.dart';
-import 'widget/pageview.dart';
+import 'widget/new_products.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => const HomeScreen(),
         CatalogScreen.routeName: (context) => const CatalogScreen(),
         Contactcreen.routeName: (context) => const Contactcreen(),
-        ProdouctPage.routeName:(context) => const ProdouctPage()
+        NewProducts.routeName: (context) => const NewProducts()
       },
       initialRoute: '/home',
     );

@@ -13,10 +13,8 @@ Future<List> getCatalog() async {
   return data['katalogs'];
 }
 
-String contactUrl = 'https://ogabek007.pythonanywhere.com/';
-
 Future<List> getContact() async {
-  final response = await http.get(Uri.parse('$contactUrl/dafna_app/get_contact/'));
+  final response = await http.get(Uri.parse('$baseUrl/dafna_app/get_contact/'));
 
   // If the server did return a 200 OK response,
   // then parse the JSON.
@@ -24,10 +22,9 @@ Future<List> getContact() async {
   return data['contacts'];
 }
 
-String newgetUrl = 'https://ogabek007.pythonanywhere.com/';
-
-Future<List> getnewprodouct() async {
-  final response = await http.get(Uri.parse('$newgetUrl/dafna_app/get_new_prodouct/'));
+Future<List> getNewproduct() async {
+  final response =
+      await http.get(Uri.parse('$baseUrl/dafna_app/get_new_prodouct/'));
 
   // If the server did return a 200 OK response,
   // then parse the JSON.
@@ -35,4 +32,12 @@ Future<List> getnewprodouct() async {
   return data['prodoucts'];
 }
 
+Future<List> getRecommendation() async {
+  final response =
+      await http.get(Uri.parse('$baseUrl/dafna_app/get_rescommentations/'));
 
+  // If the server did return a 200 OK response,
+  // then parse the JSON.
+  Map data = jsonDecode(response.body);
+  return data['prodoucts'];
+}

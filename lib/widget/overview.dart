@@ -1,7 +1,10 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:dafna_web/service/dafna_api.dart';
-import 'package:dafna_web/widget/pageview.dart';
+import 'package:dafna_web/widget/footer.dart';
+import 'package:dafna_web/widget/new_products.dart';
+import 'package:dafna_web/widget/recommended.dart';
+import 'package:dafna_web/widget/sponsors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -43,30 +46,83 @@ class _OverViewState extends State<OverView> {
                   ],
                 ),
               ),
-              SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  childAspectRatio: 1.4,
-                ),
-                delegate: SliverChildBuilderDelegate(
-                  childCount: 4,
-                  (context, index) => InkWell(
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.network(
-                          snapshot.data![index]['img_url'],
-                          fit: BoxFit.fitWidth,
+              SliverPadding(
+                padding: EdgeInsets.only(left: 55, right: 55),
+                sliver: SliverGrid(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4,
+                    childAspectRatio: 1.4,
+                  ),
+                  delegate: SliverChildBuilderDelegate(
+                    childCount: 4,
+                    (context, index) => InkWell(
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.network(
+                            snapshot.data![index]['img_url'],
+                            fit: BoxFit.fitWidth,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
-
-              //BULMADIKU BUNI ISHLATSAM XATO BUB KETYABDI ISHLATIB KUR
+              const SliverPadding(
+                padding: EdgeInsets.only(left: 100, top: 40, bottom: 40),
+                sliver: SliverToBoxAdapter(
+                  child: Text(
+                    'Yangi',
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: NewProducts(),
+              ),
+              const SliverPadding(
+                padding: EdgeInsets.only(left: 75, right: 75, top: 20),
+                sliver: SliverToBoxAdapter(
+                  child: Divider(
+                    color: Colors.lightBlue,
+                    thickness: 5,
+                  ),
+                ),
+              ),
+              const SliverPadding(
+                padding: EdgeInsets.only(left: 100, top: 40, bottom: 40),
+                sliver: SliverToBoxAdapter(
+                  child: Text(
+                    'Tavsiyalar',
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: Recommendations(),
+              ),
+              const SliverPadding(
+                padding:
+                    EdgeInsets.only(left: 75, right: 75, top: 20, bottom: 100),
+                sliver: SliverToBoxAdapter(
+                  child: Divider(
+                    color: Colors.lightBlue,
+                    thickness: 5,
+                  ),
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: Sponsors(),
+              ),
+              SliverToBoxAdapter(
+                child: Footer(),
+              )
             ],
           );
         } else if (snapshot.connectionState == ConnectionState.waiting) {
