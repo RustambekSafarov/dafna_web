@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
 
 import 'drawer_view.dart';
 
@@ -85,13 +86,16 @@ class _MyWidgetState extends State<AppBarView> {
                   ),
                 ),
                 const SizedBox(width: 15),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Fikr Qoldiring',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
+                Link(
+                  uri: Uri.parse('https://telegram.me/Dafna_mebel_bot'),
+                  builder: (context, followLink) => TextButton(
+                    onPressed: followLink,
+                    child: const Text(
+                      'Fikr Qoldiring',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300,
+                      ),
                     ),
                   ),
                 ),
