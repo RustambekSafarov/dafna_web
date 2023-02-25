@@ -41,3 +41,21 @@ Future<List> getRecommendation() async {
   Map data = jsonDecode(response.body);
   return data['prodoucts'];
 }
+
+Future<Map> getCatalogType(int id) async {
+  // Get request to Api
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/get_prodouct_type/$id/'),
+  );
+  Map data = jsonDecode(response.body);
+  return data;
+}
+
+Future<Map> getProducts(int id) async {
+  // Get request to Api
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/get_prodouct/$id/'),
+  );
+  Map data = jsonDecode(response.body);
+  return data;
+}

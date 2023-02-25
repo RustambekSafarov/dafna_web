@@ -29,9 +29,12 @@ class CatalogScreen extends StatelessWidget {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 splashColor: Colors.transparent,
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, '/catalog-detail',
+                      arguments: {'id': index + 1});
+                },
                 child: Container(
-                  margin: EdgeInsets.all(50),
+                  margin: EdgeInsets.all(80),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     image: DecorationImage(

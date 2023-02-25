@@ -59,7 +59,11 @@ class _OverViewState extends State<OverView> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       splashColor: Colors.transparent,
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushReplacementNamed(
+                            context, '/catalog-detail',
+                            arguments: {'id': index + 1});
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: ClipRRect(
@@ -87,15 +91,6 @@ class _OverViewState extends State<OverView> {
                 child: NewProducts(),
               ),
               const SliverPadding(
-                padding: EdgeInsets.only(left: 75, right: 75, top: 20),
-                sliver: SliverToBoxAdapter(
-                  child: Divider(
-                    color: Colors.lightBlue,
-                    thickness: 5,
-                  ),
-                ),
-              ),
-              const SliverPadding(
                 padding: EdgeInsets.only(left: 100, top: 40, bottom: 40),
                 sliver: SliverToBoxAdapter(
                   child: Text(
@@ -107,20 +102,10 @@ class _OverViewState extends State<OverView> {
               const SliverToBoxAdapter(
                 child: Recommendations(),
               ),
-              const SliverPadding(
-                padding:
-                    EdgeInsets.only(left: 75, right: 75, top: 20, bottom: 100),
-                sliver: SliverToBoxAdapter(
-                  child: Divider(
-                    color: Colors.lightBlue,
-                    thickness: 5,
-                  ),
-                ),
-              ),
               const SliverToBoxAdapter(
                 child: Sponsors(),
               ),
-              SliverToBoxAdapter(
+              const SliverToBoxAdapter(
                 child: Footer(),
               )
             ],
