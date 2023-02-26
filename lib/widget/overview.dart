@@ -108,6 +108,15 @@ class _OverViewState extends State<OverView> {
                 const SliverToBoxAdapter(
                   child: Sponsors(),
                 ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    color: Colors.blue,
+                    width: double.infinity,
+                    height: 320,
+                    child: const Footer(),
+                  ),
+                )
               ],
             );
           } else if (snapshot.connectionState == ConnectionState.waiting) {
