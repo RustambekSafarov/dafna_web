@@ -1,6 +1,7 @@
 import 'package:dafna_web/widget/overview.dart';
 import 'package:flutter/material.dart';
 import '../widget/appbar_view.dart';
+import '../widget/footer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
         toolbarHeight: 120,
       ),
       body: const OverView(),
+      // bottomNavigationBar: const Footer(),
     );
   }
 }

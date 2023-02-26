@@ -1,11 +1,12 @@
 import 'package:dafna_web/service/dafna_api.dart';
 import 'package:dafna_web/widget/appbar_view.dart';
+import 'package:dafna_web/widget/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key});
-  static const routeName = '/product-detail';
+  static const routeName = '/products';
 
   @override
   Widget build(BuildContext context) {
@@ -89,80 +90,75 @@ class ProductDetailScreen extends StatelessWidget {
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 4,
-                            childAspectRatio: 0.1,
+                            childAspectRatio: 0.45,
                           ),
-                          itemBuilder: (context, index) => Stack(
-                            children: [
-                              Positioned(
-                                top: 1,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: SizedBox(
-                                    height: 220,
-                                    child: Image.network(
-                                      snapshot.data!['prodouct_type']
-                                          ['prodoucts'][index]['img_url'],
-                                      fit: BoxFit.cover,
+                          itemBuilder: (context, index) => InkWell(
+                            onTap: () {
+                              Navigator.pushReplacementNamed(
+                                  context, '/product-detail');
+                            },
+                            child: SizedBox(
+                              height: 580,
+                              child: Column(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: SizedBox(
+                                      height: 220,
+                                      child: Image.network(
+                                        snapshot.data!['prodouct_type']
+                                            ['prodoucts'][index]['img_url'],
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
-                              Positioned(
-                                left: 5,
-                                top: 235,
-                                child: Text(
-                                  snapshot.data!['prodouct_type']['prodoucts']
-                                      [index]['name'],
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                      fontSize: 16.5,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ),
-                              Positioned(
-                                top: 255,
-                                child: Container(
-                                  height: 220,
-                                  width: 220,
-                                  padding: const EdgeInsets.all(13.0),
-                                  child: Text(
+                                  Text(
                                     snapshot.data!['prodouct_type']['prodoucts']
-                                        [index]['discrpition'],
+                                        [index]['name'],
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w300,
-                                        color: Colors.grey),
+                                        fontSize: 16.5,
+                                        fontWeight: FontWeight.w600),
                                   ),
-                                ),
-                              ),
-                              Positioned(
-                                left: 22,
-                                top: 420,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(13.0),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        '${snapshot.data!['prodouct_type']['prodoucts'][index]['price']}',
-                                        textAlign: TextAlign.center,
-                                        style: const TextStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                      const Text(
-                                        ' so\'m',
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      )
-                                    ],
+                                  Container(
+                                    height: 220,
+                                    width: 220,
+                                    padding: const EdgeInsets.all(13.0),
+                                    child: Text(
+                                      snapshot.data!['prodouct_type']
+                                          ['prodoucts'][index]['discrpition'],
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w300,
+                                          color: Colors.grey),
+                                    ),
                                   ),
-                                ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(13.0),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          '${snapshot.data!['prodouct_type']['prodoucts'][index]['price']}',
+                                          textAlign: TextAlign.center,
+                                          style: const TextStyle(
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        const Text(
+                                          ' so\'m',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         ),
                       );
@@ -186,6 +182,7 @@ class ProductDetailScreen extends StatelessWidget {
           ),
         ],
       ),
+      // bottomNavigationBar: const Footer(),
     );
   }
 }

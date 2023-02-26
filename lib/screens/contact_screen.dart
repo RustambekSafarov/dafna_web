@@ -1,3 +1,4 @@
+import 'package:dafna_web/widget/footer.dart';
 import 'package:flutter/material.dart';
 
 import '../service/dafna_api.dart';
@@ -14,32 +15,39 @@ class Contactcreen extends StatelessWidget {
         title: const AppBarView(),
         toolbarHeight: 122,
       ),
-      body: FutureBuilder(
-        future: getContact(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-              itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) => Column(
-                children: [
-                  Column(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          FutureBuilder(
+            future: getContact(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (context, index) => Column(
                     children: [
-                      snapshot.data![index]['branches_name'],
-                      snapshot.data![index]['address'.toString()],
-                      snapshot.data![index]['datetime'.toString()],
-                      snapshot.data![index]['menefer'.toString()],
-                      snapshot.data![index]['main_contacts'.toString()]
+                      Column(
+                        children: [
+                          snapshot.data![index]['branches_name'],
+                          snapshot.data![index]['address'.toString()],
+                          snapshot.data![index]['datetime'.toString()],
+                          snapshot.data![index]['menefer'.toString()],
+                          snapshot.data![index]['main_contacts'.toString()]
+                        ],
+                      )
                     ],
-                  )
-                ],
-              ),
-            );
-          } else if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else {
-            throw Exception('Error a');
-          }
-        },
+                  ),
+                );
+              } else if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else {
+                throw Exception('Error a');
+              }
+            },
+          ),
+          const Footer(),
+        ],
       ),
     );
   }

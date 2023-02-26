@@ -4,6 +4,8 @@ import 'dart:convert';
 
 String baseUrl = 'https://ogabek007.pythonanywhere.com/';
 
+//GET CATALOG
+
 Future<List> getCatalog() async {
   final response = await http.get(Uri.parse('$baseUrl/dafna_app/get_katalog/'));
 
@@ -13,6 +15,8 @@ Future<List> getCatalog() async {
   return data['katalogs'];
 }
 
+//GET CONTACT
+
 Future<List> getContact() async {
   final response = await http.get(Uri.parse('$baseUrl/dafna_app/get_contact/'));
 
@@ -21,6 +25,8 @@ Future<List> getContact() async {
   Map data = jsonDecode(response.body);
   return data['contacts'];
 }
+
+//GET NEW PRODUCTS
 
 Future<List> getNewproduct() async {
   final response =
@@ -32,6 +38,8 @@ Future<List> getNewproduct() async {
   return data['prodoucts'];
 }
 
+//GET RECOMMENDATION
+
 Future<List> getRecommendation() async {
   final response =
       await http.get(Uri.parse('$baseUrl/dafna_app/get_rescommentations/'));
@@ -42,6 +50,8 @@ Future<List> getRecommendation() async {
   return data['prodoucts'];
 }
 
+//GET CATALOG TYPE
+
 Future<Map> getCatalogType(int id) async {
   // Get request to Api
   final response = await http.get(
@@ -51,6 +61,8 @@ Future<Map> getCatalogType(int id) async {
   return data;
 }
 
+//GET PRODUCTS
+
 Future<Map> getProducts(int id) async {
   // Get request to Api
   final response = await http.get(
@@ -58,4 +70,26 @@ Future<Map> getProducts(int id) async {
   );
   Map data = jsonDecode(response.body);
   return data;
+}
+
+//GET VIDEO VIEWS
+
+Future<Map> getVideo() async {
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/get_video/'),
+  );
+
+  Map data = jsonDecode(response.body);
+  return data;
+}
+
+// GET PRODUCT DETAIL
+
+Future<Map> getProductDetail(int id) async {
+  final response =
+      await http.get(Uri.parse('$baseUrl/dafna_app/get_prodouct_detail/$id/'));
+
+  Map data = jsonDecode(response.body);
+
+  return data['prodouct'];
 }
