@@ -41,6 +41,8 @@ dependencies:
   url_launcher: ^6.1.10
   smooth_page_indicator: ^1.0.1
   youtube_parser: ^2.0.0
+  video_player: ^2.5.2
+  youtube_player_iframe: ^4.0.4
   
 
 dev_dependencies:
