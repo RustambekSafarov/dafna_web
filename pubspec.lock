@@ -309,6 +309,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  youtube_parser:
+    dependency: "direct main"
+    description:
+      name: youtube_parser
+      sha256: "56a4bb5308e339a7193166e52c6c02af9712f49f35206f12e6e67e7216e279a2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
 sdks:
   dart: ">=2.18.0 <4.0.0"
   flutter: ">=3.3.0"
