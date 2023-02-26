@@ -13,6 +13,7 @@ class ProductDetailScreen extends StatelessWidget {
     final routeArgs =
         ModalRoute.of(context)!.settings.arguments as Map<String, String>;
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 120,
         title: const AppBarView(),
@@ -90,74 +91,77 @@ class ProductDetailScreen extends StatelessWidget {
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 4,
-                            childAspectRatio: 0.45,
+                            childAspectRatio: 0.53,
                           ),
                           itemBuilder: (context, index) => InkWell(
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            splashColor: Colors.transparent,
                             onTap: () {
                               Navigator.pushReplacementNamed(
                                   context, '/product-detail');
                             },
-                            child: SizedBox(
-                              height: 580,
-                              child: Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: SizedBox(
-                                      height: 220,
-                                      child: Image.network(
-                                        snapshot.data!['prodouct_type']
-                                            ['prodoucts'][index]['img_url'],
-                                        fit: BoxFit.cover,
-                                      ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: SizedBox(
+                                    height: 220,
+                                    child: Image.network(
+                                      snapshot.data!['prodouct_type']
+                                          ['prodoucts'][index]['img_url'],
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                  Text(
+                                ),
+                                Text(
+                                  snapshot.data!['prodouct_type']['prodoucts']
+                                          [index]['name']
+                                      .toUpperCase(),
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                      fontSize: 15.5,
+                                      fontWeight: FontWeight.w900),
+                                ),
+                                Container(
+                                  height: 150,
+                                  width: 220,
+                                  padding: const EdgeInsets.all(13.0),
+                                  child: Text(
                                     snapshot.data!['prodouct_type']['prodoucts']
-                                        [index]['name'],
+                                        [index]['discrpition'],
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                        fontSize: 16.5,
-                                        fontWeight: FontWeight.w600),
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w300,
+                                        color: Colors.grey),
                                   ),
-                                  Container(
-                                    height: 220,
-                                    width: 220,
-                                    padding: const EdgeInsets.all(13.0),
-                                    child: Text(
-                                      snapshot.data!['prodouct_type']
-                                          ['prodoucts'][index]['discrpition'],
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w300,
-                                          color: Colors.grey),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(13.0),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          '${snapshot.data!['prodouct_type']['prodoucts'][index]['price']}',
-                                          textAlign: TextAlign.center,
-                                          style: const TextStyle(
-                                            fontSize: 22,
-                                            fontWeight: FontWeight.w700,
-                                          ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(13.0),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        '${snapshot.data!['prodouct_type']['prodoucts'][index]['price']}',
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.w700,
                                         ),
-                                        const Text(
-                                          ' so\'m',
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                        )
-                                      ],
-                                    ),
+                                      ),
+                                      const Text(
+                                        ' so\'m',
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -180,6 +184,7 @@ class ProductDetailScreen extends StatelessWidget {
               ),
             ],
           ),
+          // const Footer()
         ],
       ),
       // bottomNavigationBar: const Footer(),

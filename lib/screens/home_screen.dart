@@ -19,7 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const AppBarView(),
         toolbarHeight: 120,
       ),
-      body: const OverView(),
+      body: OverView(),
+
       // bottomNavigationBar: const Footer(),
     );
   }

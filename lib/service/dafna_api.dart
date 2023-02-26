@@ -26,6 +26,18 @@ Future<List> getContact() async {
   return data['contacts'];
 }
 
+// GET MAIN CONTACT
+
+Future<List> getMainContact() async {
+  final response =
+      await http.get(Uri.parse('$baseUrl/dafna_app/get_main_contact/'));
+
+  // If the server did return a 200 OK response,
+  // then parse the JSON.
+  Map data = jsonDecode(response.body);
+  return data['main_contacts'];
+}
+
 //GET NEW PRODUCTS
 
 Future<List> getNewproduct() async {
@@ -74,13 +86,13 @@ Future<Map> getProducts(int id) async {
 
 //GET VIDEO VIEWS
 
-Future<Map> getVideo() async {
+Future<List> getVideo() async {
   final response = await http.get(
     Uri.parse('$baseUrl/dafna_app/get_video/'),
   );
 
   Map data = jsonDecode(response.body);
-  return data;
+  return data['videos'];
 }
 
 // GET PRODUCT DETAIL

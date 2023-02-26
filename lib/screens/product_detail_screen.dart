@@ -212,6 +212,7 @@ class ProductInfoScreen extends StatelessWidget {
               }
             },
           ),
+          // Footer(),
         ],
       ),
       // bottomNavigationBar: const Footer(),

@@ -54,7 +54,7 @@ class _MyWidgetState extends State<AppBarView> {
                 const SizedBox(width: 15),
                 TextButton(
                   onPressed: () =>
-                      Navigator.pushReplacementNamed(context, '/productPage'),
+                      Navigator.pushReplacementNamed(context, '/video-view'),
                   child: const Text(
                     'Vedio sharhlar',
                     style: TextStyle(
@@ -65,7 +65,9 @@ class _MyWidgetState extends State<AppBarView> {
                 ),
                 const SizedBox(width: 15),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/contact');
+                  },
                   child: const Text(
                     'Kontaklar',
                     style: TextStyle(
@@ -76,7 +78,9 @@ class _MyWidgetState extends State<AppBarView> {
                 ),
                 const SizedBox(width: 15),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/employment');
+                  },
                   child: const Text(
                     'Bandlik',
                     style: TextStyle(

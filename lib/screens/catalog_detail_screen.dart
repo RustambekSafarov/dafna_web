@@ -17,8 +17,7 @@ class CatalogDetailScreen extends StatelessWidget {
         toolbarHeight: 120,
         title: const AppBarView(),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: ListView(
         children: [
           FutureBuilder(
             future: getCatalogType(routeId['id']!),
@@ -107,6 +106,11 @@ class CatalogDetailScreen extends StatelessWidget {
               }
             },
           ),
+          // const Positioned(
+          //   bottom: 1,
+          //   child:
+          // Footer(),
+          // ),
         ],
       ),
       // bottomNavigationBar: const Footer(),
