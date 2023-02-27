@@ -10,6 +10,11 @@ import 'package:flutter/material.dart';
 
 import 'screens/catalog_screen.dart';
 import 'screens/home_screen.dart';
+import 'widget/footer\'s/afzalliklar.dart';
+import 'widget/footer\'s/buyurtma.dart';
+import 'widget/footer\'s/savollar.dart';
+import 'widget/footer\'s/sotib_olish.dart';
+import 'widget/footer\'s/tolov.dart';
 import 'widget/new_products.dart';
 
 void main() {
@@ -36,6 +41,11 @@ class MyApp extends StatelessWidget {
         ProductInfoScreen.routeName: (context) => const ProductInfoScreen(),
         Employment.routeName: (context) => const Employment(),
         VideoViewScreen.routeName: (context) => VideoViewScreen(),
+        Buyurtma.routeName: (context) => const Buyurtma(),
+        Savollar.routeName: (context) => const Savollar(),
+        SotibOlish.routeName: (context) => const SotibOlish(),
+        Afzalliklar.routeName: (context) => const Afzalliklar(),
+        Tolov.routeName: (context) => const Tolov(),
       },
       initialRoute: '/home',
     );

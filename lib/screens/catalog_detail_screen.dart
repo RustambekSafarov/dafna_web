@@ -106,11 +106,13 @@ class CatalogDetailScreen extends StatelessWidget {
               }
             },
           ),
-          // const Positioned(
-          //   bottom: 1,
-          //   child:
-          // Footer(),
-          // ),
+          Container(
+            alignment: Alignment.topCenter,
+            color: Colors.blue,
+            // width: double.infinity,
+            height: 320,
+            child: const Footer(),
+          ),
         ],
       ),
       // bottomNavigationBar: const Footer(),

@@ -41,52 +41,70 @@ class _IntroPageState extends State<NewProducts> {
                 child: CarouselSlider.builder(
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index, realIndex) {
-                    return Stack(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          width: 210,
-                          height: 210,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            image: DecorationImage(
-                              fit: BoxFit.fitWidth,
-                              image: NetworkImage(
-                                snapshot.data![index]['img_url'],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          // height: 55,
-                          width: 220,
-                          bottom: 2,
-                          child: Column(
+                    int id = snapshot.data![index]['id'];
+                    return InkWell(
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      onTap: () {
+                        Navigator.pushReplacementNamed(
+                            context, '/product-detail',
+                            arguments: {'id': id});
+                      },
+                      child: Stack(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SizedBox(
-                                height: 40,
-                                child: Text(
-                                  snapshot.data![index]['name'],
-                                  textAlign: TextAlign.center,
-                                  maxLines: 2,
-                                  style: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
+                              Container(
+                                padding: const EdgeInsets.all(5),
+                                width: 210,
+                                height: 210,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: DecorationImage(
+                                    fit: BoxFit.fitWidth,
+                                    image: NetworkImage(
+                                      snapshot.data![index]['img_url'],
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              Text(
-                                '${snapshot.data![index]['price']} so`m',
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
-                        ),
-                      ],
+                          Positioned(
+                            // height: 55,
+                            width: 220,
+                            bottom: 2,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  height: 40,
+                                  child: Text(
+                                    snapshot.data![index]['name'],
+                                    textAlign: TextAlign.center,
+                                    maxLines: 2,
+                                    style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                Text(
+                                  '${snapshot.data![index]['price']} so`m',
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     );
                   },
                   // carouselController: ,

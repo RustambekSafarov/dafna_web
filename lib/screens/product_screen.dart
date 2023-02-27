@@ -83,87 +83,93 @@ class ProductDetailScreen extends StatelessWidget {
                         padding:
                             const EdgeInsets.only(left: 15, right: 65, top: 20),
                         child: GridView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: snapshot
-                              .data!['prodouct_type']['prodoucts'].length,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 4,
-                            childAspectRatio: 0.53,
-                          ),
-                          itemBuilder: (context, index) => InkWell(
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            splashColor: Colors.transparent,
-                            onTap: () {
-                              Navigator.pushReplacementNamed(
-                                  context, '/product-detail');
-                            },
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: SizedBox(
-                                    height: 220,
-                                    child: Image.network(
-                                      snapshot.data!['prodouct_type']
-                                          ['prodoucts'][index]['img_url'],
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  snapshot.data!['prodouct_type']['prodoucts']
-                                          [index]['name']
-                                      .toUpperCase(),
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                      fontSize: 15.5,
-                                      fontWeight: FontWeight.w900),
-                                ),
-                                Container(
-                                  height: 150,
-                                  width: 220,
-                                  padding: const EdgeInsets.all(13.0),
-                                  child: Text(
-                                    snapshot.data!['prodouct_type']['prodoucts']
-                                        [index]['discrpition'],
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w300,
-                                        color: Colors.grey),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(13.0),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        '${snapshot.data!['prodouct_type']['prodoucts'][index]['price']}',
-                                        textAlign: TextAlign.center,
-                                        style: const TextStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.w700,
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: snapshot
+                                .data!['prodouct_type']['prodoucts'].length,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 4,
+                              childAspectRatio: 0.53,
+                            ),
+                            itemBuilder: (context, index) {
+                              int id = snapshot.data!['prodouct_type']
+                                  ['prodoucts'][index]['id'];
+
+                              return InkWell(
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                splashColor: Colors.transparent,
+                                onTap: () {
+                                  Navigator.pushReplacementNamed(
+                                      context, '/product-detail',
+                                      arguments: {'id': id});
+                                },
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(15),
+                                      child: SizedBox(
+                                        height: 220,
+                                        child: Image.network(
+                                          snapshot.data!['prodouct_type']
+                                              ['prodoucts'][index]['img_url'],
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
-                                      const Text(
-                                        ' so\'m',
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                    ),
+                                    Text(
+                                      snapshot.data!['prodouct_type']
+                                              ['prodoucts'][index]['name']
+                                          .toUpperCase(),
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(
+                                          fontSize: 15.5,
+                                          fontWeight: FontWeight.w900),
+                                    ),
+                                    Container(
+                                      height: 150,
+                                      width: 220,
+                                      padding: const EdgeInsets.all(13.0),
+                                      child: Text(
+                                        snapshot.data!['prodouct_type']
+                                            ['prodoucts'][index]['discrpition'],
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w300,
+                                            color: Colors.grey),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(13.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            '${snapshot.data!['prodouct_type']['prodoucts'][index]['price']}',
+                                            textAlign: TextAlign.center,
+                                            style: const TextStyle(
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                          ),
+                                          const Text(
+                                            ' so\'m',
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ),
-                        ),
+                              );
+                            }),
                       );
                     } else if (snapshot.connectionState ==
                         ConnectionState.waiting) {

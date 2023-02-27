@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:url_launcher/link.dart';
 
 class Footer extends StatefulWidget {
   const Footer({super.key});
@@ -25,44 +26,65 @@ class _FooterState extends State<Footer> {
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       'Xaridorlar',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 15),
-                    Text(
-                      'Buyurtma berish usuli',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w200,
+                    const SizedBox(height: 15),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, '/buyurtma');
+                      },
+                      child: const Text(
+                        'Buyurtma berish usuli',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w200,
+                        ),
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Text(
-                      'To\'lov usuli',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w200,
+                    const SizedBox(height: 10),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, '/tolov');
+                      },
+                      child: const Text(
+                        'To\'lov usuli',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w200,
+                        ),
                       ),
                     ),
+                    // ignore: prefer_const_constructors
                     SizedBox(height: 10),
-                    Text(
-                      'Sotib olish qaytariladi ',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w200,
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, '/sotib-olish');
+                      },
+                      child: const Text(
+                        'Sotib olish qaytariladi ',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w200,
+                        ),
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Ko\'p so\'raladigan savol',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w200,
+                    const SizedBox(height: 10),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, '/savollar');
+                      },
+                      child: const Text(
+                        'Ko\'p so\'raladigan savol',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w200,
+                        ),
                       ),
                     ),
                   ],
@@ -72,20 +94,25 @@ class _FooterState extends State<Footer> {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       'Hamkorlar',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 15),
-                    Text(
-                      'Avzalliklar',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w200,
+                    const SizedBox(height: 15),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, '/afzalliklar');
+                      },
+                      child: const Text(
+                        'Avzalliklar',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w200,
+                        ),
                       ),
                     ),
                   ],
@@ -95,8 +122,8 @@ class _FooterState extends State<Footer> {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       'Kompaniya',
                       style: TextStyle(
                         fontSize: 18,
@@ -104,20 +131,30 @@ class _FooterState extends State<Footer> {
                         // fontWeight: FontWeight.w200,
                       ),
                     ),
-                    SizedBox(height: 15),
-                    Text(
-                      'Kontaktlar',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w200,
+                    const SizedBox(height: 15),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, '/contact');
+                      },
+                      child: const Text(
+                        'Kontaktlar',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w200,
+                        ),
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Ishlar',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w200,
+                    const SizedBox(height: 10),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, '/employment');
+                      },
+                      child: const Text(
+                        'Ishlar',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w200,
+                        ),
                       ),
                     )
                   ],
@@ -127,8 +164,8 @@ class _FooterState extends State<Footer> {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       'Ijtimoiy Tarmoqlarimiz',
                       style: TextStyle(
                         fontSize: 18,
@@ -136,30 +173,52 @@ class _FooterState extends State<Footer> {
                         // fontWeight: FontWeight.w200,
                       ),
                     ),
+                    // ignore: prefer_const_constructors
                     SizedBox(height: 15),
-                    Text(
-                      'Telegram',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w200,
-                      ),
-                    ),
+                    Link(
+                        uri: Uri.parse('https://t.me/Dafnamebel'),
+                        builder: (context, followLink) {
+                          return InkWell(
+                            onTap: followLink,
+                            child: const Text(
+                              'Telegram',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w200,
+                              ),
+                            ),
+                          );
+                        }),
+                    const SizedBox(height: 10),
+                    Link(
+                        uri: Uri.parse('https://www.instagram.com/dafnamebel'),
+                        builder: (context, followLink) {
+                          return InkWell(
+                            onTap: followLink,
+                            child: const Text(
+                              'Instagram',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w200,
+                              ),
+                            ),
+                          );
+                        }),
                     SizedBox(height: 10),
-                    Text(
-                      'Instagram',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w200,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'FaceBook',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w200,
-                      ),
-                    ),
+                    Link(
+                        uri: Uri.parse('https://www.facebook.com/dafnamebel'),
+                        builder: (context, followLink) {
+                          return InkWell(
+                            onTap: followLink,
+                            child: const Text(
+                              'FaceBook',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w200,
+                              ),
+                            ),
+                          );
+                        }),
                   ],
                 ),
                 const SizedBox(
@@ -206,7 +265,7 @@ class _FooterState extends State<Footer> {
                 ),
               ],
             ),
-          ), 
+          ),
           const Text(
             '1995-2023 © mebel.dafna.uz — mebel va aksessuarlar onlayn-do\'koni.',
             style: TextStyle(
