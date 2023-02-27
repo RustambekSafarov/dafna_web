@@ -1,6 +1,5 @@
 import 'package:dafna_web/service/dafna_api.dart';
 import 'package:dafna_web/widget/appbar_view.dart';
-import 'package:dafna_web/widget/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 

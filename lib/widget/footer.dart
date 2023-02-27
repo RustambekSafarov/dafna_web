@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 class Footer extends StatefulWidget {
   const Footer({super.key});
@@ -8,172 +10,246 @@ class Footer extends StatefulWidget {
 }
 
 class _FooterState extends State<Footer> {
-  final styleButton = const TextStyle(
-    color: Colors.white,
-    fontSize: 10,
-    fontWeight: FontWeight.w300,
-  );
-  final styleText = const TextStyle(
-    fontSize: 10,
-    // fontWeight: FontWeight.w300,
-  );
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
-      height: 300,
-      width: double.infinity,
-      child: FittedBox(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 22,
-            ),
-            Row(
+    return FittedBox(
+      fit: BoxFit.fill,
+      alignment: Alignment.topLeft,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 40),
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Xaridorlar', style: styleText),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Buyurtmani qanday\nqilish kerak',
-                          style: styleButton,
-                        )),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('To\'lov usuli ', style: styleButton),
+                  children: const [
+                    Text(
+                      'Xaridorlar',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
                     ),
-                    TextButton(
-                      onPressed: () {},
-                      child:
-                          Text('Sotib olish qaytariladi ', style: styleButton),
+                    SizedBox(height: 15),
+                    Text(
+                      'Buyurtma berish usuli',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
                     ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('Ko\'p so\'raladigan savollar',
-                          style: styleButton),
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  width: 28,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Hamkorlar', style: styleText),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('Afzalliklar', style: styleButton),
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  width: 28,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Kompaniya', style: styleText),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('Kontaktlar', style: styleButton),
+                    SizedBox(height: 10),
+                    Text(
+                      'To\'lov usuli',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
                     ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('Ishlar', style: styleButton),
+                    SizedBox(height: 10),
+                    Text(
+                      'Sotib olish qaytariladi ',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'Ko\'p so\'raladigan savol',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
                     ),
                   ],
                 ),
                 const SizedBox(
-                  width: 28,
+                  width: 60,
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Biz ijtimoiy\ntarmoqlardamiz', style: styleText),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('Telegram', style: styleButton),
+                  children: const [
+                    Text(
+                      'Hamkorlar',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
                     ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('Instagram', style: styleButton),
+                    SizedBox(height: 15),
+                    Text(
+                      'Avzalliklar',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
                     ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('Facebook', style: styleButton),
+                  ],
+                ),
+                const SizedBox(
+                  width: 100,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Kompaniya',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        // fontWeight: FontWeight.w200,
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Text(
+                      'Kontaktlar',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'Ishlar',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
                     )
                   ],
                 ),
                 const SizedBox(
-                  width: 28,
+                  width: 100,
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Kontaktlar', style: styleText),
-                    Text('Olmazor tumani, st. Jomiy, 5.', style: styleText),
-                    Text('Kundalik: 09:00-18:00', style: styleText),
-                    Row(
-                      children: [
-                        const Text(
-                          'Telefon:',
-                          style: TextStyle(
-                            fontSize: 7,
-                            // fontWeight: FontWeight.w300,
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text('+998 71 203 11 11', style: styleButton),
-                        ),
-                      ],
+                  children: const [
+                    Text(
+                      'Ijtimoiy Tarmoqlarimiz',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        // fontWeight: FontWeight.w200,
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Text(
+                      'Telegram',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'Instagram',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'FaceBook',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  width: 80,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Kontaktlar',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Text(
+                      'Olmazor tumani ,st. Jomiy,5.',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'Kundalik: 09:00-18:00',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'Telifon: +998(71)203-11-11',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200,
+                      ),
                     )
                   ],
-                )
+                ),
+                const SizedBox(
+                  width: 150,
+                ),
               ],
             ),
-            Text(
-              '1995-2023 © mebel.dafna.uz — mebel va aksessuarlar onlayn-do\'koni.',
-              style: styleButton,
+          ),
+          const Text(
+            '1995-2023 © mebel.dafna.uz — mebel va aksessuarlar onlayn-do\'koni.',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w200,
             ),
-            Text(
-              'Barcha huquqlar himoyalangan.',
-              style: styleButton,
+          ),
+          const Text(
+            'Barcha huquqlar himoyalangan.',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w200,
             ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                children: [
-                  SizedBox(
-                      height: 8,
-                      child: Image.network(
-                          'https://mebel.dafna.uz/img/social/2.png')),
-                  SizedBox(
-                      height: 8,
-                      child: Image.network(
-                          'https://mebel.dafna.uz/img/social/4.png')),
-                  SizedBox(
-                      height: 8,
-                      child: Image.network(
-                          'https://mebel.dafna.uz/img/social/5.png')),
-                ],
-              ),
-            )
-          ],
-        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 595),
+            child: Row(
+              children: [
+                SizedBox(
+                    height: 18,
+                    width: 50,
+                    child: Image.network(
+                        'https://mebel.dafna.uz/img/social/2.png')),
+                const SizedBox(
+                  width: 10,
+                ),
+                SizedBox(
+                    height: 18,
+                    width: 50,
+                    child: Image.network(
+                        'https://mebel.dafna.uz/img/social/4.png')),
+                const SizedBox(
+                  width: 10,
+                ),
+                SizedBox(
+                    height: 18,
+                    width: 50,
+                    child: Image.network(
+                        'https://mebel.dafna.uz/img/social/5.png')),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
