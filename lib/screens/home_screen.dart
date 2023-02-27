@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:dafna_web/widget/overview.dart';
 import 'package:flutter/material.dart';
 import '../widget/appbar_view.dart';

@@ -1,5 +1,3 @@
-// ignore_for_file: unused_local_variable, no_leading_underscores_for_local_identifiers
-
 import 'package:dafna_web/service/dafna_api.dart';
 import 'package:dafna_web/widget/appbar_view.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +26,7 @@ class VideoViewScreen extends StatelessWidget {
           if (snapshot.hasData) {
             return GridView.builder(
                 itemCount: snapshot.data!.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
                 itemBuilder: (context, index) {
                   final _controller = YoutubePlayerController.fromVideoId(
@@ -54,7 +52,7 @@ class VideoViewScreen extends StatelessWidget {
               ),
             );
           } else {
-            return const Text('Error');
+            return Text('Error');
           }
         },
       ),

@@ -36,7 +36,7 @@ class Sponsors extends StatelessWidget {
                 ),
               ),
             ),
-          const   SizedBox(
+            SizedBox(
               width: 90,
             ),
             InkWell(
