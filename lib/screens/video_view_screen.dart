@@ -36,7 +36,7 @@ class _VideoViewScreenState extends State<VideoViewScreen> {
         toolbarHeight: 122,
         title: const AppBarView(),
       ),
-<<<<<<< HEAD
+
       // body: FutureBuilder(
       //   future: getVideo(),
       //   builder: (context, snapshot) {
@@ -73,7 +73,7 @@ class _VideoViewScreenState extends State<VideoViewScreen> {
       //     }
       //   },
       // ),
-=======
+
       body: FutureBuilder(
         future: getVideo(),
         builder: (context, snapshot) {
@@ -110,7 +110,6 @@ class _VideoViewScreenState extends State<VideoViewScreen> {
           }
         },
       ),
->>>>>>> refs/remotes/origin/main
     );
   }
 }
