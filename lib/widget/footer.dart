@@ -206,7 +206,7 @@ class _FooterState extends State<Footer> {
                 ),
               ],
             ),
-          ),
+          ), 
           const Text(
             '1995-2023 © mebel.dafna.uz — mebel va aksessuarlar onlayn-do\'koni.',
             style: TextStyle(

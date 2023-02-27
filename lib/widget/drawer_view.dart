@@ -10,14 +10,14 @@ class MainDrawer extends StatefulWidget {
 class _MainDrawerState extends State<MainDrawer> {
   // ignore: prefer_final_fields
   List<dynamic> _item = const [
-    'chegirma zonasi',
+    'Chegirma zonasi',
     'Divanlar',
     'Ofis stollari',
     'Kafe stollari',
     'Badiiy mebil',
     'Ovqatlanish stollari',
     'Kreslolar',
-    'Tormali Sandiqlar',
+    'Tortmali Sandiqlar',
     'Dekorlar',
     'To\'qimachilik',
     'CULTi dan lazzatlar',
@@ -32,13 +32,13 @@ class _MainDrawerState extends State<MainDrawer> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.blue,
-      height: 620,
+      height: 323 * 2,
       width: 250,
       child: ListView.builder(
+        shrinkWrap: true,
         itemCount: _item.length,
         itemBuilder: (context, index) {
           return ListTile(
-            hoverColor: Colors.deepOrange.shade600,
             onTap: () {},
             title: Text(
               _item[index],
@@ -52,3 +52,21 @@ class _MainDrawerState extends State<MainDrawer> {
     );
   }
 }
+
+class MainDrawerIn extends StatefulWidget {
+  const MainDrawerIn({super.key});
+
+  @override
+  State<MainDrawerIn> createState() => _MainDrawerInState();
+}
+
+class _MainDrawerInState extends State<MainDrawerIn> {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        color: Colors.white,
+      ),
+    );
+  }
+} 

@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
-
 import 'drawer_view.dart';
 
 class AppBarView extends StatefulWidget {
@@ -148,14 +145,18 @@ class _MyWidgetState extends State<AppBarView> {
                           context: context,
                           builder: (context) {
                             return Dialog(
-                              child: Column(
-                                children: [
-                                  Row(
-                                    children: const [MainDrawer()],
-                                  ),
-                                ],
-                              ),
-                            );
+                                child: Row(
+                              children: const [
+                                MainDrawer(),
+                                MainDrawerIn(),
+                              ],
+                            )
+                                //  Row(
+                                //   children: const [
+                                //     MainDrawer(),
+                                //   ],
+                                // ),
+                                );
                           },
                         );
                       },
