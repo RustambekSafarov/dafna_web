@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         ProductDetailScreen.routeName: (context) => const ProductDetailScreen(),
         ProductInfoScreen.routeName: (context) => const ProductInfoScreen(),
         Employment.routeName: (context) => const Employment(),
-        VideoViewScreen.routeName: (context) => const VideoViewScreen(),
+        VideoViewScreen.routeName: (context) => VideoViewScreen(),
       },
       initialRoute: '/home',
     );
