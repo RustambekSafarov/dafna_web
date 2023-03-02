@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
 import 'drawer_view.dart';
 
@@ -24,8 +25,7 @@ class _MyWidgetState extends State<AppBarView> {
               // mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 TextButton(
-                  onPressed: () =>
-                      Navigator.pushReplacementNamed(context, '/home'),
+                  onPressed: () => context.goNamed('/home'),
                   child: const Text(
                     'Asosiy',
                     style: TextStyle(
@@ -36,10 +36,7 @@ class _MyWidgetState extends State<AppBarView> {
                 ),
                 const SizedBox(width: 15),
                 TextButton(
-                  onPressed: () => Navigator.pushReplacementNamed(
-                    context,
-                    '/catalog',
-                  ),
+                  onPressed: () => context.goNamed('/catalog'),
                   child: const Text(
                     'Katalog',
                     style: TextStyle(
@@ -50,8 +47,7 @@ class _MyWidgetState extends State<AppBarView> {
                 ),
                 const SizedBox(width: 15),
                 TextButton(
-                  onPressed: () =>
-                      Navigator.pushReplacementNamed(context, '/video-view'),
+                  onPressed: () => context.goNamed('/video-view'),
                   child: const Text(
                     'Vedio sharhlar',
                     style: TextStyle(
@@ -63,7 +59,7 @@ class _MyWidgetState extends State<AppBarView> {
                 const SizedBox(width: 15),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/contact');
+                    context.goNamed('/contact');
                   },
                   child: const Text(
                     'Kontaklar',
@@ -76,7 +72,7 @@ class _MyWidgetState extends State<AppBarView> {
                 const SizedBox(width: 15),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/employment');
+                    context.goNamed('/employment');
                   },
                   child: const Text(
                     'Bandlik',

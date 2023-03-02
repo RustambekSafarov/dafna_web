@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
 
 class Footer extends StatefulWidget {
@@ -37,7 +38,7 @@ class _FooterState extends State<Footer> {
                     const SizedBox(height: 15),
                     InkWell(
                       onTap: () {
-                        Navigator.pushReplacementNamed(context, '/buyurtma');
+                        context.goNamed('/buyurtma');
                       },
                       child: const Text(
                         'Buyurtma berish usuli',
@@ -50,7 +51,7 @@ class _FooterState extends State<Footer> {
                     const SizedBox(height: 10),
                     InkWell(
                       onTap: () {
-                        Navigator.pushReplacementNamed(context, '/tolov');
+                        context.goNamed('/tolov');
                       },
                       child: const Text(
                         'To\'lov usuli',
@@ -64,7 +65,7 @@ class _FooterState extends State<Footer> {
                     SizedBox(height: 10),
                     InkWell(
                       onTap: () {
-                        Navigator.pushReplacementNamed(context, '/sotib-olish');
+                        context.goNamed('/sotib-olish');
                       },
                       child: const Text(
                         'Sotib olish qaytariladi ',
@@ -77,7 +78,7 @@ class _FooterState extends State<Footer> {
                     const SizedBox(height: 10),
                     InkWell(
                       onTap: () {
-                        Navigator.pushReplacementNamed(context, '/savollar');
+                        context.goNamed('/savollar');
                       },
                       child: const Text(
                         'Ko\'p so\'raladigan savol',
@@ -105,7 +106,7 @@ class _FooterState extends State<Footer> {
                     const SizedBox(height: 15),
                     InkWell(
                       onTap: () {
-                        Navigator.pushReplacementNamed(context, '/afzalliklar');
+                        context.goNamed('/afzalliklar');
                       },
                       child: const Text(
                         'Avzalliklar',

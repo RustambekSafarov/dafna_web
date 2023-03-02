@@ -1,17 +1,19 @@
+import 'package:dafna_web/screens/catalog_screen.dart';
 import 'package:dafna_web/service/dafna_api.dart';
 import 'package:dafna_web/widget/appbar_view.dart';
 import 'package:dafna_web/widget/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
-class CatalogDetailScreen extends StatelessWidget {
-  const CatalogDetailScreen({super.key});
+class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
+  int? catalogId;
+  CatalogDetailScreen({super.key, required this.catalogId});
   static const routeName = '/catalog-detail';
 
   @override
   Widget build(BuildContext context) {
-    final routeId =
-        ModalRoute.of(context)!.settings.arguments as Map<String, int>;
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 120,
@@ -20,7 +22,7 @@ class CatalogDetailScreen extends StatelessWidget {
       body: ListView(
         children: [
           FutureBuilder(
-            future: getCatalogType(routeId['id']!),
+            future: getCatalogType(catalogId!),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return Column(
@@ -47,23 +49,22 @@ class CatalogDetailScreen extends StatelessWidget {
                           crossAxisSpacing: 8,
                         ),
                         itemBuilder: (context, index) {
-                          String id = snapshot.data!['prodouct_typt'][index]
-                                  ['id']
-                              .toString();
-                          String id2 = snapshot.data!['id'].toString();
-                          String name =
+                          final productTypeId =
+                              snapshot.data!['prodouct_typt'][index]['id'];
+
+                          final productId = snapshot.data!['id'];
+                          final productTypeName =
                               snapshot.data!['prodouct_typt'][index]['name'];
                           return InkWell(
                             splashColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             hoverColor: Colors.transparent,
                             onTap: () {
-                              Navigator.pushReplacementNamed(
-                                  context, '/products', arguments: {
-                                'id': id,
-                                'id2': id2,
-                                'name': name
-                              });
+                              context.goNamed('/product-detail', extra: [
+                                productTypeId,
+                                productId,
+                                productTypeName
+                              ]);
                             },
                             child: Column(
                               children: [
@@ -93,15 +94,19 @@ class CatalogDetailScreen extends StatelessWidget {
                   ],
                 );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: SpinKitThreeBounce(
-                    size: 30,
-                    color: Colors.black,
+                return const SizedBox(
+                  height: 500,
+                  child: Center(
+                    child: SpinKitHourGlass(
+                      // duration: Duration(seconds: 2),
+                      size: 30,
+                      color: Colors.black,
+                    ),
                   ),
                 );
               } else {
                 return const Center(
-                  child: Text('Error'),
+                  child: Text('Own code error'),
                 );
               }
             },

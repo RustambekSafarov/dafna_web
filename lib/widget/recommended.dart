@@ -8,11 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class Recommendations extends StatefulWidget {
+class Recommendations extends StatefulWidget with ChangeNotifier {
   static const routeName = '/productPage';
 
   static final String id = 'introPage';
-  const Recommendations({super.key});
+  Recommendations({super.key});
 
   @override
   State<Recommendations> createState() => _IntroPageState();
@@ -155,7 +155,7 @@ class _IntroPageState extends State<Recommendations> {
           );
         } else if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
-            child: SpinKitThreeBounce(
+            child: SpinKitHourGlass(
               size: 30,
               color: Colors.black,
             ),

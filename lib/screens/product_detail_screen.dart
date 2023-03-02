@@ -1,19 +1,20 @@
+import 'package:dafna_web/screens/product_screen.dart';
 import 'package:dafna_web/service/dafna_api.dart';
 import 'package:dafna_web/widget/footer.dart';
 import 'package:dafna_web/widget/recommended.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
 
 import '../widget/appbar_view.dart';
 
 class ProductInfoScreen extends StatelessWidget {
-  const ProductInfoScreen({super.key});
-  static const routeName = '/product-detail';
+  int? id;
+  ProductInfoScreen({super.key, required this.id});
+  static const routeName = '/product-info';
 
   @override
   Widget build(BuildContext context) {
-    final routeArgs =
-        ModalRoute.of(context)!.settings.arguments as Map<String, int>;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -25,7 +26,7 @@ class ProductInfoScreen extends StatelessWidget {
           Stack(
             children: [
               FutureBuilder(
-                future: getProductDetail(routeArgs['id']!),
+                future: getProductDetail(id!),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return ListView(
@@ -87,70 +88,81 @@ class ProductInfoScreen extends StatelessWidget {
                                 ),
                                 Row(
                                   children: [
-                                    Container(
-                                      padding: const EdgeInsets.only(right: 10),
-                                      height: 24,
-                                      // width: 24,
-                                      child: Image.network(
-                                          'https://telegra.ph/file/c8009fb888a661be7f599.png'),
+                                    Column(
+                                      children: [
+                                        Container(
+                                          padding:
+                                              const EdgeInsets.only(right: 10),
+                                          height: 24,
+                                          // width: 24,
+                                          child: Image.network(
+                                              'https://telegra.ph/file/c8009fb888a661be7f599.png'),
+                                        ),
+                                        const SizedBox(
+                                          height: 20,
+                                        ),
+                                        Container(
+                                          padding:
+                                              const EdgeInsets.only(right: 10),
+                                          height: 24,
+                                          // width: 30,
+                                          child: Image.network(
+                                              'https://telegra.ph/file/d7cc492c5fac52487f428.png'),
+                                        ),
+                                        const SizedBox(
+                                          height: 20,
+                                        ),
+                                        Container(
+                                          padding:
+                                              const EdgeInsets.only(right: 10),
+                                          height: 24,
+                                          // width: 30,
+                                          child: Image.network(
+                                              'https://telegra.ph/file/b3bd00aaa9edaca19fb5f.png'),
+                                        ),
+                                        const SizedBox(
+                                          height: 20,
+                                        ),
+                                        Container(
+                                          padding:
+                                              const EdgeInsets.only(right: 10),
+                                          height: 24,
+                                          // width: 30,
+                                          child: Image.network(
+                                              'https://telegra.ph/file/762fe0d491764eb3c5c2a.png'),
+                                        ),
+                                      ],
                                     ),
-                                    const Text(
-                                      'Buyurtma berishdan oldin, etkazib berish shartlarini operatorlar bilan tekshiring',
-                                      style: TextStyle(color: Colors.red),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                Row(
-                                  children: [
-                                    Container(
-                                      padding: const EdgeInsets.only(right: 10),
-                                      height: 24,
-                                      // width: 30,
-                                      child: Image.network(
-                                          'https://telegra.ph/file/d7cc492c5fac52487f428.png'),
-                                    ),
-                                    const Text(
-                                      ' Yetkazib berish bepul: Toshkentda',
-                                      style: TextStyle(color: Colors.blue),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                Row(
-                                  children: [
-                                    Container(
-                                      padding: const EdgeInsets.only(right: 10),
-                                      height: 24,
-                                      // width: 30,
-                                      child: Image.network(
-                                          'https://telegra.ph/file/b3bd00aaa9edaca19fb5f.png'),
-                                    ),
-                                    const Text(
-                                      'Tez yetkazib berish: xarajat menejer tomonidan belgilanadi',
-                                      style: TextStyle(color: Colors.blue),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                Row(
-                                  children: [
-                                    Container(
-                                      padding: const EdgeInsets.only(right: 10),
-                                      height: 24,
-                                      // width: 30,
-                                      child: Image.network(
-                                          'https://telegra.ph/file/762fe0d491764eb3c5c2a.png'),
-                                    ),
-                                    const Text(
-                                      '  Menejer bilan ushbu modelni boshqa ranglarda tekshirishingiz mumkin.',
-                                      style: TextStyle(color: Colors.blue),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: const [
+                                        Text(
+                                          'Buyurtma berishdan oldin, etkazib berish shartlarini operatorlar bilan tekshiring',
+                                          style: TextStyle(color: Colors.red),
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                          'Yetkazib berish bepul: Toshkentda',
+                                          style: TextStyle(color: Colors.blue),
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                          'Tez yetkazib berish: xarajat menejer tomonidan belgilanadi',
+                                          style: TextStyle(color: Colors.blue),
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                          'Menejer bilan ushbu modelni boshqa ranglarda tekshirishingiz mumkin.',
+                                          style: TextStyle(color: Colors.blue),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
@@ -204,7 +216,7 @@ class ProductInfoScreen extends StatelessWidget {
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        const Recommendations(),
+                        Recommendations(),
                         const SizedBox(
                           height: 50,
                         ),
@@ -223,7 +235,7 @@ class ProductInfoScreen extends StatelessWidget {
                   } else if (snapshot.connectionState ==
                       ConnectionState.waiting) {
                     return const Center(
-                      child: SpinKitThreeBounce(
+                      child: SpinKitHourGlass(
                         size: 30,
                         color: Colors.black,
                       ),

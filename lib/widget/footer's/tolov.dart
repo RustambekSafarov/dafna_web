@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:dafna_web/widget/appbar_view.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../footer.dart';
 
@@ -16,6 +19,35 @@ class Tolov extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 150),
+                  child: InkWell(
+                    onTap: () {
+                      context.goNamed('/home');
+                    },
+                    child: Text(
+                      'Asosiy /',
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                Text(
+                  ' Tolov usuli',
+                  style: TextStyle(
+                      color: Colors.blue, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 150, right: 150),
+            child: Divider(),
+          ),
           Image.network('https://telegra.ph/file/ab706c81a4104de29d763.jpg'),
           const SizedBox(
             height: 100,

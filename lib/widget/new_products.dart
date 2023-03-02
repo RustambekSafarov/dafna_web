@@ -6,13 +6,15 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dafna_web/service/dafna_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class NewProducts extends StatefulWidget {
+class NewProducts extends StatefulWidget with ChangeNotifier {
   static const routeName = '/productPage';
 
-  static final String id = 'introPage';
-  const NewProducts({super.key});
+  int? id;
+  NewProducts({super.key});
 
   @override
   State<NewProducts> createState() => _IntroPageState();
@@ -41,15 +43,13 @@ class _IntroPageState extends State<NewProducts> {
                 child: CarouselSlider.builder(
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index, realIndex) {
-                    int id = snapshot.data![index]['id'];
+                    widget.id = snapshot.data![index]['id'];
                     return InkWell(
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       splashColor: Colors.transparent,
                       onTap: () {
-                        Navigator.pushReplacementNamed(
-                            context, '/product-detail',
-                            arguments: {'id': id});
+                        context.goNamed('/product-detail');
                       },
                       child: Stack(
                         children: [
@@ -146,10 +146,13 @@ class _IntroPageState extends State<NewProducts> {
             ],
           );
         } else if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: SpinKitThreeBounce(
-              size: 30,
-              color: Colors.black,
+          return const SizedBox(
+            height: 500,
+            child: Center(
+              child: SpinKitHourGlass(
+                size: 30,
+                color: Colors.black,
+              ),
             ),
           );
         } else {

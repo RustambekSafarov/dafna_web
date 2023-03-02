@@ -1,14 +1,16 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:dafna_web/widget/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
-import 'package:video_player/video_player.dart';
 
 import '../service/dafna_api.dart';
 import '../widget/appbar_view.dart';
 
 class Contactcreen extends StatefulWidget {
-  Contactcreen({super.key});
+  const Contactcreen({super.key});
   static const routeName = '/contact';
 
   @override
@@ -16,23 +18,6 @@ class Contactcreen extends StatefulWidget {
 }
 
 class _ContactcreenState extends State<Contactcreen> {
-  // VideoPlayerController cont = VideoPlayerController.network(
-  //   'https://mebel.dafna.uz/uploads/video/dafna.MP4',
-  // );
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   cont.initialize().then((_) => setState(() {}));
-  //   cont.play();
-  // }
-
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   cont.dispose();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +27,35 @@ class _ContactcreenState extends State<Contactcreen> {
       ),
       body: ListView(
         children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 150),
+                  child: InkWell(
+                    onTap: () {
+                      context.goNamed('/home');
+                    },
+                    child: Text(
+                      'Asosiy /',
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                Text(
+                  ' Kontaktlar',
+                  style: TextStyle(
+                      color: Colors.blue, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 150, right: 150),
+            child: Divider(),
+          ),
           FutureBuilder(
             future: getMainContact(),
             builder: (context, snapshot) {
@@ -322,7 +336,7 @@ class _ContactcreenState extends State<Contactcreen> {
                 // return
               } else if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
-                  child: SpinKitThreeBounce(
+                  child: SpinKitHourGlass(
                     size: 30,
                     color: Colors.black,
                   ),

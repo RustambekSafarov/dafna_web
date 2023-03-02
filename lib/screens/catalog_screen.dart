@@ -1,12 +1,15 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:dafna_web/widget/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
 
 import '../service/dafna_api.dart';
 import '../widget/appbar_view.dart';
 
-class CatalogScreen extends StatelessWidget {
-  const CatalogScreen({super.key});
+class CatalogScreen extends StatelessWidget with ChangeNotifier {
+  CatalogScreen({super.key});
   static const routeName = '/catalog';
 
   @override
@@ -18,6 +21,35 @@ class CatalogScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 150),
+                  child: InkWell(
+                    onTap: () {
+                      context.goNamed('/home');
+                    },
+                    child: Text(
+                      'Asosiy /',
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                Text(
+                  ' Katalog',
+                  style: TextStyle(
+                      color: Colors.blue, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 150, right: 150),
+            child: Divider(),
+          ),
           FutureBuilder(
             future: getCatalog(),
             builder: (context, snapshot) {
@@ -34,8 +66,8 @@ class CatalogScreen extends StatelessWidget {
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
                     onTap: () {
-                      Navigator.pushReplacementNamed(context, '/catalog-detail',
-                          arguments: {'id': index + 1});
+                      final id = snapshot.data![index]['id'];
+                      context.goNamed('/catalog-detail', extra: id);
                     },
                     child: Container(
                       margin: const EdgeInsets.all(80),
@@ -51,14 +83,18 @@ class CatalogScreen extends StatelessWidget {
                   ),
                 );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: SpinKitThreeBounce(
-                    size: 30,
-                    color: Colors.black,
+                return const SizedBox(
+                  height: 500,
+                  child: Center(
+                    child: SpinKitHourGlass(
+                      // duration: Duration(seconds: 2),
+                      size: 30,
+                      color: Colors.black,
+                    ),
                   ),
                 );
               } else {
-                throw Exception('Error a');
+                throw Exception('Own code error');
               }
             },
           ),

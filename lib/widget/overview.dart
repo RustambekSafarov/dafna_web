@@ -7,9 +7,11 @@ import 'package:dafna_web/widget/recommended.dart';
 import 'package:dafna_web/widget/sponsors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
 
 class OverView extends StatefulWidget {
-  const OverView({super.key});
+  int? iD;
+  OverView({super.key});
 
   @override
   State<OverView> createState() => _OverViewState();
@@ -24,6 +26,7 @@ class _OverViewState extends State<OverView> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return CustomScrollView(
+              physics: ClampingScrollPhysics(),
               slivers: [
                 SliverToBoxAdapter(
                   child: Column(
@@ -61,9 +64,8 @@ class _OverViewState extends State<OverView> {
                         highlightColor: Colors.transparent,
                         splashColor: Colors.transparent,
                         onTap: () {
-                          Navigator.pushReplacementNamed(
-                              context, '/catalog-detail',
-                              arguments: {'id': index + 1});
+                          context.goNamed('/catalog-detail',
+                              extra: snapshot.data![index]['id']);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
@@ -89,7 +91,7 @@ class _OverViewState extends State<OverView> {
                     ),
                   ),
                 ),
-                const SliverToBoxAdapter(
+                SliverToBoxAdapter(
                   child: NewProducts(),
                 ),
                 const SliverPadding(
@@ -102,7 +104,7 @@ class _OverViewState extends State<OverView> {
                     ),
                   ),
                 ),
-                const SliverToBoxAdapter(
+                SliverToBoxAdapter(
                   child: Recommendations(),
                 ),
                 const SliverToBoxAdapter(
@@ -121,7 +123,7 @@ class _OverViewState extends State<OverView> {
             );
           } else if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-              child: SpinKitThreeBounce(
+              child: SpinKitHourGlass(
                 size: 30,
                 color: Colors.black,
               ),

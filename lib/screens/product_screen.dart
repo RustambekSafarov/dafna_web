@@ -1,16 +1,30 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:dafna_web/service/dafna_api.dart';
 import 'package:dafna_web/widget/appbar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
 
-class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
-  static const routeName = '/products';
+class ProductDetailScreen extends StatefulWidget with ChangeNotifier {
+  int? productTypeId;
+  int? productId;
+  String? productTypeName;
+  ProductDetailScreen({
+    super.key,
+    required this.productTypeId,
+    required this.productId,
+    required this.productTypeName,
+  });
+  static const routeName = '/product-detail';
 
   @override
+  State<ProductDetailScreen> createState() => _ProductDetailScreenState();
+}
+
+class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  @override
   Widget build(BuildContext context) {
-    final routeArgs =
-        ModalRoute.of(context)!.settings.arguments as Map<String, String>;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -22,7 +36,7 @@ class ProductDetailScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 65, top: 40, bottom: 40),
             child: Text(
-              routeArgs['name']!,
+              widget.productTypeName!,
               style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
             ),
           ),
@@ -32,7 +46,7 @@ class ProductDetailScreen extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: FutureBuilder(
-                  future: getCatalogType(int.parse(routeArgs['id2']!)),
+                  future: getCatalogType(widget.productTypeId!),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return Padding(
@@ -45,7 +59,14 @@ class ProductDetailScreen extends StatelessWidget {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             splashColor: Colors.transparent,
-                            onTap: () {},
+                            onTap: () {
+                              setState(() {
+                                // widget.productTypeId = snapshot
+                                //     .data!['prodouct_typt'][index]['id'];
+                                widget.productId = snapshot
+                                    .data!['prodouct_typt'][index]['id'];
+                              });
+                            },
                             child: Padding(
                               padding: const EdgeInsets.all(5.0),
                               child: Text(
@@ -62,7 +83,7 @@ class ProductDetailScreen extends StatelessWidget {
                     } else if (snapshot.connectionState ==
                         ConnectionState.waiting) {
                       return const Center(
-                        child: SpinKitThreeBounce(
+                        child: SpinKitHourGlass(
                           size: 30,
                           color: Colors.black,
                         ),
@@ -76,7 +97,7 @@ class ProductDetailScreen extends StatelessWidget {
               Expanded(
                 flex: 4,
                 child: FutureBuilder(
-                  future: getProducts(int.parse(routeArgs['id']!)),
+                  future: getProducts(widget.productTypeId!),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return Padding(
@@ -90,20 +111,20 @@ class ProductDetailScreen extends StatelessWidget {
                             gridDelegate:
                                 const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 4,
-                              childAspectRatio: 0.53,
+                              childAspectRatio: 0.5,
                             ),
                             itemBuilder: (context, index) {
-                              int id = snapshot.data!['prodouct_type']
-                                  ['prodoucts'][index]['id'];
+                              widget.productTypeId =
+                                  snapshot.data!['prodouct_type']['prodoucts']
+                                      [index]['id'];
 
                               return InkWell(
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                splashColor: Colors.transparent,
+                                // hoverColor: Colors.transparent,
+                                // highlightColor: Colors.transparent,
+                                // splashColor: Colors.transparent,
                                 onTap: () {
-                                  Navigator.pushReplacementNamed(
-                                      context, '/product-detail',
-                                      arguments: {'id': id});
+                                  context.goNamed('/product-info',
+                                      extra: widget.productTypeId);
                                 },
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -119,19 +140,22 @@ class ProductDetailScreen extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    Text(
-                                      snapshot.data!['prodouct_type']
-                                              ['prodoucts'][index]['name']
-                                          .toUpperCase(),
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                          fontSize: 15.5,
-                                          fontWeight: FontWeight.w900),
+                                    SizedBox(
+                                      height: 70,
+                                      child: Text(
+                                        snapshot.data!['prodouct_type']
+                                                ['prodoucts'][index]['name']
+                                            .toUpperCase(),
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(
+                                            fontSize: 15.5,
+                                            fontWeight: FontWeight.w900),
+                                      ),
                                     ),
                                     Container(
-                                      height: 150,
+                                      height: 100,
                                       width: 220,
-                                      padding: const EdgeInsets.all(13.0),
+                                      // padding: const EdgeInsets.all(13.0),
                                       child: Text(
                                         snapshot.data!['prodouct_type']
                                             ['prodoucts'][index]['discrpition'],
@@ -173,10 +197,13 @@ class ProductDetailScreen extends StatelessWidget {
                       );
                     } else if (snapshot.connectionState ==
                         ConnectionState.waiting) {
-                      return const Center(
-                        child: SpinKitThreeBounce(
-                          size: 30,
-                          color: Colors.black,
+                      return const SizedBox(
+                        height: 500,
+                        child: Center(
+                          child: SpinKitHourGlass(
+                            size: 30,
+                            color: Colors.black,
+                          ),
                         ),
                       );
                     } else {
