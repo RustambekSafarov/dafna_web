@@ -1,0 +1,27 @@
+{
+  "name": "dafna_web",
+  "version": "1.0.0",
+  "description": "![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=RustambekSafarov&show_icons=true&theme=radical) # dafna_web",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RustambekSafarov/dafna_web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RustambekSafarov/dafna_web/issues"
+  },
+  "homepage": "https://github.com/RustambekSafarov/dafna_web#readme",
+  "dependencies": {
+    "firebase": "^9.17.2"
+  }
+}
