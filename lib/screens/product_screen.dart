@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:dafna_web/service/dafna_api.dart';
+import 'package:dafna_web/service/get_service.dart';
 import 'package:dafna_web/widget/appbar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -23,6 +23,7 @@ class ProductDetailScreen extends StatefulWidget with ChangeNotifier {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  int number = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +47,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               Expanded(
                 flex: 1,
                 child: FutureBuilder(
-                  future: getCatalogType(widget.productTypeId!),
+                  future: getCatalogType(widget.productId!),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return Padding(
@@ -63,11 +64,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               setState(() {
                                 // widget.productTypeId = snapshot
                                 //     .data!['prodouct_typt'][index]['id'];
-                                widget.productId = snapshot
+                                number = index;
+                                widget.productTypeName = snapshot
+                                    .data!['prodouct_typt'][index]['name'];
+                                widget.productTypeId = snapshot
                                     .data!['prodouct_typt'][index]['id'];
                               });
                             },
-                            child: Padding(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color:
+                                    number == index ? Colors.lightBlue : null,
+                              ),
                               padding: const EdgeInsets.all(5.0),
                               child: Text(
                                 snapshot.data!['prodouct_typt'][index]['name'],
@@ -110,18 +119,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 .data!['prodouct_type']['prodoucts'].length,
                             gridDelegate:
                                 const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 4,
-                              childAspectRatio: 0.5,
-                            ),
+                                    crossAxisCount: 4,
+                                    childAspectRatio: 0.5,
+                                    mainAxisSpacing: 20,
+                                    crossAxisSpacing: 20),
                             itemBuilder: (context, index) {
                               widget.productTypeId =
                                   snapshot.data!['prodouct_type']['prodoucts']
                                       [index]['id'];
 
                               return InkWell(
-                                // hoverColor: Colors.transparent,
-                                // highlightColor: Colors.transparent,
-                                // splashColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                splashColor: Colors.transparent,
                                 onTap: () {
                                   context.goNamed('/product-info',
                                       extra: widget.productTypeId);
@@ -133,10 +143,24 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                       borderRadius: BorderRadius.circular(15),
                                       child: SizedBox(
                                         height: 220,
-                                        child: Image.network(
-                                          snapshot.data!['prodouct_type']
-                                              ['prodoucts'][index]['img_url'],
-                                          fit: BoxFit.cover,
+                                        child: Stack(
+                                          children: [
+                                            Positioned(
+                                              top: 0,
+                                              right: 0,
+                                              child: IconButton(
+                                                onPressed: () {},
+                                                icon:
+                                                    Icon(Icons.favorite_border),
+                                              ),
+                                            ),
+                                            Image.network(
+                                              snapshot.data!['prodouct_type']
+                                                      ['prodoucts'][index]
+                                                  ['img_url'],
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),

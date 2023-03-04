@@ -1,5 +1,5 @@
 import 'package:dafna_web/screens/product_screen.dart';
-import 'package:dafna_web/service/dafna_api.dart';
+import 'package:dafna_web/service/get_service.dart';
 import 'package:dafna_web/widget/footer.dart';
 import 'package:dafna_web/widget/recommended.dart';
 import 'package:flutter/material.dart';

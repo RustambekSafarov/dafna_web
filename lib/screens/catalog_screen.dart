@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 
-import '../service/dafna_api.dart';
+import '../service/get_service.dart';
 import '../widget/appbar_view.dart';
 
 class CatalogScreen extends StatelessWidget with ChangeNotifier {

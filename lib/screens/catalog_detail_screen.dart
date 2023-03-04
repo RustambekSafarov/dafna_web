@@ -1,11 +1,11 @@
 import 'package:dafna_web/screens/catalog_screen.dart';
-import 'package:dafna_web/service/dafna_api.dart';
+import 'package:dafna_web/service/get_service.dart';
 import 'package:dafna_web/widget/appbar_view.dart';
 import 'package:dafna_web/widget/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
   int? catalogId;
@@ -79,11 +79,13 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                                   height: 15,
                                 ),
                                 Text(
-                                  snapshot.data!['prodouct_typt'][index]
-                                      ['name'],
-                                  style: const TextStyle(
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.w600),
+                                  snapshot.data!['prodouct_typt'][index]['name']
+                                      .toUpperCase(),
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 14.5,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
                                 ),
                               ],
                             ),

@@ -138,26 +138,24 @@ class _MyWidgetState extends State<AppBarView> {
                     setState(
                       () {
                         showDialog(
+                          useSafeArea: false,
                           context: context,
                           builder: (context) {
-                            return Dialog(
-                                child: Row(
-                              children: const [
-                                MainDrawer(),
-                                MainDrawerIn(),
-                              ],
-                            )
-                                //  Row(
-                                //   children: const [
-                                //     MainDrawer(),
-                                //   ],
-                                // ),
-                                );
+                            return AlertDialog(
+                              alignment: Alignment.bottomCenter,
+                              insetPadding: EdgeInsets.all(0),
+                              backgroundColor: Colors.lightBlue,
+                              content: Row(
+                                children: [
+                                  MainDrawer(),
+                                  MainDrawerIn(),
+                                ],
+                              ),
+                            );
                           },
                         );
                       },
                     );
-                    // print(menu);
                   },
                   icon: const Icon(
                     Icons.menu,
@@ -169,17 +167,21 @@ class _MyWidgetState extends State<AppBarView> {
                   height: 35,
                   child: TextField(
                     style: const TextStyle(
-                      // color: Colors.white,
-                      fontSize: 14,
+                      color: Colors.white,
+                      fontSize: 15,
                       fontWeight: FontWeight.normal,
                     ),
                     controller: _controller,
                     decoration: InputDecoration(
                       suffixIcon: const Icon(Icons.search),
                       hintText: 'Men ...ni qidirayabman',
+
                       // focusColor: Colors.white30,
-                      hintStyle:
-                          const TextStyle(fontSize: 13, color: Colors.white),
+                      hintStyle: const TextStyle(
+                        // height: 50,
+                        fontSize: 11,
+                        color: Colors.white,
+                      ),
                       filled: true,
                       // focusColor: const Color.fromARGB(255, 5, 52, 80),
                       fillColor: const Color(0xFF4bbedd),

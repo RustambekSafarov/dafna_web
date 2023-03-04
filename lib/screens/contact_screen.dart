@@ -4,9 +4,10 @@ import 'package:dafna_web/widget/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/link.dart';
 
-import '../service/dafna_api.dart';
+import '../service/get_service.dart';
 import '../widget/appbar_view.dart';
 
 class Contactcreen extends StatefulWidget {
@@ -320,12 +321,12 @@ class _ContactcreenState extends State<Contactcreen> {
                             style: OutlinedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(35))),
-                            child: const Text(
+                            child: Text(
                               'U YERGA QANDAY BORISH MUMKIN',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w400),
+                              style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
                             ),
                           ),
                         )

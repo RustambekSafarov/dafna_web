@@ -1,9 +1,7 @@
-// ignore_for_file: prefer_const_declarations, avoid_unnecessary_containers
-
-import 'dart:async';
-
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dafna_web/service/dafna_api.dart';
+import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../service/get_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -53,9 +51,7 @@ class _IntroPageState extends State<Recommendations> {
                       highlightColor: Colors.transparent,
                       splashColor: Colors.transparent,
                       onTap: () {
-                        Navigator.pushReplacementNamed(
-                            context, '/product-detail',
-                            arguments: {'id': id});
+                        context.goNamed('/product-info', extra: id);
                       },
                       child: Stack(
                         children: [
@@ -75,10 +71,6 @@ class _IntroPageState extends State<Recommendations> {
                                     ),
                                   ),
                                 ),
-                                // child: Image.network(
-                                //   snapshot.data![index]['img_url'],
-                                //   fit: BoxFit.cover,
-                                // ),
                               ),
                             ],
                           ),
@@ -91,12 +83,14 @@ class _IntroPageState extends State<Recommendations> {
                                 SizedBox(
                                   height: 40,
                                   child: Text(
-                                    snapshot.data![index]['name'],
+                                    snapshot.data![index]['name'].toUpperCase(),
                                     textAlign: TextAlign.center,
                                     maxLines: 2,
-                                    style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 14.5,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(

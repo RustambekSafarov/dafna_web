@@ -8,8 +8,8 @@ class MainDrawer extends StatefulWidget {
 }
 
 class _MainDrawerState extends State<MainDrawer> {
-  // ignore: prefer_final_fields
-  List<dynamic> _item = const [
+  int number = 0;
+  final List<dynamic> _item = [
     'Chegirma zonasi',
     'Divanlar',
     'Ofis stollari',
@@ -31,19 +31,35 @@ class _MainDrawerState extends State<MainDrawer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
-      height: 323 * 2,
+      color: Colors.lightBlue,
+      // decoration: ,
+      height: 600,
       width: 250,
       child: ListView.builder(
         shrinkWrap: true,
         itemCount: _item.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            onTap: () {},
-            title: Text(
-              _item[index],
-              style: const TextStyle(
-                color: Colors.white,
+          return InkWell(
+            onTap: () {
+              setState(() {
+                number = index;
+              });
+              print(number);
+            },
+            child: Container(
+              alignment: Alignment.centerLeft,
+              width: 250,
+              height: 50,
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: number == index ? Colors.orange : null,
+              ),
+              child: Text(
+                _item[index],
+                style: const TextStyle(
+                  color: Colors.black,
+                ),
               ),
             ),
           );
@@ -63,10 +79,10 @@ class MainDrawerIn extends StatefulWidget {
 class _MainDrawerInState extends State<MainDrawerIn> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        color: Colors.white,
-      ),
+    return Container(
+      width: 700,
+      height: 600,
+      color: Colors.white,
     );
   }
-} 
+}

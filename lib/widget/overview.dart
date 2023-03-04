@@ -1,17 +1,20 @@
 // ignore_for_file: avoid_unnecessary_containers
 
-import 'package:dafna_web/service/dafna_api.dart';
-import 'package:dafna_web/widget/footer.dart';
-import 'package:dafna_web/widget/new_products.dart';
-import 'package:dafna_web/widget/recommended.dart';
-import 'package:dafna_web/widget/sponsors.dart';
+import 'package:dafna_web/models/practick.dart';
+import 'package:dafna_web/widget/ideas_photos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
+import '../service/get_service.dart';
+import '../widget/footer.dart';
+import '../widget/new_products.dart';
+import '../widget/recommended.dart';
+import '../widget/sponsors.dart';
 
 class OverView extends StatefulWidget {
   int? iD;
   OverView({super.key});
+  late final GoRouter router;
 
   @override
   State<OverView> createState() => _OverViewState();
@@ -31,8 +34,11 @@ class _OverViewState extends State<OverView> {
                 SliverToBoxAdapter(
                   child: Column(
                     children: [
-                      Image.network(
-                          'https://mebel.dafna.uz/uploads/sliders/s_1672982886.jpg'),
+                      InkWell(
+                        onTap: () {},
+                        child: Image.network(
+                            'https://mebel.dafna.uz/uploads/sliders/s_1672982886.jpg'),
+                      ),
                       const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -110,6 +116,30 @@ class _OverViewState extends State<OverView> {
                 const SliverToBoxAdapter(
                   child: Sponsors(),
                 ),
+                // SliverToBoxAdapter(
+                //   child: Row(
+                //     children: [
+                //       Expanded(
+                //         child: ListView.builder(
+                //           physics: NeverScrollableScrollPhysics(),
+                //           itemCount: column1.length,
+                //           itemBuilder: (context, index) => Image.network(
+                //             column1[index],
+                //           ),
+                //         ),
+                //       ),
+                //       Expanded(
+                //         child: ListView.builder(
+                //           physics: NeverScrollableScrollPhysics(),
+                //           itemCount: column2.length,
+                //           itemBuilder: (context, index) => Image.network(
+                //             column2[index],
+                //           ),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
                 SliverToBoxAdapter(
                   child: Container(
                     alignment: Alignment.topCenter,
