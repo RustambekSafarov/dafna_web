@@ -1,4 +1,3 @@
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=RustambekSafarov&show_icons=true&theme=radical)
 # dafna_web
 
 A new Flutter project.
