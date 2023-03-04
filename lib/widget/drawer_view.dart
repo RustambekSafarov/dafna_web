@@ -83,6 +83,7 @@ class _MainDrawerInState extends State<MainDrawerIn> {
       width: 700,
       height: 600,
       color: Colors.white,
+      child: Text(''),
     );
   }
 }
