@@ -36,8 +36,12 @@ class _OverViewState extends State<OverView> {
                     children: [
                       InkWell(
                         onTap: () {},
-                        child: Image.network(
-                            'https://telegra.ph/file/9a476a924652ca1edfd9a.jpg'),
+                        child: Image(
+                          image: NetworkImage(
+                              'https://telegra.ph/file/9a476a924652ca1edfd9a.jpg'),
+                        ),
+                        // Image.network(
+                        //     'https://telegra.ph/file/9a476a924652ca1edfd9a.jpg'),
                       ),
                       const SizedBox(height: 10),
                       Row(
@@ -77,10 +81,16 @@ class _OverViewState extends State<OverView> {
                           padding: const EdgeInsets.all(10.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
-                            child: Image.network(
-                              snapshot.data![index]['img_url'],
+                            child: Image(
+                              image: NetworkImage(
+                                snapshot.data![index]['img_url'],
+                              ),
                               fit: BoxFit.fitWidth,
                             ),
+                            // Image.network(
+                            //   snapshot.data![index]['img_url'],
+                            //   fit: BoxFit.fitWidth,
+                            // ),
                           ),
                         ),
                       ),
