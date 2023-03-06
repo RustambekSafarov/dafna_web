@@ -6,7 +6,15 @@ String baseUrl = 'https://ogabek007.pythonanywhere.com/';
 //GET CATALOG
 
 Future<List> getCatalog() async {
-  final response = await http.get(Uri.parse('$baseUrl/dafna_app/get_katalog/'));
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/get_katalog/'),
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
+      'Accept': '*/*',
+    },
+  );
 
   // If the server did return a 200 OK response,
   // then parse the JSON.
@@ -17,7 +25,15 @@ Future<List> getCatalog() async {
 //GET CONTACT
 
 Future<List> getContact() async {
-  final response = await http.get(Uri.parse('$baseUrl/dafna_app/get_contact/'));
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/get_contact/'),
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
+      'Accept': '*/*',
+    },
+  );
 
   // If the server did return a 200 OK response,
   // then parse the JSON.
@@ -28,8 +44,15 @@ Future<List> getContact() async {
 // GET MAIN CONTACT
 
 Future<List> getMainContact() async {
-  final response =
-      await http.get(Uri.parse('$baseUrl/dafna_app/get_main_contact/'));
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/get_main_contact/'),
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
+      'Accept': '*/*',
+    },
+  );
 
   // If the server did return a 200 OK response,
   // then parse the JSON.
@@ -40,8 +63,15 @@ Future<List> getMainContact() async {
 //GET NEW PRODUCTS
 
 Future<List> getNewproduct() async {
-  final response =
-      await http.get(Uri.parse('$baseUrl/dafna_app/get_new_prodouct/'));
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/get_new_prodouct/'),
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
+      'Accept': '*/*',
+    },
+  );
 
   // If the server did return a 200 OK response,
   // then parse the JSON.
@@ -52,8 +82,15 @@ Future<List> getNewproduct() async {
 //GET RECOMMENDATION
 
 Future<List> getRecommendation() async {
-  final response =
-      await http.get(Uri.parse('$baseUrl/dafna_app/get_rescommentations/'));
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/get_rescommentations/'),
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
+      'Accept': '*/*',
+    },
+  );
 
   // If the server did return a 200 OK response,
   // then parse the JSON.
@@ -67,6 +104,12 @@ Future<Map> getCatalogType(int id) async {
   // Get request to Api
   final response = await http.get(
     Uri.parse('$baseUrl/dafna_app/get_prodouct_type/$id/'),
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
+      'Accept': '*/*',
+    },
   );
   Map data = jsonDecode(response.body);
   return data;
@@ -78,6 +121,12 @@ Future<Map> getProducts(int id) async {
   // Get request to Api
   final response = await http.get(
     Uri.parse('$baseUrl/dafna_app/get_prodouct/$id/'),
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
+      'Accept': '*/*',
+    },
   );
   Map data = jsonDecode(response.body);
   return data;
@@ -88,6 +137,12 @@ Future<Map> getProducts(int id) async {
 Future<List> getVideo() async {
   final response = await http.get(
     Uri.parse('$baseUrl/dafna_app/get_video/'),
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
+      'Accept': '*/*',
+    },
   );
 
   Map data = jsonDecode(response.body);
@@ -97,8 +152,15 @@ Future<List> getVideo() async {
 // GET PRODUCT DETAIL
 
 Future<Map> getProductDetail(int id) async {
-  final response =
-      await http.get(Uri.parse('$baseUrl/dafna_app/get_prodouct_detail/$id/'));
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/get_prodouct_detail/$id/'),
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
+      'Accept': '*/*',
+    },
+  );
 
   Map data = jsonDecode(response.body);
 
@@ -110,6 +172,12 @@ Future<Map> getProductDetail(int id) async {
 Future<void> deleteLike(int id) async {
   final response = await http.get(
     Uri.parse('$baseUrl/dafna_app/delete_love/$id/'),
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
+      'Accept': '*/*',
+    },
   );
 }
 
@@ -118,6 +186,12 @@ Future<void> deleteLike(int id) async {
 Future<List> getFavorite() async {
   final response = await http.get(
     Uri.parse('$baseUrl/dafna_app/get_love/'),
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
+      'Accept': '*/*',
+    },
   );
 
   Map data = jsonDecode(response.body);
