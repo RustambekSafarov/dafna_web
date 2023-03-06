@@ -308,7 +308,7 @@ class _ContactcreenState extends State<Contactcreen> {
                                 ConnectionState.waiting) {
                               return const Center();
                             } else {
-                              return const Text('Error');
+                              return const Text('Own Code Error');
                             }
                           },
                         ),

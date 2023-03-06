@@ -155,7 +155,7 @@ class _IntroPageState extends State<Recommendations> {
             ),
           );
         } else {
-          throw Exception('Error a');
+          throw Exception('Own Code Error');
         }
       },
     );

@@ -1,5 +1,6 @@
 import 'package:dafna_web/screens/product_screen.dart';
 import 'package:dafna_web/service/get_service.dart';
+import 'package:dafna_web/service/post_service.dart';
 import 'package:dafna_web/widget/footer.dart';
 import 'package:dafna_web/widget/recommended.dart';
 import 'package:flutter/material.dart';
@@ -8,11 +9,17 @@ import 'package:provider/provider.dart';
 
 import '../widget/appbar_view.dart';
 
-class ProductInfoScreen extends StatelessWidget {
+class ProductInfoScreen extends StatefulWidget {
   int? id;
   ProductInfoScreen({super.key, required this.id});
   static const routeName = '/product-info';
 
+  @override
+  State<ProductInfoScreen> createState() => _ProductInfoScreenState();
+}
+
+class _ProductInfoScreenState extends State<ProductInfoScreen> {
+  bool isFavorite = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +33,7 @@ class ProductInfoScreen extends StatelessWidget {
           Stack(
             children: [
               FutureBuilder(
-                future: getProductDetail(id!),
+                future: getProductDetail(widget.id!),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return ListView(
@@ -71,16 +78,26 @@ class ProductInfoScreen extends StatelessWidget {
                                     ElevatedButton(
                                       onPressed: () {},
                                       // ignore: prefer_const_constructors
-                                      child: Text(
-                                          'Menejer bilan mavjudligini tekshiring'),
+                                      child: Text('Savatga qo\'shish'),
                                     ),
                                     IconButton(
-                                        highlightColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        splashColor: Colors.transparent,
-                                        color: Colors.red,
-                                        onPressed: () {},
-                                        icon: const Icon(Icons.favorite_border))
+                                      highlightColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      splashColor: Colors.transparent,
+                                      color: Colors.red,
+                                      onPressed: () {
+                                        setState(() {
+                                          if (snapshot.data!['like']) {
+                                            addFavorite(snapshot.data!['id']);
+                                          } else {
+                                            deleteLike(snapshot.data!['id']);
+                                          }
+                                        });
+                                      },
+                                      icon: Icon(snapshot.data!['like']
+                                          ? Icons.favorite_border
+                                          : Icons.favorite),
+                                    )
                                   ],
                                 ),
                                 const SizedBox(
@@ -220,15 +237,12 @@ class ProductInfoScreen extends StatelessWidget {
                         const SizedBox(
                           height: 50,
                         ),
-                        Positioned(
-                          bottom: 0,
-                          child: Container(
-                            alignment: Alignment.topCenter,
-                            color: Colors.blue,
-                            // width: double.infinity,
-                            height: 320,
-                            child: const Footer(),
-                          ),
+                        Container(
+                          alignment: Alignment.topCenter,
+                          color: Colors.blue,
+                          // width: double.infinity,
+                          height: 320,
+                          child: const Footer(),
                         ),
                       ],
                     );
@@ -241,7 +255,7 @@ class ProductInfoScreen extends StatelessWidget {
                       ),
                     );
                   } else {
-                    return const Center(child: Text('Error'));
+                    return const Center(child: Text('Own Code Error'));
                   }
                 },
               ),

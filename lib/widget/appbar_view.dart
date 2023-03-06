@@ -49,7 +49,7 @@ class _MyWidgetState extends State<AppBarView> {
                 TextButton(
                   onPressed: () => context.goNamed('/video-view'),
                   child: const Text(
-                    'Vedio sharhlar',
+                    'Video sharhlar',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w300,
@@ -62,7 +62,7 @@ class _MyWidgetState extends State<AppBarView> {
                     context.goNamed('/contact');
                   },
                   child: const Text(
-                    'Kontaklar',
+                    'Kontaktlar',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w300,
@@ -113,7 +113,7 @@ class _MyWidgetState extends State<AppBarView> {
                         fontWeight: FontWeight.w300),
                   ),
                 ),
-                const SizedBox(width: 200),
+                const SizedBox(width: 100),
                 TextButton(
                   onPressed: () {},
                   child: const Text(
@@ -226,7 +226,7 @@ class _MyWidgetState extends State<AppBarView> {
                         size: 20,
                       ),
                       Text(
-                        'Ro\'yxattan\no\'tish ',
+                        'Ro\'yxatdan\no\'tish ',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.white,
@@ -263,6 +263,12 @@ class _MyWidgetState extends State<AppBarView> {
                   width: 20,
                 ),
                 InkWell(
+                  onTap: () {
+                    context.goNamed('/favorites');
+                  },
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
                   child: Column(
                     children: const [
                       Icon(

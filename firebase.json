@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "dafna-1",
     "public": "build/web",
     "ignore": [
       "firebase.json",

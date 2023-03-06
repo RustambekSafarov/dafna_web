@@ -3,11 +3,13 @@
 import 'package:dafna_web/screens/employment.dart';
 import 'package:dafna_web/screens/catalog_detail_screen.dart';
 import 'package:dafna_web/screens/contact_screen.dart';
+import 'package:dafna_web/screens/favorites_screen.dart';
 import 'package:dafna_web/screens/product_detail_screen.dart';
 import 'package:dafna_web/screens/product_screen.dart';
 import 'package:dafna_web/screens/video_view_screen.dart';
 import 'package:dafna_web/widget/recommended.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -33,6 +35,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'),
+        Locale('uz'),
+        Locale('ru'),
+      ],
       theme: ThemeData(
         primaryColor: Colors.blue,
       ),
@@ -112,6 +124,11 @@ class MyApp extends StatelessWidget {
             path: '/video-view',
             name: VideoViewScreen.routeName,
             builder: (context, state) => VideoViewScreen(),
+          ),
+          GoRoute(
+            path: '/favorites',
+            name: FavoritesScreen.routeName,
+            builder: (context, state) => const FavoritesScreen(),
           ),
         ],
       ),

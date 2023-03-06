@@ -135,7 +135,7 @@ class _VideoViewScreenState extends State<VideoViewScreen> {
                     ),
                   );
                 } else {
-                  return Text('Error');
+                  return Text('Own Code Error');
                 }
               },
             ),

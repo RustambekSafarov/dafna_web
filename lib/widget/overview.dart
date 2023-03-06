@@ -37,7 +37,7 @@ class _OverViewState extends State<OverView> {
                       InkWell(
                         onTap: () {},
                         child: Image.network(
-                            'https://mebel.dafna.uz/uploads/sliders/s_1672982886.jpg'),
+                            'https://telegra.ph/file/9a476a924652ca1edfd9a.jpg'),
                       ),
                       const SizedBox(height: 10),
                       Row(
@@ -116,30 +116,25 @@ class _OverViewState extends State<OverView> {
                 const SliverToBoxAdapter(
                   child: Sponsors(),
                 ),
-                // SliverToBoxAdapter(
-                //   child: Row(
-                //     children: [
-                //       Expanded(
-                //         child: ListView.builder(
-                //           physics: NeverScrollableScrollPhysics(),
-                //           itemCount: column1.length,
-                //           itemBuilder: (context, index) => Image.network(
-                //             column1[index],
-                //           ),
-                //         ),
-                //       ),
-                //       Expanded(
-                //         child: ListView.builder(
-                //           physics: NeverScrollableScrollPhysics(),
-                //           itemCount: column2.length,
-                //           itemBuilder: (context, index) => Image.network(
-                //             column2[index],
-                //           ),
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
+                SliverPadding(
+                  padding: EdgeInsets.only(left: 55, right: 55, bottom: 55),
+                  sliver: SliverGrid.builder(
+                    itemCount: forGrid.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                    ),
+                    itemBuilder: (context, index) => SizedBox(
+                      height: 150,
+                      width: 280,
+                      child: Image.network(
+                        forGrid[index],
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
                 SliverToBoxAdapter(
                   child: Container(
                     alignment: Alignment.topCenter,
@@ -159,7 +154,7 @@ class _OverViewState extends State<OverView> {
               ),
             );
           } else {
-            return const Text('Error');
+            return const Text('Own Code Error');
           }
         },
       ),

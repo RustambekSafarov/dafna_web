@@ -98,7 +98,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         ),
                       );
                     } else {
-                      return const Text('Error');
+                      return const Text('Own Code Error');
                     }
                   },
                 ),
@@ -232,7 +232,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       );
                     } else {
                       return const Center(
-                        child: Text('Error'),
+                        child: Text('Own Code Error'),
                       );
                     }
                   },

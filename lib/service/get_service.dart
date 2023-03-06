@@ -104,3 +104,22 @@ Future<Map> getProductDetail(int id) async {
 
   return data['prodouct'];
 }
+
+// DELETE LIKED PRODUCT
+
+Future<void> deleteLike(int id) async {
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/delete_love/$id/'),
+  );
+}
+
+// GET FAVORITES
+
+Future<List> getFavorite() async {
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/get_love/'),
+  );
+
+  Map data = jsonDecode(response.body);
+  return data['loves'];
+}

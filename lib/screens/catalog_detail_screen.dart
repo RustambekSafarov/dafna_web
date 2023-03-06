@@ -45,8 +45,9 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 5,
-                          mainAxisSpacing: 8,
-                          crossAxisSpacing: 8,
+                          mainAxisSpacing: 15,
+                          crossAxisSpacing: 15,
+                          childAspectRatio: 0.75,
                         ),
                         itemBuilder: (context, index) {
                           final productTypeId =

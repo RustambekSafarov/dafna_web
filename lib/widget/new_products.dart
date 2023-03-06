@@ -154,7 +154,7 @@ class _IntroPageState extends State<NewProducts> {
             ),
           );
         } else {
-          throw Exception('Error a');
+          throw Exception('Own Code Error');
         }
       },
     );
