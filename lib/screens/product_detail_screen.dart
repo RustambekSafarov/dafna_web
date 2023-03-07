@@ -87,14 +87,10 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                       color: Colors.red,
                                       onPressed: () {
                                         setState(() {
-                                          if (snapshot.data!['like']) {
-                                            addFavorite(snapshot.data!['id']);
-                                          } else {
-                                            deleteLike(snapshot.data!['id']);
-                                          }
+                                          addFavorite(snapshot.data!['id']);
                                         });
                                       },
-                                      icon: Icon(snapshot.data!['like']
+                                      icon: Icon(snapshot.data!['like'] == false
                                           ? Icons.favorite_border
                                           : Icons.favorite),
                                     )

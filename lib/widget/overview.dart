@@ -29,7 +29,6 @@ class _OverViewState extends State<OverView> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return CustomScrollView(
-              physics: ClampingScrollPhysics(),
               slivers: [
                 SliverToBoxAdapter(
                   child: Column(

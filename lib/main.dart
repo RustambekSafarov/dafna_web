@@ -1,4 +1,3 @@
-// ignore_for_file: unused_element
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:dafna_web/screens/employment.dart';
 import 'package:dafna_web/screens/catalog_detail_screen.dart';
@@ -7,11 +6,9 @@ import 'package:dafna_web/screens/favorites_screen.dart';
 import 'package:dafna_web/screens/product_detail_screen.dart';
 import 'package:dafna_web/screens/product_screen.dart';
 import 'package:dafna_web/screens/video_view_screen.dart';
-import 'package:dafna_web/widget/recommended.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 
 import 'screens/catalog_screen.dart';
 import 'screens/home_screen.dart';
@@ -20,7 +17,6 @@ import 'widget/footer\'s/buyurtma.dart';
 import 'widget/footer\'s/savollar.dart';
 import 'widget/footer\'s/sotib_olish.dart';
 import 'widget/footer\'s/tolov.dart';
-import 'widget/new_products.dart';
 
 void main() {
   usePathUrlStrategy();
@@ -36,7 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: [
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
