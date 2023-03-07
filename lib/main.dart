@@ -1,5 +1,5 @@
 // ignore_for_file: unused_element
-
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:dafna_web/screens/employment.dart';
 import 'package:dafna_web/screens/catalog_detail_screen.dart';
 import 'package:dafna_web/screens/contact_screen.dart';
@@ -23,6 +23,7 @@ import 'widget/footer\'s/tolov.dart';
 import 'widget/new_products.dart';
 
 void main() {
+  usePathUrlStrategy();
   runApp(
     const MyApp(),
   );

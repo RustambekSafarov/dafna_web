@@ -131,10 +131,11 @@ class _MyWidgetState extends State<AppBarView> {
                 SizedBox(
                   width: 120,
                   height: 80,
-                  child: Image(
-                    image: NetworkImage('https://mebel.dafna.uz/img/logo.png'),
-                  ),
-                  // Image.network('https://mebel.dafna.uz/img/logo.png'),
+                  child:
+                      // Image(
+                      //   image: NetworkImage('https://mebel.dafna.uz/img/logo.png'),
+                      // ),
+                      Image.network('https://mebel.dafna.uz/img/logo.png'),
                 ),
                 IconButton(
                   onPressed: () {

@@ -81,16 +81,17 @@ class _OverViewState extends State<OverView> {
                           padding: const EdgeInsets.all(10.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
-                            child: Image(
-                              image: NetworkImage(
-                                snapshot.data![index]['img_url'],
-                              ),
+                            child:
+                                // Image(
+                                //   image: NetworkImage(
+                                //     snapshot.data![index]['img_url'],
+                                //   ),
+                                //   fit: BoxFit.fitWidth,
+                                // ),
+                                Image.network(
+                              snapshot.data![index]['img_url'],
                               fit: BoxFit.fitWidth,
                             ),
-                            // Image.network(
-                            //   snapshot.data![index]['img_url'],
-                            //   fit: BoxFit.fitWidth,
-                            // ),
                           ),
                         ),
                       ),
