@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-String baseUrl = 'https://ogabek007.pythonanywhere.com/';
+String baseUrl = 'https://ogabek007.pythonanywhere.com';
 
 //GET CATALOG
 
@@ -10,12 +10,6 @@ Future<List> getCatalog() async {
     Uri.parse('$baseUrl/dafna_app/get_katalog/'),
     headers: {
       "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': 'https://dafna-1.firebaseapp.com/#/',
-      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers':
-          'Origin, Content-Type, Cookie, X-CSRF-TOKEN, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Allow-Origin',
-      'Accept': '*/*',
     },
   );
 
@@ -32,12 +26,6 @@ Future<List> getContact() async {
     Uri.parse('$baseUrl/dafna_app/get_contact/'),
     headers: {
       "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': 'https://dafna-1.firebaseapp.com/#/',
-      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers':
-          'Origin, Content-Type, Cookie, X-CSRF-TOKEN, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Allow-Origin',
-      'Accept': '*/*',
     },
   );
 
@@ -54,12 +42,6 @@ Future<List> getMainContact() async {
     Uri.parse('$baseUrl/dafna_app/get_main_contact/'),
     headers: {
       "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': 'https://dafna-1.firebaseapp.com/#/',
-      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers':
-          'Origin, Content-Type, Cookie, X-CSRF-TOKEN, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Allow-Origin',
-      'Accept': '*/*',
     },
   );
 
@@ -76,12 +58,6 @@ Future<List> getNewproduct() async {
     Uri.parse('$baseUrl/dafna_app/get_new_prodouct/'),
     headers: {
       "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': 'https://dafna-1.firebaseapp.com/#/',
-      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers':
-          'Origin, Content-Type, Cookie, X-CSRF-TOKEN, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Allow-Origin',
-      'Accept': '*/*',
     },
   );
 
@@ -98,12 +74,6 @@ Future<List> getRecommendation() async {
     Uri.parse('$baseUrl/dafna_app/get_rescommentations/'),
     headers: {
       "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': 'https://dafna-1.firebaseapp.com/#/',
-      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers':
-          'Origin, Content-Type, Cookie, X-CSRF-TOKEN, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Allow-Origin',
-      'Accept': '*/*',
     },
   );
 
@@ -121,12 +91,6 @@ Future<Map> getCatalogType(int id) async {
     Uri.parse('$baseUrl/dafna_app/get_prodouct_type/$id/'),
     headers: {
       "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': 'https://dafna-1.firebaseapp.com/#/',
-      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers':
-          'Origin, Content-Type, Cookie, X-CSRF-TOKEN, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Allow-Origin',
-      'Accept': '*/*',
     },
   );
   Map data = jsonDecode(response.body);
@@ -141,12 +105,6 @@ Future<Map> getProducts(int id) async {
     Uri.parse('$baseUrl/dafna_app/get_prodouct/$id/'),
     headers: {
       "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': 'https://dafna-1.firebaseapp.com/#/',
-      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers':
-          'Origin, Content-Type, Cookie, X-CSRF-TOKEN, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Allow-Origin',
-      'Accept': '*/*',
     },
   );
   Map data = jsonDecode(response.body);
@@ -160,12 +118,6 @@ Future<List> getVideo() async {
     Uri.parse('$baseUrl/dafna_app/get_video/'),
     headers: {
       "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': 'https://dafna-1.firebaseapp.com/#/',
-      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers':
-          'Origin, Content-Type, Cookie, X-CSRF-TOKEN, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Allow-Origin',
-      'Accept': '*/*',
     },
   );
 
@@ -180,12 +132,6 @@ Future<Map> getProductDetail(int id) async {
     Uri.parse('$baseUrl/dafna_app/get_prodouct_detail/$id/'),
     headers: {
       "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': 'https://dafna-1.firebaseapp.com/#/',
-      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers':
-          'Origin, Content-Type, Cookie, X-CSRF-TOKEN, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Allow-Origin',
-      'Accept': '*/*',
     },
   );
 
@@ -201,12 +147,6 @@ Future<void> deleteLike(int id) async {
     Uri.parse('$baseUrl/dafna_app/delete_love/$id/'),
     headers: {
       "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': 'https://dafna-1.firebaseapp.com/#/',
-      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers':
-          'Origin, Content-Type, Cookie, X-CSRF-TOKEN, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Allow-Origin',
-      'Accept': '*/*',
     },
   );
 }
@@ -218,12 +158,6 @@ Future<List> getFavorite() async {
     Uri.parse('$baseUrl/dafna_app/get_love/'),
     headers: {
       "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': 'https://dafna-1.firebaseapp.com/#/',
-      'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers':
-          'Origin, Content-Type, Cookie, X-CSRF-TOKEN, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Allow-Origin',
-      'Accept': '*/*',
     },
   );
 
