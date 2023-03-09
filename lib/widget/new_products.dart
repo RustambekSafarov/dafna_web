@@ -61,7 +61,8 @@ class _IntroPageState extends State<NewProducts> {
                                   image: DecorationImage(
                                     fit: BoxFit.fitWidth,
                                     image: NetworkImage(
-                                      snapshot.data![index]['img_url'],
+                                      baseUrl +
+                                          snapshot.data![index]['img_url'],
                                     ),
                                   ),
                                 ),

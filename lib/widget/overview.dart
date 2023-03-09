@@ -88,7 +88,7 @@ class _OverViewState extends State<OverView> {
                                 //   fit: BoxFit.fitWidth,
                                 // ),
                                 Image.network(
-                              snapshot.data![index]['img_url'],
+                              baseUrl + snapshot.data![index]['img_url'],
                               fit: BoxFit.fitWidth,
                             ),
                           ),

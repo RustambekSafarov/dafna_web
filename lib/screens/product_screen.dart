@@ -155,9 +155,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                               ),
                                             ),
                                             Image.network(
-                                              snapshot.data!['prodouct_type']
-                                                      ['prodoucts'][index]
-                                                  ['img_url'],
+                                              baseUrl +
+                                                  snapshot.data![
+                                                              'prodouct_type']
+                                                          ['prodoucts'][index]
+                                                      ['img_url'],
                                               fit: BoxFit.cover,
                                             ),
                                           ],

@@ -72,8 +72,9 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
                                   child: Image.network(
-                                    snapshot.data!['prodouct_typt'][index]
-                                        ['img_url'],
+                                    baseUrl +
+                                        snapshot.data!['prodouct_typt'][index]
+                                            ['img_url'],
                                   ),
                                 ),
                                 const SizedBox(

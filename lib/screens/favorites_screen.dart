@@ -93,7 +93,8 @@ class FavoritesScreen extends StatelessWidget {
                                         ),
                                       ),
                                       Image.network(
-                                        snapshot.data![index]['img_url'],
+                                        baseUrl +
+                                            snapshot.data![index]['img_url'],
                                         fit: BoxFit.cover,
                                       ),
                                     ],

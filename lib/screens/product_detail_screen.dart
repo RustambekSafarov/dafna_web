@@ -6,6 +6,7 @@ import 'package:dafna_web/widget/recommended.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import '../service/get_service.dart';
 
 import '../widget/appbar_view.dart';
 
@@ -47,7 +48,8 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                               height: 430,
                               width: 410,
                               child: Image.network(
-                                snapshot.data!['img_url'],
+                                'https://ogabek007.pythonanywhere.com' +
+                                    snapshot.data!['img_url'],
                               ),
                             ),
                             Column(
