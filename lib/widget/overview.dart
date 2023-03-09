@@ -37,7 +37,7 @@ class _OverViewState extends State<OverView> {
                         onTap: () {},
                         child: Image(
                           image: NetworkImage(
-                              'https://telegra.ph/file/9a476a924652ca1edfd9a.jpg'),
+                              'https://telegra.ph/file/8f3eb01c90f1a41360efb.png'),
                         ),
                         // Image.network(
                         //     'https://telegra.ph/file/9a476a924652ca1edfd9a.jpg'),

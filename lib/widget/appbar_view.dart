@@ -117,7 +117,7 @@ class _MyWidgetState extends State<AppBarView> {
                 TextButton(
                   onPressed: () {},
                   child: const Text(
-                    '+998(71)203-11-11',
+                    '+7 (495) 120 75',
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                 ),
@@ -135,7 +135,8 @@ class _MyWidgetState extends State<AppBarView> {
                       // Image(
                       //   image: NetworkImage('https://mebel.dafna.uz/img/logo.png'),
                       // ),
-                      Image.network('https://mebel.dafna.uz/img/logo.png'),
+                      Image.network(
+                          'https://telegra.ph/file/d3c23bcc1f36ce039d9c1.png'),
                 ),
                 IconButton(
                   onPressed: () {
