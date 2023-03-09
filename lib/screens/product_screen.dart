@@ -155,7 +155,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                               ),
                                             ),
                                             Image.network(
-                                              baseUrl +
+                                              'https://ogabek007.pythonanywhere.com/' +
                                                   snapshot.data![
                                                               'prodouct_type']
                                                           ['prodoucts'][index]

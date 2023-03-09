@@ -75,7 +75,8 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
                         borderRadius: BorderRadius.circular(30),
                         image: DecorationImage(
                             image: NetworkImage(
-                              baseUrl + snapshot.data![index]['img_url'],
+                              'https://ogabek007.pythonanywhere.com/' +
+                                  snapshot.data![index]['img_url'],
                             ),
                             fit: BoxFit.fitWidth),
                       ),

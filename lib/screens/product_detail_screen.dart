@@ -48,7 +48,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                               height: 430,
                               width: 410,
                               child: Image.network(
-                                'https://ogabek007.pythonanywhere.com' +
+                                'https://ogabek007.pythonanywhere.com/' +
                                     snapshot.data!['img_url'],
                               ),
                             ),
