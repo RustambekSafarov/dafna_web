@@ -331,7 +331,11 @@ class _ContactcreenState extends State<Contactcreen> {
                           ),
                         )
                       ],
-                    )
+                    ),
+                    SizedBox(
+                      height: 80,
+                    ),
+                    Container(color: Colors.blue, child: Footer()),
                   ],
                 );
                 // return

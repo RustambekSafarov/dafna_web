@@ -14,6 +14,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
 
   @override
   Widget build(BuildContext context) {
+    String productTypeName = '';
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 120,
@@ -28,6 +29,50 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 150),
+                            child: InkWell(
+                              onTap: () {
+                                context.goNamed('/home');
+                              },
+                              child: Text(
+                                'Asosiy ',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                          Text('/'),
+                          InkWell(
+                            onTap: () {
+                              context.goNamed('/catalog');
+                            },
+                            child: Text(
+                              ' Katalog',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Text('/'),
+                          Text(
+                            snapshot.data!['discrpition'],
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 150, right: 150),
+                      child: Divider(),
+                    ),
                     Padding(
                       padding:
                           const EdgeInsets.only(left: 65, top: 40, bottom: 40),
@@ -71,10 +116,14 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                               children: [
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
-                                  child: Image.network(
-                                    'https://ogabek007.pythonanywhere.com/' +
-                                        snapshot.data!['prodouct_typt'][index]
-                                            ['img_url'],
+                                  child: SizedBox(
+                                    width: 200,
+                                    height: 150,
+                                    child: Image.network(
+                                      'https://ogabek007.pythonanywhere.com/' +
+                                          snapshot.data!['prodouct_typt'][index]
+                                              ['img_url'],
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(

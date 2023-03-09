@@ -4,6 +4,8 @@ import 'package:dafna_web/widget/appbar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../widget/footer.dart';
+
 class Employment extends StatelessWidget {
   const Employment({super.key});
   static const routeName = '/employment';
@@ -94,6 +96,13 @@ class Employment extends StatelessWidget {
           Image.network('https://telegra.ph/file/1f67ef7b1cf6520cb2878.jpg'),
           Image.network('https://telegra.ph/file/20967f4046332701bff76.jpg'),
           Image.network('https://telegra.ph/file/9d879dde52bc61ed894ee.jpg'),
+          SizedBox(
+            height: 80,
+          ),
+          Container(
+            color: Colors.blue,
+            child: Footer(),
+          ),
         ],
       ),
     );
