@@ -16,15 +16,17 @@ class _MyWidgetState extends State<AppBarView> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: FittedBox(
-        child: Column(
-          children: [
-            const SizedBox(height: 12),
-            Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                TextButton(
+    return LayoutBuilder(
+      builder: (ctx, constraints) => Column(
+        children: [
+          const SizedBox(height: 12),
+          Row(
+            // mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(width: constraints.maxWidth * 0.07),
+              SizedBox(
+                width: constraints.maxWidth * 0.06,
+                child: TextButton(
                   onPressed: () => context.goNamed('/home'),
                   child: const Text(
                     'Asosiy',
@@ -34,8 +36,11 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 15),
-                TextButton(
+              ),
+              // const SizedBox(width: 15),
+              SizedBox(
+                width: constraints.maxWidth * 0.07,
+                child: TextButton(
                   onPressed: () => context.goNamed('/catalog'),
                   child: const Text(
                     'Katalog',
@@ -45,8 +50,11 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 15),
-                TextButton(
+              ),
+              // const SizedBox(width: 15),
+              SizedBox(
+                width: constraints.maxWidth * 0.09,
+                child: TextButton(
                   onPressed: () => context.goNamed('/video-view'),
                   child: const Text(
                     'Video sharhlar',
@@ -56,8 +64,11 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 15),
-                TextButton(
+              ),
+              // const SizedBox(width: 15),
+              SizedBox(
+                width: constraints.maxWidth * 0.075,
+                child: TextButton(
                   onPressed: () {
                     context.goNamed('/contact');
                   },
@@ -69,8 +80,11 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 15),
-                TextButton(
+              ),
+              // const SizedBox(width: 15),
+              SizedBox(
+                width: constraints.maxWidth * 0.075,
+                child: TextButton(
                   onPressed: () {
                     context.goNamed('/employment');
                   },
@@ -82,10 +96,13 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 15),
-                Link(
-                  uri: Uri.parse('https://telegram.me/Dafna_mebel_bot'),
-                  builder: (context, followLink) => TextButton(
+              ),
+              // const SizedBox(width: 15),
+              Link(
+                uri: Uri.parse('https://telegram.me/Dafna_mebel_bot'),
+                builder: (context, followLink) => SizedBox(
+                  width: constraints.maxWidth * 0.09,
+                  child: TextButton(
                     onPressed: followLink,
                     child: const Text(
                       'Fikr Qoldiring',
@@ -96,49 +113,58 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 15),
-                Container(
-                  alignment: Alignment.center,
-                  height: 25,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.red,
-                  ),
-                  child: const Text(
-                    'Chegirmalar',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300),
-                  ),
+              ),
+              // const SizedBox(width: 15),
+              Container(
+                alignment: Alignment.center,
+                height: 25,
+                width: constraints.maxWidth * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.red,
                 ),
-                const SizedBox(width: 100),
-                TextButton(
+                child: const Text(
+                  'Chegirmalar',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300),
+                ),
+              ),
+              SizedBox(width: constraints.maxWidth * 0.1),
+              SizedBox(
+                width: constraints.maxWidth * 0.2,
+                child: TextButton(
                   onPressed: () {},
                   child: const Text(
                     '+7 (495) 120 75',
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                 ),
-              ],
-            ),
-            const SizedBox(
-              height: 7,
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 120,
-                  height: 80,
-                  child:
-                      // Image(
-                      //   image: NetworkImage('https://mebel.dafna.uz/img/logo.png'),
-                      // ),
-                      Image.network(
-                          'https://telegra.ph/file/d3c23bcc1f36ce039d9c1.png'),
-                ),
-                IconButton(
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 7,
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: constraints.maxWidth * 0.05,
+              ),
+              SizedBox(
+                width: constraints.maxWidth * 0.11,
+                height: 80,
+                child:
+                    // Image(
+                    //   image: NetworkImage('https://mebel.dafna.uz/img/logo.png'),
+                    // ),
+                    Image.network(
+                        'https://telegra.ph/file/dc9cba1fd9f3f1b63d1d0.png'),
+              ),
+              SizedBox(
+                width: constraints.maxWidth * 0.05,
+                child: IconButton(
                   onPressed: () {
                     setState(
                       () {
@@ -167,40 +193,43 @@ class _MyWidgetState extends State<AppBarView> {
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(
-                  width: 600,
-                  height: 35,
-                  child: TextField(
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    controller: _controller,
-                    decoration: InputDecoration(
-                      suffixIcon: const Icon(Icons.search),
-                      hintText: 'Men ...ni qidirayabman',
+              ),
+              SizedBox(
+                width: constraints.maxWidth * 0.5,
+                height: 35,
+                child: TextField(
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.normal,
+                  ),
+                  controller: _controller,
+                  decoration: InputDecoration(
+                    suffixIcon: const Icon(Icons.search),
+                    hintText: 'Men ...ni qidirayabman',
 
-                      // focusColor: Colors.white30,
-                      hintStyle: const TextStyle(
-                        // height: 50,
-                        fontSize: 11,
-                        color: Colors.white,
-                      ),
-                      filled: true,
-                      // focusColor: const Color.fromARGB(255, 5, 52, 80),
-                      fillColor: const Color(0xFF4bbedd),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(18),
-                      ),
+                    // focusColor: Colors.white30,
+                    hintStyle: const TextStyle(
+                      // height: 50,
+                      fontSize: 11,
+                      color: Colors.white,
+                    ),
+                    filled: true,
+                    // focusColor: const Color.fromARGB(255, 5, 52, 80),
+                    fillColor: const Color(0xFF4bbedd),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(18),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 20,
-                ),
-                InkWell(
+              ),
+              SizedBox(
+                width: constraints.maxWidth * 0.04,
+              ),
+              SizedBox(
+                width: constraints.maxWidth * 0.06,
+                child: InkWell(
                   child: Column(
                     children: const [
                       Icon(
@@ -219,10 +248,13 @@ class _MyWidgetState extends State<AppBarView> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: 20,
-                ),
-                InkWell(
+              ),
+              // const SizedBox(
+              //   width: 20,
+              // ),
+              SizedBox(
+                width: constraints.maxWidth * 0.06,
+                child: InkWell(
                   child: Column(
                     children: const [
                       Icon(
@@ -242,10 +274,13 @@ class _MyWidgetState extends State<AppBarView> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: 20,
-                ),
-                InkWell(
+              ),
+              // const SizedBox(
+              //   width: 20,
+              // ),
+              SizedBox(
+                width: constraints.maxWidth * 0.06,
+                child: InkWell(
                   child: Column(
                     children: const [
                       Icon(
@@ -264,10 +299,13 @@ class _MyWidgetState extends State<AppBarView> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: 20,
-                ),
-                InkWell(
+              ),
+              // const SizedBox(
+              //   width: 20,
+              // ),
+              SizedBox(
+                width: constraints.maxWidth * 0.06,
+                child: InkWell(
                   onTap: () {
                     context.goNamed('/favorites');
                   },
@@ -292,10 +330,10 @@ class _MyWidgetState extends State<AppBarView> {
                     ],
                   ),
                 ),
-              ],
-            )
-          ],
-        ),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }

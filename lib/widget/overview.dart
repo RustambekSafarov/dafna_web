@@ -36,11 +36,12 @@ class _OverViewState extends State<OverView> {
                       InkWell(
                         onTap: () {},
                         child: SizedBox(
+                          height: 600,
                           width: double.infinity,
                           child: Image(
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fitWidth,
                             image: NetworkImage(
-                                'https://telegra.ph/file/8f3eb01c90f1a41360efb.png'),
+                                'https://pg-edtr.archiproducts.com/desktop_1454x870_6c141cf8-889f-4604-890c-f8a1ec5644ad.jpg'),
                           ),
                         ),
                         // Image.network(
