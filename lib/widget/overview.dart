@@ -36,6 +36,7 @@ class _OverViewState extends State<OverView> {
                       InkWell(
                         onTap: () {},
                         child: Image(
+                          fit: BoxFit.cover,
                           image: NetworkImage(
                               'https://telegra.ph/file/8f3eb01c90f1a41360efb.png'),
                         ),
