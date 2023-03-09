@@ -198,6 +198,9 @@ class _MyWidgetState extends State<AppBarView> {
                 width: constraints.maxWidth * 0.5,
                 height: 35,
                 child: TextField(
+                  onSubmitted: (value) {
+                    context.goNamed('/search-result', extra: value);
+                  },
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 15,

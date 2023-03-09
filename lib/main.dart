@@ -1,3 +1,4 @@
+import 'package:dafna_web/screens/search_screen.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:dafna_web/screens/employment.dart';
 import 'package:dafna_web/screens/catalog_detail_screen.dart';
@@ -126,6 +127,13 @@ class MyApp extends StatelessWidget {
             path: '/favorites',
             name: FavoritesScreen.routeName,
             builder: (context, state) => const FavoritesScreen(),
+          ),
+          GoRoute(
+            path: '/search-result',
+            name: SearchResultScreen.routeName,
+            builder: (context, state) => SearchResultScreen(
+              value: state.extra as String,
+            ),
           ),
         ],
       ),

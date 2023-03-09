@@ -164,3 +164,16 @@ Future<List> getFavorite() async {
   Map data = jsonDecode(response.body);
   return data['loves'];
 }
+
+// GET SEARCH RESULT
+
+Future<List> getSearch(String value) async {
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/sort/$value/'),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  );
+  Map data = jsonDecode(response.body);
+  return data['sorts'];
+}
