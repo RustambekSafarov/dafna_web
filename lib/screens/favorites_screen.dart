@@ -96,6 +96,15 @@ class FavoritesScreen extends StatelessWidget {
                                         'https://ogabek007.pythonanywhere.com/' +
                                             snapshot.data![index]['img_url'],
                                         fit: BoxFit.cover,
+                                        loadingBuilder:
+                                            (context, child, loadingProgress) {
+                                          if (loadingProgress == null) {
+                                            return child;
+                                          }
+                                          return Image.network(
+                                            'https://telegra.ph/file/a775320534f348ae7f531.png',
+                                          );
+                                        },
                                       ),
                                     ],
                                   ),

@@ -158,7 +158,12 @@ class SearchResultScreen extends StatelessWidget {
                   ),
                 );
               } else {
-                return Text('Backend Error 🤦‍♂️');
+                return Center(
+                  child: Text(
+                    'So\'rovingiz bo\'yicha hech narsa topilmadi!',
+                    style: TextStyle(fontSize: 22),
+                  ),
+                );
               }
             },
           )

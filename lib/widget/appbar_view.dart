@@ -137,7 +137,7 @@ class _MyWidgetState extends State<AppBarView> {
                 child: TextButton(
                   onPressed: () {},
                   child: const Text(
-                    '+7 (495) 120 75',
+                    '+7 (495) 120 75 59',
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                 ),
@@ -160,7 +160,16 @@ class _MyWidgetState extends State<AppBarView> {
                     //   image: NetworkImage('https://mebel.dafna.uz/img/logo.png'),
                     // ),
                     Image.network(
-                        'https://telegra.ph/file/dc9cba1fd9f3f1b63d1d0.png'),
+                  'https://telegra.ph/file/dc9cba1fd9f3f1b63d1d0.png',
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) {
+                      return child;
+                    }
+                    return Image.network(
+                      'https://telegra.ph/file/a775320534f348ae7f531.png',
+                    );
+                  },
+                ),
               ),
               SizedBox(
                 width: constraints.maxWidth * 0.05,

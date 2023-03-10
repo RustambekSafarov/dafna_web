@@ -56,14 +56,31 @@ class _IntroPageState extends State<NewProducts> {
                                 padding: const EdgeInsets.all(5),
                                 width: 210,
                                 height: 210,
-                                decoration: BoxDecoration(
+                                // decoration: BoxDecoration(
+                                //   borderRadius: BorderRadius.circular(20),
+                                //   image: DecorationImage(
+                                //     fit: BoxFit.fitWidth,
+                                //     image: NetworkImage(
+                                //       'https://ogabek007.pythonanywhere.com/' +
+                                //           snapshot.data![index]['img_url'],
+
+                                //     ),
+                                //   ),
+                                // ),
+                                child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
-                                  image: DecorationImage(
-                                    fit: BoxFit.fitWidth,
-                                    image: NetworkImage(
-                                      'https://ogabek007.pythonanywhere.com/' +
-                                          snapshot.data![index]['img_url'],
-                                    ),
+                                  child: Image.network(
+                                    'https://ogabek007.pythonanywhere.com/' +
+                                        snapshot.data![index]['img_url'],
+                                    loadingBuilder:
+                                        (context, child, loadingProgress) {
+                                      if (loadingProgress == null) {
+                                        return child;
+                                      }
+                                      return Image.network(
+                                        'https://telegra.ph/file/a775320534f348ae7f531.png',
+                                      );
+                                    },
                                   ),
                                 ),
                               ),

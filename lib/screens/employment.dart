@@ -60,7 +60,16 @@ class Employment extends StatelessWidget {
             padding:
                 const EdgeInsets.only(left: 65, right: 65, top: 25, bottom: 25),
             child: Image.network(
-                'https://telegra.ph/file/c50c369ffa0cba19ca2e6.jpg'),
+              'https://telegra.ph/file/c50c369ffa0cba19ca2e6.jpg',
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) {
+                  return child;
+                }
+                return Image.network(
+                  'https://telegra.ph/file/a775320534f348ae7f531.png',
+                );
+              },
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 65),
@@ -90,12 +99,72 @@ class Employment extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
-          Image.network('https://telegra.ph/file/229f7c3e7a8a41495f66a.jpg'),
-          Image.network('https://telegra.ph/file/5d195620e2438249146a1.jpg'),
-          Image.network('https://telegra.ph/file/39b0bcdd8b452ef4a3575.jpg'),
-          Image.network('https://telegra.ph/file/1f67ef7b1cf6520cb2878.jpg'),
-          Image.network('https://telegra.ph/file/20967f4046332701bff76.jpg'),
-          Image.network('https://telegra.ph/file/9d879dde52bc61ed894ee.jpg'),
+          Image.network(
+            'https://telegra.ph/file/229f7c3e7a8a41495f66a.jpg',
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              }
+              return Image.network(
+                'https://telegra.ph/file/a775320534f348ae7f531.png',
+              );
+            },
+          ),
+          Image.network(
+            'https://telegra.ph/file/5d195620e2438249146a1.jpg',
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              }
+              return Image.network(
+                'https://telegra.ph/file/a775320534f348ae7f531.png',
+              );
+            },
+          ),
+          Image.network(
+            'https://telegra.ph/file/39b0bcdd8b452ef4a3575.jpg',
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              }
+              return Image.network(
+                'https://telegra.ph/file/a775320534f348ae7f531.png',
+              );
+            },
+          ),
+          Image.network(
+            'https://telegra.ph/file/1f67ef7b1cf6520cb2878.jpg',
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              }
+              return Image.network(
+                'https://telegra.ph/file/a775320534f348ae7f531.png',
+              );
+            },
+          ),
+          Image.network(
+            'https://telegra.ph/file/20967f4046332701bff76.jpg',
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              }
+              return Image.network(
+                'https://telegra.ph/file/a775320534f348ae7f531.png',
+              );
+            },
+          ),
+          Image.network(
+            'https://telegra.ph/file/9d879dde52bc61ed894ee.jpg',
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              }
+              return Image.network(
+                'https://telegra.ph/file/a775320534f348ae7f531.png',
+              );
+            },
+          ),
           SizedBox(
             height: 80,
           ),

@@ -35,7 +35,7 @@ class _OverViewState extends State<OverView> {
                     children: [
                       InkWell(
                         onTap: () {},
-                        child: SizedBox(
+                        child: Container(
                           height: 600,
                           width: double.infinity,
                           child: Image(

@@ -130,7 +130,18 @@ class _VideoViewScreenState extends State<VideoViewScreen> {
                                         borderRadius:
                                             BorderRadius.circular(55)),
                                     padding: const EdgeInsets.all(20.0),
-                                    child: Image.network(img[index]),
+                                    child: Image.network(
+                                      img[index],
+                                      loadingBuilder:
+                                          (context, child, loadingProgress) {
+                                        if (loadingProgress == null) {
+                                          return child;
+                                        }
+                                        return Image.network(
+                                          'https://telegra.ph/file/a775320534f348ae7f531.png',
+                                        );
+                                      },
+                                    ),
                                   ),
                                 ),
                                 Padding(

@@ -12,7 +12,17 @@ class IdeasPhotos extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       gridDelegate:
           SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-      itemBuilder: (context, index) => Image.network(forGrid[index]),
+      itemBuilder: (context, index) => Image.network(
+        forGrid[index],
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) {
+            return child;
+          }
+          return Image.network(
+            'https://telegra.ph/file/a775320534f348ae7f531.png',
+          );
+        },
+      ),
     );
 
     // Row(

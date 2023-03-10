@@ -71,14 +71,21 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
                     },
                     child: Container(
                       margin: const EdgeInsets.all(80),
-                      decoration: BoxDecoration(
+                      child: ClipRRect(
                         borderRadius: BorderRadius.circular(30),
-                        image: DecorationImage(
-                            image: NetworkImage(
-                              'https://ogabek007.pythonanywhere.com/' +
-                                  snapshot.data![index]['img_url'],
-                            ),
-                            fit: BoxFit.fitWidth),
+                        child: Image.network(
+                          'https://ogabek007.pythonanywhere.com/' +
+                              snapshot.data![index]['img_url'],
+                          fit: BoxFit.fitWidth,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) {
+                              return child;
+                            }
+                            return Image.network(
+                              'https://telegra.ph/file/a775320534f348ae7f531.png',
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
@@ -93,6 +100,10 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
                       color: Colors.black,
                     ),
                   ),
+                );
+              } else if (snapshot.connectionState == ConnectionState.none) {
+                return Center(
+                  child: Text('You have not internet!'),
                 );
               } else {
                 throw Exception('Own code error');
