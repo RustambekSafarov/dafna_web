@@ -24,6 +24,7 @@ class ProductDetailScreen extends StatefulWidget with ChangeNotifier {
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   int number = 0;
+  int? id;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,6 +110,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   future: getProducts(widget.productTypeId!),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
+                      id = widget.productTypeId!;
                       return Padding(
                         padding:
                             const EdgeInsets.only(left: 15, right: 65, top: 20),

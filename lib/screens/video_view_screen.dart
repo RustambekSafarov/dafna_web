@@ -5,6 +5,7 @@ import 'package:dafna_web/widget/appbar_view.dart';
 import 'package:dafna_web/widget/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/link.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
@@ -35,40 +36,73 @@ class _VideoViewScreenState extends State<VideoViewScreen> {
         toolbarHeight: 122,
         title: AppBarView(),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 100, right: 100, top: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Loyihalar bo\'yicha video sharhlar',
-              style: GoogleFonts.poppins(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            FutureBuilder(
-              future: getVideo(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return Expanded(
-                    child: GridView.builder(
-                      // physics: NeverScrollableScrollPhysics(),
-                      itemCount: snapshot.data!.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 20,
-                              crossAxisSpacing: 20,
-                              childAspectRatio: 1),
-                      itemBuilder: (context, index) => Link(
-                          uri: Uri.parse(snapshot.data![index]['video_url']),
-                          builder: (context, followLink) {
-                            return Column(
+      body: FutureBuilder(
+        future: getVideo(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return ListView(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 100),
+                        child: InkWell(
+                          onTap: () {
+                            context.goNamed('/home');
+                          },
+                          child: Text(
+                            'Asosiy ',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      Text(
+                        '/ Katalog',
+                        style: TextStyle(
+                            color: Colors.blue, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 65, right: 65),
+                  child: Divider(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 100),
+                  child: Text(
+                    'Loyihalar bo\'yicha video sharhlar',
+                    style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 100, right: 100),
+                  child: GridView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: snapshot.data!.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 20,
+                            crossAxisSpacing: 20,
+                            childAspectRatio: 1),
+                    itemBuilder: (context, index) => Link(
+                        uri: Uri.parse(snapshot.data![index]['video_url']),
+                        builder: (context, followLink) {
+                          return SizedBox(
+                            child: Column(
                               children: [
                                 Text(
                                   snapshot.data![index]['name'],
@@ -122,25 +156,24 @@ class _VideoViewScreenState extends State<VideoViewScreen> {
                                   ),
                                 )
                               ],
-                            );
-                          }),
-                    ),
-                  );
-                } else if (snapshot.connectionState ==
-                    ConnectionState.waiting) {
-                  return const Center(
-                    child: SpinKitHourGlass(
-                      size: 30,
-                      color: Colors.black,
-                    ),
-                  );
-                } else {
-                  return Text('Own Code Error');
-                }
-              },
-            ),
-          ],
-        ),
+                            ),
+                          );
+                        }),
+                  ),
+                ),
+              ],
+            );
+          } else if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: SpinKitHourGlass(
+                size: 30,
+                color: Colors.black,
+              ),
+            );
+          } else {
+            return Text('Own Code Error');
+          }
+        },
       ),
     );
   }

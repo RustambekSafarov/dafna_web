@@ -14,3 +14,15 @@ Future<void> addFavorite(int id) async {
     body: prodData,
   );
 }
+
+Future<void> addCard(int id) async {
+  String prodData = jsonEncode({
+    'prodouct': id,
+  });
+
+  final response = await http.post(
+    Uri.parse('$baseUrl/dafna_api/add_cart/'),
+    headers: {"Content-Type": "application/json"},
+    body: prodData,
+  );
+}

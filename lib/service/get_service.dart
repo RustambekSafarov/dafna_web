@@ -177,3 +177,16 @@ Future<List> getSearch(String value) async {
   Map data = jsonDecode(response.body);
   return data['sorts'];
 }
+
+// GET CART RESULT
+
+Future<Map> getCart() async {
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/get_cart/'),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  );
+  Map data = jsonDecode(response.body);
+  return data;
+}
