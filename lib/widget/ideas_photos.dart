@@ -12,13 +12,17 @@ class IdeasPhotos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      itemCount: defaultTargetPlatform == TargetPlatform.android
+      itemCount: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
           ? forGrid.length ~/ 4
           : forGrid.length,
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: defaultTargetPlatform == TargetPlatform.android ? 2 : 4,
+        crossAxisCount: defaultTargetPlatform == TargetPlatform.android ||
+                defaultTargetPlatform == TargetPlatform.iOS
+            ? 2
+            : 4,
         crossAxisSpacing: 5,
         mainAxisSpacing: 5,
       ),

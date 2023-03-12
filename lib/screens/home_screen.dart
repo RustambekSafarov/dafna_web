@@ -24,7 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: defaultTargetPlatform == TargetPlatform.android
+      appBar: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
           ? AppBar(
               bottom: PreferredSize(
                 preferredSize: Size(MediaQuery.of(context).size.width, 40),
@@ -94,9 +95,13 @@ class _HomeScreenState extends State<HomeScreen> {
               title: const AppBarView(),
               toolbarHeight: 120,
             ),
-      drawer: defaultTargetPlatform == TargetPlatform.android ? Drawer() : null,
+      drawer: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
+          ? Drawer()
+          : null,
       body: OverView(),
-      bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android
+      bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
           ? BottomAppBar(
               color: Colors.blue,
               child: Row(

@@ -14,8 +14,14 @@ class Sponsors extends StatelessWidget {
       fit: BoxFit.none,
       child: Padding(
         padding: EdgeInsets.only(
-            top: defaultTargetPlatform == TargetPlatform.android ? 20 : 50,
-            bottom: defaultTargetPlatform == TargetPlatform.android ? 20 : 50),
+            top: defaultTargetPlatform == TargetPlatform.android ||
+                    defaultTargetPlatform == TargetPlatform.iOS
+                ? 20
+                : 50,
+            bottom: defaultTargetPlatform == TargetPlatform.android ||
+                    defaultTargetPlatform == TargetPlatform.iOS
+                ? 20
+                : 50),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -28,10 +34,12 @@ class Sponsors extends StatelessWidget {
                 splashColor: Colors.transparent,
                 onTap: followLink,
                 child: Container(
-                  width: defaultTargetPlatform == TargetPlatform.android
+                  width: defaultTargetPlatform == TargetPlatform.android ||
+                          defaultTargetPlatform == TargetPlatform.iOS
                       ? 200
                       : 500,
-                  height: defaultTargetPlatform == TargetPlatform.android
+                  height: defaultTargetPlatform == TargetPlatform.android ||
+                          defaultTargetPlatform == TargetPlatform.iOS
                       ? 130
                       : 330,
                   decoration: BoxDecoration(
@@ -46,7 +54,10 @@ class Sponsors extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: defaultTargetPlatform == TargetPlatform.android ? 5 : 90,
+              width: defaultTargetPlatform == TargetPlatform.android ||
+                      defaultTargetPlatform == TargetPlatform.iOS
+                  ? 5
+                  : 90,
             ),
             InkWell(
               hoverColor: Colors.transparent,
@@ -61,10 +72,14 @@ class Sponsors extends StatelessWidget {
                 }
               },
               child: Container(
-                width:
-                    defaultTargetPlatform == TargetPlatform.android ? 200 : 500,
-                height:
-                    defaultTargetPlatform == TargetPlatform.android ? 130 : 330,
+                width: defaultTargetPlatform == TargetPlatform.android ||
+                        defaultTargetPlatform == TargetPlatform.iOS
+                    ? 200
+                    : 500,
+                height: defaultTargetPlatform == TargetPlatform.android ||
+                        defaultTargetPlatform == TargetPlatform.iOS
+                    ? 130
+                    : 330,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: const DecorationImage(

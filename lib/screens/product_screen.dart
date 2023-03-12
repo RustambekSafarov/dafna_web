@@ -31,10 +31,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer:
-            defaultTargetPlatform == TargetPlatform.android ? Drawer() : null,
+        drawer: defaultTargetPlatform == TargetPlatform.android ||
+                defaultTargetPlatform == TargetPlatform.iOS
+            ? Drawer()
+            : null,
         backgroundColor: Colors.white,
-        appBar: defaultTargetPlatform == TargetPlatform.android
+        appBar: defaultTargetPlatform == TargetPlatform.android ||
+                defaultTargetPlatform == TargetPlatform.iOS
             ? AppBar(
                 bottom: PreferredSize(
                   preferredSize: Size(MediaQuery.of(context).size.width, 40),
@@ -104,7 +107,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 toolbarHeight: 120,
                 title: const AppBarView(),
               ),
-        body: defaultTargetPlatform == TargetPlatform.android
+        body: defaultTargetPlatform == TargetPlatform.android ||
+                defaultTargetPlatform == TargetPlatform.iOS
             ? ListView(
                 children: [
                   FutureBuilder(
@@ -664,7 +668,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   // const Footer()
                 ],
               ),
-        bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android
+        bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android ||
+                defaultTargetPlatform == TargetPlatform.iOS
             ? BottomAppBar(
                 color: Colors.blue,
                 child: Row(

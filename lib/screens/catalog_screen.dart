@@ -19,8 +19,12 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: defaultTargetPlatform == TargetPlatform.android ? Drawer() : null,
-      appBar: defaultTargetPlatform == TargetPlatform.android
+      drawer: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
+          ? Drawer()
+          : null,
+      appBar: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
           ? AppBar(
               bottom: PreferredSize(
                 preferredSize: Size(MediaQuery.of(context).size.width, 40),
@@ -90,7 +94,8 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
               title: const AppBarView(),
               toolbarHeight: 122,
             ),
-      body: defaultTargetPlatform == TargetPlatform.android
+      body: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
           ? ListView(
               children: [
                 FutureBuilder(

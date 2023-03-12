@@ -58,11 +58,15 @@ class _IntroPageState extends State<NewProducts> {
                               Container(
                                 padding: const EdgeInsets.all(5),
                                 width: defaultTargetPlatform ==
-                                        TargetPlatform.android
+                                            TargetPlatform.android ||
+                                        defaultTargetPlatform ==
+                                            TargetPlatform.iOS
                                     ? 120
                                     : 210,
                                 height: defaultTargetPlatform ==
-                                        TargetPlatform.android
+                                            TargetPlatform.android ||
+                                        defaultTargetPlatform ==
+                                            TargetPlatform.iOS
                                     ? 120
                                     : 210,
                                 child: ClipRRect(
@@ -122,14 +126,16 @@ class _IntroPageState extends State<NewProducts> {
                         activeIndex = index;
                       });
                     },
-                    height: defaultTargetPlatform == TargetPlatform.android
+                    height: defaultTargetPlatform == TargetPlatform.android ||
+                            defaultTargetPlatform == TargetPlatform.iOS
                         ? 240
                         : 300,
                     autoPlay: true,
                     autoPlayInterval: const Duration(seconds: 4),
                     disableCenter: true,
                     viewportFraction:
-                        defaultTargetPlatform == TargetPlatform.android
+                        defaultTargetPlatform == TargetPlatform.android ||
+                                defaultTargetPlatform == TargetPlatform.iOS
                             ? 0.9
                             : 0.2,
                   ),
@@ -148,7 +154,8 @@ class _IntroPageState extends State<NewProducts> {
                   activeDotColor: Colors.blue,
                   dotColor: Color.fromARGB(255, 143, 210, 255),
                   dotHeight: 7,
-                  dotWidth: defaultTargetPlatform == TargetPlatform.android
+                  dotWidth: defaultTargetPlatform == TargetPlatform.android ||
+                          defaultTargetPlatform == TargetPlatform.iOS
                       ? 30
                       : 100,
                   type: WormType.thin,

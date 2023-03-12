@@ -26,7 +26,8 @@ class OverView extends StatefulWidget {
 class _OverViewState extends State<OverView> {
   @override
   Widget build(BuildContext context) {
-    return defaultTargetPlatform == TargetPlatform.android
+    return defaultTargetPlatform == TargetPlatform.android ||
+            defaultTargetPlatform == TargetPlatform.iOS
         ? Container(
             child: FutureBuilder(
               future: getCatalog(),

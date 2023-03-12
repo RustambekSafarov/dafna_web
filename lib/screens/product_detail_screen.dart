@@ -30,9 +30,13 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: defaultTargetPlatform == TargetPlatform.android ? Drawer() : null,
+      drawer: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
+          ? Drawer()
+          : null,
       backgroundColor: Colors.white,
-      appBar: defaultTargetPlatform == TargetPlatform.android
+      appBar: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
           ? AppBar(
               bottom: PreferredSize(
                 preferredSize: Size(MediaQuery.of(context).size.width, 40),
@@ -102,7 +106,8 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
               toolbarHeight: 122,
               title: const AppBarView(),
             ),
-      body: defaultTargetPlatform == TargetPlatform.android
+      body: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
           ? ListView(
               children: [
                 FutureBuilder(
@@ -580,7 +585,8 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                 ),
               ],
             ),
-      bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android
+      bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
           ? BottomAppBar(
               color: Colors.blue,
               child: Row(
