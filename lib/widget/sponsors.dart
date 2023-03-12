@@ -14,16 +14,8 @@ class Sponsors extends StatelessWidget {
       fit: BoxFit.none,
       child: Padding(
         padding: EdgeInsets.only(
-            top: Platform.isAndroid
-                ? 20
-                : kIsWeb
-                    ? 50
-                    : 0,
-            bottom: Platform.isAndroid
-                ? 20
-                : kIsWeb
-                    ? 50
-                    : 0),
+            top: defaultTargetPlatform == TargetPlatform.android ? 20 : 50,
+            bottom: defaultTargetPlatform == TargetPlatform.android ? 20 : 50),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -36,8 +28,12 @@ class Sponsors extends StatelessWidget {
                 splashColor: Colors.transparent,
                 onTap: followLink,
                 child: Container(
-                  width: Platform.isAndroid ? 200 : 500,
-                  height: Platform.isAndroid ? 130 : 330,
+                  width: defaultTargetPlatform == TargetPlatform.android
+                      ? 200
+                      : 500,
+                  height: defaultTargetPlatform == TargetPlatform.android
+                      ? 130
+                      : 330,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     image: const DecorationImage(
@@ -50,7 +46,7 @@ class Sponsors extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: Platform.isAndroid ? 5 : 90,
+              width: defaultTargetPlatform == TargetPlatform.android ? 5 : 90,
             ),
             InkWell(
               hoverColor: Colors.transparent,
@@ -65,8 +61,10 @@ class Sponsors extends StatelessWidget {
                 }
               },
               child: Container(
-                width: Platform.isAndroid ? 200 : 500,
-                height: Platform.isAndroid ? 130 : 330,
+                width:
+                    defaultTargetPlatform == TargetPlatform.android ? 200 : 500,
+                height:
+                    defaultTargetPlatform == TargetPlatform.android ? 130 : 330,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: const DecorationImage(
