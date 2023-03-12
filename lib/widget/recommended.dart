@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -53,15 +55,15 @@ class _IntroPageState extends State<Recommendations> {
                       onTap: () {
                         context.goNamed('/product-info', extra: id);
                       },
-                      child: Stack(
+                      child: Column(
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
                                 padding: const EdgeInsets.all(5),
-                                width: 210,
-                                height: 210,
+                                width: Platform.isAndroid ? 120 : 210,
+                                height: Platform.isAndroid ? 120 : 210,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   image: DecorationImage(
@@ -75,37 +77,31 @@ class _IntroPageState extends State<Recommendations> {
                               ),
                             ],
                           ),
-                          Positioned(
-                            // height: 55,
-                            width: 220,
-                            bottom: 2,
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: 40,
-                                  child: Text(
-                                    snapshot.data![index]['name'].toUpperCase(),
-                                    textAlign: TextAlign.center,
-                                    maxLines: 2,
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 14.5,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                    ),
+                          Column(
+                            children: [
+                              SizedBox(
+                                height: 40,
+                                child: Text(
+                                  snapshot.data![index]['name'].toUpperCase(),
+                                  textAlign: TextAlign.center,
+                                  maxLines: 2,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 14.5,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
                                   ),
                                 ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  '${snapshot.data![index]['price']} so`m',
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              Text(
+                                '${snapshot.data![index]['price']} so`m',
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -117,11 +113,11 @@ class _IntroPageState extends State<Recommendations> {
                         activeIndex = index;
                       });
                     },
-                    height: 300,
+                    height: Platform.isAndroid ? 240 : 300,
                     autoPlay: true,
                     autoPlayInterval: const Duration(seconds: 4),
                     disableCenter: true,
-                    viewportFraction: 0.2,
+                    viewportFraction: Platform.isAndroid ? 0.9 : 0.2,
                   ),
                 ),
               ),
@@ -137,11 +133,11 @@ class _IntroPageState extends State<Recommendations> {
                   _onDotClicked(i);
                 },
                 count: snapshot.data!.length,
-                effect: const WormEffect(
+                effect: WormEffect(
                   activeDotColor: Colors.blue,
                   dotColor: Color.fromARGB(255, 143, 210, 255),
                   dotHeight: 7,
-                  dotWidth: 100,
+                  dotWidth: Platform.isAndroid ? 30 : 100,
                   type: WormType.thin,
                   // strokeWidth: 5,
                 ),

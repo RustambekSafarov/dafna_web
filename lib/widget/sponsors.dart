@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -10,7 +12,9 @@ class Sponsors extends StatelessWidget {
     return FittedBox(
       fit: BoxFit.none,
       child: Padding(
-        padding: const EdgeInsets.only(top: 50, bottom: 50),
+        padding: EdgeInsets.only(
+            top: Platform.isAndroid ? 20 : 50,
+            bottom: Platform.isAndroid ? 20 : 50),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -23,8 +27,8 @@ class Sponsors extends StatelessWidget {
                 splashColor: Colors.transparent,
                 onTap: followLink,
                 child: Container(
-                  width: 500,
-                  height: 330,
+                  width: Platform.isAndroid ? 200 : 500,
+                  height: Platform.isAndroid ? 130 : 330,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     image: const DecorationImage(
@@ -36,8 +40,8 @@ class Sponsors extends StatelessWidget {
                 ),
               ),
             ),
-          const   SizedBox(
-              width: 90,
+            SizedBox(
+              width: Platform.isAndroid ? 5 : 90,
             ),
             InkWell(
               hoverColor: Colors.transparent,
@@ -52,8 +56,8 @@ class Sponsors extends StatelessWidget {
                 }
               },
               child: Container(
-                width: 500,
-                height: 330,
+                width: Platform.isAndroid ? 200 : 500,
+                height: Platform.isAndroid ? 130 : 330,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: const DecorationImage(

@@ -126,7 +126,7 @@ class MyApp extends StatelessWidget {
           GoRoute(
             path: '/favorites',
             name: FavoritesScreen.routeName,
-            builder: (context, state) => const FavoritesScreen(),
+            builder: (context, state) => FavoritesScreen(),
           ),
           GoRoute(
             path: '/search-result',

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dafna_web/models/practick.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -9,18 +11,22 @@ class IdeasPhotos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      itemCount: Platform.isAndroid ? forGrid.length ~/ 4 : forGrid.length,
+      shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
-      gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: Platform.isAndroid ? 2 : 4,
+        crossAxisSpacing: 5,
+        mainAxisSpacing: 5,
+      ),
       itemBuilder: (context, index) => Image.network(
         forGrid[index],
+        fit: BoxFit.cover,
         loadingBuilder: (context, child, loadingProgress) {
           if (loadingProgress == null) {
             return child;
           }
-          return Image.network(
-            'https://telegra.ph/file/a775320534f348ae7f531.png',
-          );
+          return Placeholder();
         },
       ),
     );
