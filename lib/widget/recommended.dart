@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../service/get_service.dart';
@@ -62,8 +63,14 @@ class _IntroPageState extends State<Recommendations> {
                             children: [
                               Container(
                                 padding: const EdgeInsets.all(5),
-                                width: Platform.isAndroid ? 120 : 210,
-                                height: Platform.isAndroid ? 120 : 210,
+                                width: defaultTargetPlatform ==
+                                        TargetPlatform.android
+                                    ? 120
+                                    : 210,
+                                height: defaultTargetPlatform ==
+                                        TargetPlatform.android
+                                    ? 120
+                                    : 210,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   image: DecorationImage(
@@ -113,11 +120,16 @@ class _IntroPageState extends State<Recommendations> {
                         activeIndex = index;
                       });
                     },
-                    height: Platform.isAndroid ? 240 : 300,
+                    height: defaultTargetPlatform == TargetPlatform.android
+                        ? 240
+                        : 300,
                     autoPlay: true,
                     autoPlayInterval: const Duration(seconds: 4),
                     disableCenter: true,
-                    viewportFraction: Platform.isAndroid ? 0.9 : 0.2,
+                    viewportFraction:
+                        defaultTargetPlatform == TargetPlatform.android
+                            ? 0.9
+                            : 0.2,
                   ),
                 ),
               ),
@@ -137,7 +149,9 @@ class _IntroPageState extends State<Recommendations> {
                   activeDotColor: Colors.blue,
                   dotColor: Color.fromARGB(255, 143, 210, 255),
                   dotHeight: 7,
-                  dotWidth: Platform.isAndroid ? 30 : 100,
+                  dotWidth: defaultTargetPlatform == TargetPlatform.android
+                      ? 30
+                      : 100,
                   type: WormType.thin,
                   // strokeWidth: 5,
                 ),
@@ -152,7 +166,7 @@ class _IntroPageState extends State<Recommendations> {
             ),
           );
         } else {
-          throw Exception('Own Code Error');
+          throw Exception('Network Error');
         }
       },
     );
