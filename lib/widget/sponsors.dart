@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -13,8 +14,16 @@ class Sponsors extends StatelessWidget {
       fit: BoxFit.none,
       child: Padding(
         padding: EdgeInsets.only(
-            top: Platform.isAndroid ? 20 : 50,
-            bottom: Platform.isAndroid ? 20 : 50),
+            top: Platform.isAndroid
+                ? 20
+                : kIsWeb
+                    ? 50
+                    : 0,
+            bottom: Platform.isAndroid
+                ? 20
+                : kIsWeb
+                    ? 50
+                    : 0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

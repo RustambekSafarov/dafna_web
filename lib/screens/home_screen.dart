@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:dafna_web/widget/drawer_view.dart';
 import 'package:dafna_web/widget/overview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -95,62 +96,66 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
       drawer: Platform.isAndroid ? Drawer() : null,
       body: OverView(),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.blue,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              icon: Icon(
-                FontAwesomeIcons.house,
-                color: Colors.white,
+      bottomNavigationBar: Platform.isAndroid
+          ? BottomAppBar(
+              color: Colors.blue,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    icon: Icon(
+                      FontAwesomeIcons.house,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      context.goNamed('/home');
+                    },
+                  ),
+                  IconButton(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    icon: Icon(
+                      FontAwesomeIcons.barsStaggered,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      context.goNamed('/catalog');
+                    },
+                  ),
+                  IconButton(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    icon: Icon(
+                      FontAwesomeIcons.basketShopping,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      // context.goNamed('/catalog');
+                    },
+                  ),
+                  IconButton(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    icon: Icon(
+                      FontAwesomeIcons.heartCircleCheck,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      context.goNamed('/favorites');
+                    },
+                  ),
+                ],
               ),
-              onPressed: () {
-                context.goNamed('/home');
-              },
-            ),
-            IconButton(
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              icon: Icon(
-                FontAwesomeIcons.barsStaggered,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                context.goNamed('/catalog');
-              },
-            ),
-            IconButton(
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              icon: Icon(
-                FontAwesomeIcons.basketShopping,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                // context.goNamed('/catalog');
-              },
-            ),
-            IconButton(
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              icon: Icon(
-                FontAwesomeIcons.heartCircleCheck,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                context.goNamed('/favorites');
-              },
-            ),
-          ],
-        ),
-      ),
+            )
+          : kIsWeb
+              ? null
+              : null,
     );
   }
 }

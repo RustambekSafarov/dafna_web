@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:dafna_web/widget/footer.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -147,167 +148,174 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
                 )
               ],
             )
-          : ListView(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 150),
-                        child: InkWell(
-                          onTap: () {
-                            context.goNamed('/home');
-                          },
-                          child: Text(
-                            'Asosiy /',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Text(
-                        ' Katalog',
-                        style: TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 150, right: 150),
-                  child: Divider(),
-                ),
-                FutureBuilder(
-                  future: getCatalog(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return GridView.builder(
-                        shrinkWrap: true,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 1.3,
-                        ),
-                        itemCount: snapshot.data!.length,
-                        itemBuilder: (context, index) => InkWell(
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          splashColor: Colors.transparent,
-                          onTap: () {
-                            final id = snapshot.data![index]['id'];
-                            context.goNamed('/catalog-detail', extra: id);
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.all(80),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(30),
-                              child: Image.network(
-                                'https://ogabek007.pythonanywhere.com/' +
-                                    snapshot.data![index]['img_url'],
-                                fit: BoxFit.fitWidth,
-                                loadingBuilder:
-                                    (context, child, loadingProgress) {
-                                  if (loadingProgress == null) {
-                                    return child;
-                                  }
-                                  return Image.network(
-                                    'https://telegra.ph/file/a775320534f348ae7f531.png',
-                                  );
-                                },
+          : kIsWeb
+              ? ListView(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 150),
+                            child: InkWell(
+                              onTap: () {
+                                context.goNamed('/home');
+                              },
+                              child: Text(
+                                'Asosiy /',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
-                        ),
-                      );
-                    } else if (snapshot.connectionState ==
-                        ConnectionState.waiting) {
-                      return const SizedBox(
-                        height: 500,
-                        child: Center(
-                          child: SpinKitHourGlass(
-                            // duration: Duration(seconds: 2),
-                            size: 30,
-                            color: Colors.black,
+                          Text(
+                            ' Katalog',
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold),
                           ),
-                        ),
-                      );
-                    } else if (snapshot.connectionState ==
-                        ConnectionState.none) {
-                      return Center(
-                        child: Text('You have not internet!'),
-                      );
-                    } else {
-                      throw Exception('Own code error');
-                    }
-                  },
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 150, right: 150),
+                      child: Divider(),
+                    ),
+                    FutureBuilder(
+                      future: getCatalog(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return GridView.builder(
+                            shrinkWrap: true,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              childAspectRatio: 1.3,
+                            ),
+                            itemCount: snapshot.data!.length,
+                            itemBuilder: (context, index) => InkWell(
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              splashColor: Colors.transparent,
+                              onTap: () {
+                                final id = snapshot.data![index]['id'];
+                                context.goNamed('/catalog-detail', extra: id);
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.all(80),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Image.network(
+                                    'https://ogabek007.pythonanywhere.com/' +
+                                        snapshot.data![index]['img_url'],
+                                    fit: BoxFit.fitWidth,
+                                    loadingBuilder:
+                                        (context, child, loadingProgress) {
+                                      if (loadingProgress == null) {
+                                        return child;
+                                      }
+                                      return Image.network(
+                                        'https://telegra.ph/file/a775320534f348ae7f531.png',
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        } else if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const SizedBox(
+                            height: 500,
+                            child: Center(
+                              child: SpinKitHourGlass(
+                                // duration: Duration(seconds: 2),
+                                size: 30,
+                                color: Colors.black,
+                              ),
+                            ),
+                          );
+                        } else if (snapshot.connectionState ==
+                            ConnectionState.none) {
+                          return Center(
+                            child: Text('You have not internet!'),
+                          );
+                        } else {
+                          throw Exception('Own code error');
+                        }
+                      },
+                    ),
+                    Container(
+                      alignment: Alignment.topCenter,
+                      color: Colors.blue,
+                      // width: double.infinity,
+                      height: 320,
+                      child: const Footer(),
+                    ),
+                  ],
+                )
+              : Center(
+                  child: Text('Sorry! Your platform don\' match this program.'),
                 ),
-                Container(
-                  alignment: Alignment.topCenter,
-                  color: Colors.blue,
-                  // width: double.infinity,
-                  height: 320,
-                  child: const Footer(),
-                ),
-              ],
-            ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.blue,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              icon: Icon(
-                FontAwesomeIcons.house,
-                color: Colors.white,
+      bottomNavigationBar: Platform.isAndroid
+          ? BottomAppBar(
+              color: Colors.blue,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    icon: Icon(
+                      FontAwesomeIcons.house,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      context.goNamed('/home');
+                    },
+                  ),
+                  IconButton(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    icon: Icon(
+                      FontAwesomeIcons.barsStaggered,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      context.goNamed('/catalog');
+                    },
+                  ),
+                  IconButton(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    icon: Icon(
+                      FontAwesomeIcons.basketShopping,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      // context.goNamed('/catalog');
+                    },
+                  ),
+                  IconButton(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    icon: Icon(
+                      FontAwesomeIcons.heartCircleCheck,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      context.goNamed('/favorites');
+                    },
+                  ),
+                ],
               ),
-              onPressed: () {
-                context.goNamed('/home');
-              },
-            ),
-            IconButton(
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              icon: Icon(
-                FontAwesomeIcons.barsStaggered,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                context.goNamed('/catalog');
-              },
-            ),
-            IconButton(
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              icon: Icon(
-                FontAwesomeIcons.basketShopping,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                // context.goNamed('/catalog');
-              },
-            ),
-            IconButton(
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              icon: Icon(
-                FontAwesomeIcons.heartCircleCheck,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                context.goNamed('/favorites');
-              },
-            ),
-          ],
-        ),
-      ),
+            )
+          : null,
     );
   }
 }
