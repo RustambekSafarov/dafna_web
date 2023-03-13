@@ -11,6 +11,7 @@ import 'package:go_router/go_router.dart';
 
 import '../service/get_service.dart';
 import '../widget/appbar_view.dart';
+import '../widget/drawer_view.dart';
 
 class CatalogScreen extends StatelessWidget with ChangeNotifier {
   CatalogScreen({super.key});
@@ -21,7 +22,9 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
     return Scaffold(
       drawer: defaultTargetPlatform == TargetPlatform.android ||
               defaultTargetPlatform == TargetPlatform.iOS
-          ? Drawer()
+          ? Drawer(
+              child: MainDrawer(),
+            )
           : null,
       appBar: defaultTargetPlatform == TargetPlatform.android ||
               defaultTargetPlatform == TargetPlatform.iOS
@@ -96,167 +99,171 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
             ),
       body: defaultTargetPlatform == TargetPlatform.android ||
               defaultTargetPlatform == TargetPlatform.iOS
-          ? ListView(
-              children: [
-                FutureBuilder(
-                  future: getCatalog(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: GridView.builder(
-                          physics: NeverScrollableScrollPhysics(),
-                          itemCount: 4,
-                          shrinkWrap: true,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  childAspectRatio: 1.4,
-                                  crossAxisSpacing: 10,
-                                  mainAxisSpacing: 10),
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              splashColor: Colors.transparent,
-                              onTap: () {
-                                context.goNamed('/catalog-detail',
-                                    extra: snapshot.data![index]['id']);
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Image.network(
-                                    'https://ogabek007.pythonanywhere.com/' +
-                                        snapshot.data![index]['img_url'],
-                                    fit: BoxFit.fitWidth,
+          ? Center(
+              child: ListView(
+                children: [
+                  FutureBuilder(
+                    future: getCatalog(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: GridView.builder(
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: 4,
+                            shrinkWrap: true,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    childAspectRatio: 1.4,
+                                    crossAxisSpacing: 10,
+                                    mainAxisSpacing: 10),
+                            itemBuilder: (context, index) {
+                              return InkWell(
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                splashColor: Colors.transparent,
+                                onTap: () {
+                                  context.goNamed('/catalog-detail',
+                                      extra: snapshot.data![index]['id']);
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(0),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Image.network(
+                                      'https://ogabek007.pythonanywhere.com/' +
+                                          snapshot.data![index]['img_url'],
+                                      fit: BoxFit.fitWidth,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            );
-                          },
-                        ),
-                      );
-                    } else if (snapshot.connectionState ==
-                        ConnectionState.waiting) {
-                      return Center(
-                        child: SpinKitHourGlass(
-                          color: Colors.black,
-                          size: 30,
-                        ),
-                      );
-                    } else {
-                      return Center(child: Text('Network Error!'));
-                    }
-                  },
-                )
-              ],
-            )
-          : ListView(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 150),
-                        child: InkWell(
-                          onTap: () {
-                            context.goNamed('/home');
-                          },
-                          child: Text(
-                            'Asosiy /',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                              );
+                            },
                           ),
-                        ),
-                      ),
-                      Text(
-                        ' Katalog',
-                        style: TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 150, right: 150),
-                  child: Divider(),
-                ),
-                FutureBuilder(
-                  future: getCatalog(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return GridView.builder(
-                        shrinkWrap: true,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 1.3,
-                        ),
-                        itemCount: snapshot.data!.length,
-                        itemBuilder: (context, index) => InkWell(
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          splashColor: Colors.transparent,
-                          onTap: () {
-                            final id = snapshot.data![index]['id'];
-                            context.goNamed('/catalog-detail', extra: id);
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.all(80),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(30),
-                              child: Image.network(
-                                'https://ogabek007.pythonanywhere.com/' +
-                                    snapshot.data![index]['img_url'],
-                                fit: BoxFit.fitWidth,
-                                loadingBuilder:
-                                    (context, child, loadingProgress) {
-                                  if (loadingProgress == null) {
-                                    return child;
-                                  }
-                                  return Image.network(
-                                    'https://telegra.ph/file/a775320534f348ae7f531.png',
-                                  );
-                                },
-                              ),
+                        );
+                      } else if (snapshot.connectionState ==
+                          ConnectionState.waiting) {
+                        return Center(
+                          child: SpinKitHourGlass(
+                            color: Colors.black,
+                            size: 30,
+                          ),
+                        );
+                      } else {
+                        return Center(child: Text('Network Error!'));
+                      }
+                    },
+                  )
+                ],
+              ),
+            )
+          : Center(
+              child: ListView(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 150),
+                          child: InkWell(
+                            onTap: () {
+                              context.goNamed('/home');
+                            },
+                            child: Text(
+                              'Asosiy /',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
-                      );
-                    } else if (snapshot.connectionState ==
-                        ConnectionState.waiting) {
-                      return const SizedBox(
-                        height: 500,
-                        child: Center(
-                          child: SpinKitHourGlass(
-                            // duration: Duration(seconds: 2),
-                            size: 30,
-                            color: Colors.black,
-                          ),
+                        Text(
+                          ' Katalog',
+                          style: TextStyle(
+                              color: Colors.blue, fontWeight: FontWeight.bold),
                         ),
-                      );
-                    } else if (snapshot.connectionState ==
-                        ConnectionState.none) {
-                      return Center(
-                        child: Text('You have not internet!'),
-                      );
-                    } else {
-                      throw Exception('Own code error');
-                    }
-                  },
-                ),
-                Container(
-                  alignment: Alignment.topCenter,
-                  color: Colors.blue,
-                  // width: double.infinity,
-                  height: 320,
-                  child: const Footer(),
-                ),
-              ],
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 150, right: 150),
+                    child: Divider(),
+                  ),
+                  FutureBuilder(
+                    future: getCatalog(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return GridView.builder(
+                          shrinkWrap: true,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 1.3,
+                          ),
+                          itemCount: snapshot.data!.length,
+                          itemBuilder: (context, index) => InkWell(
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            splashColor: Colors.transparent,
+                            onTap: () {
+                              final id = snapshot.data![index]['id'];
+                              context.goNamed('/catalog-detail', extra: id);
+                            },
+                            child: Container(
+                              margin: const EdgeInsets.all(80),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(30),
+                                child: Image.network(
+                                  'https://ogabek007.pythonanywhere.com/' +
+                                      snapshot.data![index]['img_url'],
+                                  fit: BoxFit.fitWidth,
+                                  loadingBuilder:
+                                      (context, child, loadingProgress) {
+                                    if (loadingProgress == null) {
+                                      return child;
+                                    }
+                                    return Image.network(
+                                      'https://telegra.ph/file/a775320534f348ae7f531.png',
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      } else if (snapshot.connectionState ==
+                          ConnectionState.waiting) {
+                        return const SizedBox(
+                          height: 500,
+                          child: Center(
+                            child: SpinKitHourGlass(
+                              // duration: Duration(seconds: 2),
+                              size: 30,
+                              color: Colors.black,
+                            ),
+                          ),
+                        );
+                      } else if (snapshot.connectionState ==
+                          ConnectionState.none) {
+                        return Center(
+                          child: Text('You have not internet!'),
+                        );
+                      } else {
+                        throw Exception('Own code error');
+                      }
+                    },
+                  ),
+                  Container(
+                    alignment: Alignment.topCenter,
+                    color: Colors.blue,
+                    // width: double.infinity,
+                    height: 320,
+                    child: const Footer(),
+                  ),
+                ],
+              ),
             ),
       bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android ||
               defaultTargetPlatform == TargetPlatform.iOS

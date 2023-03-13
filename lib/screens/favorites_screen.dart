@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+
+import '../widget/drawer_view.dart';
 
 class FavoritesScreen extends StatelessWidget {
   FavoritesScreen({super.key});
@@ -18,7 +21,9 @@ class FavoritesScreen extends StatelessWidget {
     return Scaffold(
       drawer: defaultTargetPlatform == TargetPlatform.android ||
               defaultTargetPlatform == TargetPlatform.iOS
-          ? Drawer()
+          ? Drawer(
+              child: MainDrawer(),
+            )
           : null,
       appBar: defaultTargetPlatform == TargetPlatform.android ||
               defaultTargetPlatform == TargetPlatform.iOS
@@ -207,46 +212,47 @@ class FavoritesScreen extends StatelessWidget {
                 }
               },
             )
-          : ListView(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 150),
-                        child: InkWell(
-                          onTap: () {
-                            context.goNamed('/home');
-                          },
-                          child: Text(
-                            'Asosiy /',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+          : Center(
+              child: ListView(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 150),
+                          child: InkWell(
+                            onTap: () {
+                              context.goNamed('/home');
+                            },
+                            child: Text(
+                              'Asosiy /',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
-                      ),
-                      Text(
-                        ' Sevimlilar',
-                        style: TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                        Text(
+                          ' Sevimlilar',
+                          style: TextStyle(
+                              color: Colors.blue, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 150, right: 150),
-                  child: Divider(),
-                ),
-                FutureBuilder(
-                  future: getFavorite(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return Padding(
-                        padding:
-                            const EdgeInsets.only(left: 65, right: 65, top: 20),
-                        child: GridView.builder(
+                  Padding(
+                    padding: const EdgeInsets.only(left: 150, right: 150),
+                    child: Divider(),
+                  ),
+                  FutureBuilder(
+                    future: getFavorite(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                              left: 65, right: 65, top: 20),
+                          child: GridView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: snapshot.data!.length,
@@ -355,24 +361,86 @@ class FavoritesScreen extends StatelessWidget {
                                   ],
                                 ),
                               );
-                            }),
-                      );
-                      ;
-                    } else if (snapshot.connectionState ==
-                        ConnectionState.waiting) {
-                      return const Center(
-                        child: SpinKitHourGlass(
-                          size: 30,
-                          color: Colors.black,
-                        ),
-                      );
-                    } else {
-                      return const Center(child: Text('Own Code Error'));
-                    }
-                  },
-                ),
-              ],
+                            },
+                          ),
+                        );
+                      } else if (snapshot.connectionState ==
+                          ConnectionState.waiting) {
+                        return const Center(
+                          child: SpinKitHourGlass(
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                        );
+                      } else {
+                        return const Center(child: Text('Own Code Error'));
+                      }
+                    },
+                  ),
+                ],
+              ),
             ),
+      bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
+          ? BottomAppBar(
+              color: Colors.blue,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    icon: Icon(
+                      FontAwesomeIcons.house,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      context.goNamed('/home');
+                    },
+                  ),
+                  IconButton(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    icon: Icon(
+                      FontAwesomeIcons.barsStaggered,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      context.goNamed('/catalog');
+                    },
+                  ),
+                  IconButton(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    icon: Icon(
+                      FontAwesomeIcons.basketShopping,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      // context.goNamed('/catalog');
+                    },
+                  ),
+                  IconButton(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    icon: Icon(
+                      FontAwesomeIcons.heartCircleCheck,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      context.goNamed('/favorites');
+                    },
+                  ),
+                ],
+              ),
+            )
+          : kIsWeb
+              ? null
+              : null,
     );
   }
 }
