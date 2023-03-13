@@ -1,5 +1,6 @@
 import 'package:dafna_web/service/get_service.dart';
 import 'package:dafna_web/widget/appbar_view.dart';
+import 'package:dafna_web/widget/drawer_view.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -18,7 +19,9 @@ class SearchResultScreen extends StatelessWidget {
     return Scaffold(
         drawer: defaultTargetPlatform == TargetPlatform.android ||
                 defaultTargetPlatform == TargetPlatform.iOS
-            ? Drawer()
+            ? Drawer(
+                child: MainDrawer(),
+              )
             : null,
         appBar: defaultTargetPlatform == TargetPlatform.android ||
                 defaultTargetPlatform == TargetPlatform.iOS

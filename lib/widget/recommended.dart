@@ -129,7 +129,7 @@ class _IntroPageState extends State<Recommendations> {
                         ? 240
                         : 300,
                     autoPlay: true,
-                    autoPlayInterval: const Duration(seconds: 4),
+                    autoPlayInterval: const Duration(seconds: 6),
                     disableCenter: true,
                     viewportFraction:
                         defaultTargetPlatform == TargetPlatform.android ||
