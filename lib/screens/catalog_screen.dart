@@ -258,7 +258,8 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
                 ),
               ],
             ),
-      bottomNavigationBar: Platform.isAndroid
+      bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
           ? BottomAppBar(
               color: Colors.blue,
               child: Row(
