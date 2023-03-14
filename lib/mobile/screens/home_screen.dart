@@ -10,15 +10,18 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
+import '../theme/theme_manager.dart';
 import '../widgets/drawer_view.dart';
 
-class HomeScreenM extends StatefulWidget {
-  const HomeScreenM({super.key});
+class HomeScreenM extends StatefulWidget with ChangeNotifier {
+  HomeScreenM({super.key});
   static const routeName = '/home';
 
   @override
   State<HomeScreenM> createState() => _HomeScreenMState();
 }
+
+ThemeManager _themeManager = ThemeManager();
 
 class _HomeScreenMState extends State<HomeScreenM> {
   final TextEditingController _controller = TextEditingController();
@@ -28,7 +31,9 @@ class _HomeScreenMState extends State<HomeScreenM> {
     ShoppingWidget(),
     FavoriteWidget(),
   ];
+  bool isDark = false;
   int i = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,6 +96,18 @@ class _HomeScreenMState extends State<HomeScreenM> {
           ],
         ),
         actions: [
+          InkWell(
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            onTap: () {
+              setState(() {
+                isDark = !isDark;
+                _themeManager.toogleTheme(isDark);
+              });
+            },
+            child: Icon(isDark ? Icons.sunny : Icons.dark_mode),
+          ),
           IconButton(
             onPressed: () {
               setState(() {

@@ -10,7 +10,7 @@ class MobileNavigations {
     GoRoute(
       path: '/home',
       name: HomeScreenM.routeName,
-      builder: (context, state) => const HomeScreenM(),
+      builder: (context, state) => HomeScreenM(),
     ),
     GoRoute(
       path: '/catalog-detail',

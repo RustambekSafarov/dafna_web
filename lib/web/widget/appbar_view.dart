@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
+import '../../mobile/theme/theme_manager.dart';
 import 'drawer_view.dart';
 
 class AppBarView extends StatefulWidget {
@@ -12,9 +13,12 @@ class AppBarView extends StatefulWidget {
   State<AppBarView> createState() => _MyWidgetState();
 }
 
+ThemeManager _themeManager = ThemeManager();
+
 class _MyWidgetState extends State<AppBarView> {
   final TextEditingController _controller = TextEditingController();
   bool menu = false;
+  bool isDark = false;
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +137,16 @@ class _MyWidgetState extends State<AppBarView> {
                       fontWeight: FontWeight.w300),
                 ),
               ),
-              SizedBox(width: constraints.maxWidth * 0.1),
+              SizedBox(width: constraints.maxWidth * 0.05),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    _themeManager.toogleTheme(isDark);
+                  });
+                },
+                child: Icon(isDark ? Icons.sunny : Icons.dark_mode),
+              ),
+              SizedBox(width: constraints.maxWidth * 0.05),
               SizedBox(
                 width: constraints.maxWidth * 0.2,
                 child: TextButton(
