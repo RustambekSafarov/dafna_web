@@ -46,6 +46,7 @@ dependencies:
   google_fonts: ^4.0.3
   easy_localization: ^3.0.1
   font_awesome_flutter: ^10.4.0
+  flex_color_scheme: ^6.1.2
   
   
 

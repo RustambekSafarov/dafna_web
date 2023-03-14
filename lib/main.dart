@@ -1,24 +1,28 @@
-import 'package:dafna_web/screens/search_screen.dart';
+import 'package:dafna_web/mobile/models/navigations.dart';
+import 'package:dafna_web/web/models/navigations.dart';
+import 'package:dafna_web/web/screens/search_screen.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:dafna_web/screens/employment.dart';
-import 'package:dafna_web/screens/catalog_detail_screen.dart';
-import 'package:dafna_web/screens/contact_screen.dart';
-import 'package:dafna_web/screens/favorites_screen.dart';
-import 'package:dafna_web/screens/product_detail_screen.dart';
-import 'package:dafna_web/screens/product_screen.dart';
-import 'package:dafna_web/screens/video_view_screen.dart';
+import 'package:dafna_web/web/screens/employment.dart';
+import 'package:dafna_web/web/screens/catalog_detail_screen.dart';
+import 'package:dafna_web/web/screens/contact_screen.dart';
+import 'package:dafna_web/web/screens/favorites_screen.dart';
+import 'package:dafna_web/web/screens/product_detail_screen.dart';
+import 'package:dafna_web/web/screens/product_screen.dart';
+import 'package:dafna_web/web/screens/video_view_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 
-import 'screens/catalog_screen.dart';
-import 'screens/home_screen.dart';
-import 'screens/shopping_card_screen.dart';
-import 'widget/footer\'s/afzalliklar.dart';
-import 'widget/footer\'s/buyurtma.dart';
-import 'widget/footer\'s/savollar.dart';
-import 'widget/footer\'s/sotib_olish.dart';
-import 'widget/footer\'s/tolov.dart';
+import 'web/screens/catalog_screen.dart';
+import 'web/screens/home_screen.dart';
+import 'web/screens/shopping_card_screen.dart';
+import 'web/widget/footers/afzalliklar.dart';
+import 'web/widget/footers/buyurtma.dart';
+import 'web/widget/footers/savollar.dart';
+import 'web/widget/footers/sotib_olish.dart';
+import 'web/widget/footers/tolov.dart';
 
 void main() {
   usePathUrlStrategy();
@@ -32,119 +36,39 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [
-        Locale('en'),
-        Locale('uz'),
-        Locale('ru'),
-      ],
-      theme: ThemeData(
-        primaryColor: Color(0xFF778beb),
-      ),
-      routerConfig: GoRouter(
-        initialLocation: '/',
-        routes: [
-          GoRoute(
-            path: '/',
-            name: HomeScreen.routeName,
-            builder: (context, state) => const HomeScreen(),
-          ),
-          GoRoute(
-            path: '/catalog',
-            name: CatalogScreen.routeName,
-            builder: (context, state) => CatalogScreen(),
-          ),
-          GoRoute(
-            path: '/contact',
-            name: Contactcreen.routeName,
-            builder: (context, state) => const Contactcreen(),
-          ),
-          GoRoute(
-            path: '/catalog-detail',
-            name: CatalogDetailScreen.routeName,
-            builder: (context, state) => CatalogDetailScreen(
-              catalogId: state.extra as int,
+    return defaultTargetPlatform == TargetPlatform.android ||
+            defaultTargetPlatform == TargetPlatform.iOS
+        ? MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            theme: FlexThemeData.light(scheme: FlexScheme.blumineBlue),
+            darkTheme: FlexThemeData.dark(scheme: FlexScheme.mandyRed),
+            themeMode: ThemeMode.system,
+            title: 'Mondelux',
+            routerConfig: GoRouter(
+              initialLocation: '/home',
+              routes: MobileNavigations.route,
             ),
-          ),
-          GoRoute(
-              path: '/product-detail',
-              name: ProductDetailScreen.routeName,
-              builder: (context, state) {
-                return ProductDetailScreen(
-                  productTypeId: (state.extra as List)[0],
-                  productId: (state.extra as List)[1],
-                  productTypeName: (state.extra as List)[2].toString(),
-                );
-              }),
-          GoRoute(
-            path: '/product-info',
-            name: ProductInfoScreen.routeName,
-            builder: (context, state) => ProductInfoScreen(
-              id: state.extra as int,
+          )
+        : MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            localizationsDelegates: const [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: [
+              Locale('en'),
+              Locale('uz'),
+              Locale('ru'),
+            ],
+            title: 'Mondelux',
+            theme: FlexThemeData.light(scheme: FlexScheme.blumineBlue),
+            darkTheme: FlexThemeData.dark(scheme: FlexScheme.mandyRed),
+            themeMode: ThemeMode.system,
+            routerConfig: GoRouter(
+              initialLocation: '/',
+              routes: WebNavigations.route,
             ),
-          ),
-          GoRoute(
-            path: '/afzalliklar',
-            name: Afzalliklar.routeName,
-            builder: (context, state) => const Afzalliklar(),
-          ),
-          GoRoute(
-            path: '/buyurtma',
-            name: Buyurtma.routeName,
-            builder: (context, state) => const Buyurtma(),
-          ),
-          GoRoute(
-            path: '/savallar',
-            name: Savollar.routeName,
-            builder: (context, state) => const Savollar(),
-          ),
-          GoRoute(
-            path: '/sotib-olish',
-            name: SotibOlish.routeName,
-            builder: (context, state) => const SotibOlish(),
-          ),
-          GoRoute(
-            path: '/tolov',
-            name: Tolov.routeName,
-            builder: (context, state) => const Tolov(),
-          ),
-          GoRoute(
-            path: '/employment',
-            name: Employment.routeName,
-            builder: (context, state) => const Employment(),
-          ),
-          GoRoute(
-            path: '/video-view',
-            name: VideoViewScreen.routeName,
-            builder: (context, state) => VideoViewScreen(),
-          ),
-          GoRoute(
-            path: '/favorites',
-            name: FavoritesScreen.routeName,
-            builder: (context, state) => FavoritesScreen(),
-          ),
-          GoRoute(
-            path: '/search-result',
-            name: SearchResultScreen.routeName,
-            builder: (context, state) => SearchResultScreen(
-              value: state.extra as String,
-            ),
-          ),
-          GoRoute(
-            path: '/shopping-cart',
-            name: ShoppingCardScreen.routeName,
-            builder: (context, state) => ShoppingCardScreen(
-                // value: state.extra as String,
-                ),
-          ),
-        ],
-      ),
-    );
+          );
   }
 }
