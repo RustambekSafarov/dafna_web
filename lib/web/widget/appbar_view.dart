@@ -230,7 +230,7 @@ class _MyWidgetState extends State<AppBarView> {
                     ),
                     filled: true,
                     // focusColor: const Color.fromARGB(255, 5, 52, 80),
-                    fillColor: const Color(0xFF4bbedd),
+                    fillColor: Theme.of(context).primaryColorLight,
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(18),
@@ -263,9 +263,7 @@ class _MyWidgetState extends State<AppBarView> {
                   ),
                 ),
               ),
-              // const SizedBox(
-              //   width: 20,
-              // ),
+
               SizedBox(
                 width: constraints.maxWidth * 0.06,
                 child: InkWell(
@@ -289,9 +287,7 @@ class _MyWidgetState extends State<AppBarView> {
                   ),
                 ),
               ),
-              // const SizedBox(
-              //   width: 20,
-              // ),
+
               SizedBox(
                 width: constraints.maxWidth * 0.06,
                 child: InkWell(
