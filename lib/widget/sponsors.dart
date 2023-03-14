@@ -16,11 +16,11 @@ class Sponsors extends StatelessWidget {
         padding: EdgeInsets.only(
             left: defaultTargetPlatform == TargetPlatform.android ||
                     defaultTargetPlatform == TargetPlatform.iOS
-                ? 20
+                ? 10
                 : 0,
             right: defaultTargetPlatform == TargetPlatform.android ||
                     defaultTargetPlatform == TargetPlatform.iOS
-                ? 20
+                ? 10
                 : 0,
             top: defaultTargetPlatform == TargetPlatform.android ||
                     defaultTargetPlatform == TargetPlatform.iOS
