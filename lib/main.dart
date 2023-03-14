@@ -13,6 +13,7 @@ import 'package:go_router/go_router.dart';
 
 import 'screens/catalog_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/shopping_card_screen.dart';
 import 'widget/footer\'s/afzalliklar.dart';
 import 'widget/footer\'s/buyurtma.dart';
 import 'widget/footer\'s/savollar.dart';
@@ -134,6 +135,13 @@ class MyApp extends StatelessWidget {
             builder: (context, state) => SearchResultScreen(
               value: state.extra as String,
             ),
+          ),
+          GoRoute(
+            path: '/shopping-cart',
+            name: ShoppingCardScreen.routeName,
+            builder: (context, state) => ShoppingCardScreen(
+                // value: state.extra as String,
+                ),
           ),
         ],
       ),

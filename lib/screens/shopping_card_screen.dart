@@ -1,29 +1,27 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'dart:io';
-
-import 'package:dafna_web/widget/drawer_view.dart';
-import 'package:dafna_web/widget/overview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+
 import '../widget/appbar_view.dart';
-import '../widget/footer.dart';
+import '../widget/drawer_view.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-  static const routeName = '/home';
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
+class ShoppingCardScreen extends StatelessWidget {
+  ShoppingCardScreen({super.key});
+  static const routeName = '/shopping-cart';
   final TextEditingController _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS
+          ? Drawer(
+              child: MainDrawer(),
+            )
+          : null,
       appBar: defaultTargetPlatform == TargetPlatform.android ||
               defaultTargetPlatform == TargetPlatform.iOS
           ? AppBar(
@@ -94,16 +92,9 @@ class _HomeScreenState extends State<HomeScreen> {
               toolbarHeight: 60,
             )
           : AppBar(
-              title: const AppBarView(),
-              toolbarHeight: 120,
+              toolbarHeight: 122,
+              title: AppBarView(),
             ),
-      drawer: defaultTargetPlatform == TargetPlatform.android ||
-              defaultTargetPlatform == TargetPlatform.iOS
-          ? Drawer(
-              child: MainDrawer(),
-            )
-          : null,
-      body: OverView(),
       bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android ||
               defaultTargetPlatform == TargetPlatform.iOS
           ? BottomAppBar(

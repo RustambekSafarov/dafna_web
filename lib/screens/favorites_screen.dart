@@ -86,7 +86,9 @@ class FavoritesScreen extends StatelessWidget {
               ),
               actions: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.goNamed('/shopping-cart');
+                  },
                   icon: Icon(Icons.shopping_cart),
                 ),
               ],
@@ -420,7 +422,7 @@ class FavoritesScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      // context.goNamed('/catalog');
+                      context.goNamed('/shopping-cart');
                     },
                   ),
                   IconButton(

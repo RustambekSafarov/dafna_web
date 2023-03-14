@@ -99,7 +99,9 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
               ),
               actions: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.goNamed('/shopping-cart');
+                  },
                   icon: Icon(Icons.shopping_cart),
                 ),
               ],
@@ -625,7 +627,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      // context.goNamed('/catalog');
+                      context.goNamed('/shopping-cart');
                     },
                   ),
                   IconButton(

@@ -90,7 +90,9 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
               ),
               actions: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.goNamed('/shopping-cart');
+                  },
                   icon: Icon(Icons.shopping_cart),
                 ),
               ],
@@ -420,7 +422,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      // context.goNamed('/catalog');
+                      context.goNamed('/shopping-cart');
                     },
                   ),
                   IconButton(
