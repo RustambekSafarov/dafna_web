@@ -14,6 +14,14 @@ class Sponsors extends StatelessWidget {
       fit: BoxFit.none,
       child: Padding(
         padding: EdgeInsets.only(
+            left: defaultTargetPlatform == TargetPlatform.android ||
+                    defaultTargetPlatform == TargetPlatform.iOS
+                ? 20
+                : 0,
+            right: defaultTargetPlatform == TargetPlatform.android ||
+                    defaultTargetPlatform == TargetPlatform.iOS
+                ? 20
+                : 0,
             top: defaultTargetPlatform == TargetPlatform.android ||
                     defaultTargetPlatform == TargetPlatform.iOS
                 ? 20
@@ -40,11 +48,11 @@ class Sponsors extends StatelessWidget {
               child: Container(
                 width: defaultTargetPlatform == TargetPlatform.android ||
                         defaultTargetPlatform == TargetPlatform.iOS
-                    ? 200
+                    ? 190
                     : 500,
                 height: defaultTargetPlatform == TargetPlatform.android ||
                         defaultTargetPlatform == TargetPlatform.iOS
-                    ? 130
+                    ? 120
                     : 330,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -77,11 +85,11 @@ class Sponsors extends StatelessWidget {
               child: Container(
                 width: defaultTargetPlatform == TargetPlatform.android ||
                         defaultTargetPlatform == TargetPlatform.iOS
-                    ? 200
+                    ? 190
                     : 500,
                 height: defaultTargetPlatform == TargetPlatform.android ||
                         defaultTargetPlatform == TargetPlatform.iOS
-                    ? 130
+                    ? 120
                     : 330,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
