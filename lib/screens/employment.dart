@@ -4,6 +4,7 @@ import 'package:dafna_web/widget/appbar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../models/colors.dart';
 import '../widget/footer.dart';
 
 class Employment extends StatelessWidget {
@@ -15,6 +16,7 @@ class Employment extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: primaryColor,
         toolbarHeight: 122,
         title: const AppBarView(),
       ),

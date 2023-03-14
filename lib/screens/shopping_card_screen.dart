@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
+import '../models/colors.dart';
 import '../widget/appbar_view.dart';
 import '../widget/drawer_view.dart';
 
@@ -92,6 +93,7 @@ class ShoppingCardScreen extends StatelessWidget {
               toolbarHeight: 60,
             )
           : AppBar(
+              backgroundColor: primaryColor,
               toolbarHeight: 122,
               title: AppBarView(),
             ),

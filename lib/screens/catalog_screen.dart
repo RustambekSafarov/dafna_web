@@ -9,6 +9,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
+import '../models/colors.dart';
 import '../service/get_service.dart';
 import '../widget/appbar_view.dart';
 import '../widget/drawer_view.dart';
@@ -96,6 +97,7 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
               toolbarHeight: 60,
             )
           : AppBar(
+              backgroundColor: primaryColor,
               title: const AppBarView(),
               toolbarHeight: 122,
             ),

@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: defaultTargetPlatform == TargetPlatform.android ||
               defaultTargetPlatform == TargetPlatform.iOS
           ? AppBar(
+              backgroundColor: Color(0xFF778beb),
               bottom: PreferredSize(
                 preferredSize: Size(MediaQuery.of(context).size.width, 40),
                 child: Container(
@@ -54,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       filled: true,
                       // focusColor: const Color.fromARGB(255, 5, 52, 80),
-                      fillColor: const Color(0xFF4bbedd),
+                      fillColor: const Color(0xFF70a1ff),
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(18),
@@ -94,6 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
               toolbarHeight: 60,
             )
           : AppBar(
+              backgroundColor: Colors.cyan.shade600,
               title: const AppBarView(),
               toolbarHeight: 120,
             ),
@@ -107,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android ||
               defaultTargetPlatform == TargetPlatform.iOS
           ? BottomAppBar(
-              color: Colors.blue,
+              color: Color(0xFF778beb),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

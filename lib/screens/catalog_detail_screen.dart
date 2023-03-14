@@ -11,6 +11,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../models/colors.dart';
 import '../widget/drawer_view.dart';
 
 class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
@@ -99,6 +100,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
               toolbarHeight: 60,
             )
           : AppBar(
+              backgroundColor: primaryColor,
               toolbarHeight: 120,
               title: const AppBarView(),
             ),

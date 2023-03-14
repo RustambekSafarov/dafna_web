@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dafna_web/models/colors.dart';
 import 'package:dafna_web/service/get_service.dart';
 import 'package:dafna_web/widget/appbar_view.dart';
 import 'package:flutter/foundation.dart';
@@ -95,6 +96,7 @@ class FavoritesScreen extends StatelessWidget {
               toolbarHeight: 60,
             )
           : AppBar(
+              backgroundColor: primaryColor,
               toolbarHeight: 122,
               title: AppBarView(),
             ),

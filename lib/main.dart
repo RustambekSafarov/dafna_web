@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
         Locale('ru'),
       ],
       theme: ThemeData(
-        primaryColor: Colors.blue,
+        primaryColor: Color(0xFF778beb),
       ),
       routerConfig: GoRouter(
         initialLocation: '/',

@@ -8,6 +8,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
+import '../models/colors.dart';
 import '../widget/drawer_view.dart';
 
 class ProductDetailScreen extends StatefulWidget with ChangeNotifier {
@@ -110,6 +111,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 toolbarHeight: 60,
               )
             : AppBar(
+                backgroundColor: primaryColor,
                 toolbarHeight: 120,
                 title: const AppBarView(),
               ),

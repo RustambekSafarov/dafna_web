@@ -57,7 +57,7 @@ class Sponsors extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: const DecorationImage(
-                    fit: BoxFit.fitHeight,
+                    fit: BoxFit.fitWidth,
                     image: NetworkImage(
                         'https://mebel.dafna.uz/img/Today/eman-banner.png'),
                   ),
@@ -94,7 +94,7 @@ class Sponsors extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: const DecorationImage(
-                    fit: BoxFit.fitHeight,
+                    fit: BoxFit.fitWidth,
                     image: NetworkImage(
                         'https://mebel.dafna.uz/img/Today/aiko-banner.jpg'),
                   ),

@@ -11,6 +11,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import '../models/colors.dart';
 import '../service/get_service.dart';
 
 import '../widget/appbar_view.dart';
@@ -108,6 +109,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
               toolbarHeight: 60,
             )
           : AppBar(
+              backgroundColor: primaryColor,
               toolbarHeight: 122,
               title: const AppBarView(),
             ),

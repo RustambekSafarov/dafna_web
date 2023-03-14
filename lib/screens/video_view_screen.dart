@@ -13,6 +13,8 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart';
 import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
+import '../models/colors.dart';
+
 class VideoViewScreen extends StatefulWidget {
   VideoViewScreen({super.key});
   static const routeName = '/video-view';
@@ -33,6 +35,7 @@ class _VideoViewScreenState extends State<VideoViewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: primaryColor,
         toolbarHeight: 122,
         title: AppBarView(),
       ),

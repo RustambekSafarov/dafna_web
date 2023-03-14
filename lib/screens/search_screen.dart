@@ -9,6 +9,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
+import '../models/colors.dart';
+
 class SearchResultScreen extends StatelessWidget {
   String value;
   SearchResultScreen({super.key, required this.value});
@@ -93,6 +95,7 @@ class SearchResultScreen extends StatelessWidget {
                 toolbarHeight: 60,
               )
             : AppBar(
+                backgroundColor: primaryColor,
                 toolbarHeight: 122,
                 title: AppBarView(),
               ),
