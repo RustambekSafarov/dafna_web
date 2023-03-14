@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         ? MaterialApp.router(
             debugShowCheckedModeBanner: false,
             theme: FlexThemeData.light(scheme: FlexScheme.blumineBlue),
-            darkTheme: FlexThemeData.dark(scheme: FlexScheme.mandyRed),
+            darkTheme: FlexThemeData.dark(scheme: FlexScheme.blueWhale),
             themeMode: ThemeMode.system,
             title: 'Mondelux',
             routerConfig: GoRouter(
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
             ],
             title: 'Mondelux',
             theme: FlexThemeData.light(scheme: FlexScheme.blumineBlue),
-            darkTheme: FlexThemeData.dark(scheme: FlexScheme.mandyRed),
+            darkTheme: FlexThemeData.dark(scheme: FlexScheme.blueWhale),
             themeMode: ThemeMode.system,
             routerConfig: GoRouter(
               initialLocation: '/',
