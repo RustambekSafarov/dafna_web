@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
 import '../../mobile/theme/theme_manager.dart';
+import '../models/constants.dart';
 import 'drawer_view.dart';
 
 class AppBarView extends StatefulWidget {
@@ -17,8 +18,6 @@ ThemeManager _themeManager = ThemeManager();
 
 class _MyWidgetState extends State<AppBarView> {
   final TextEditingController _controller = TextEditingController();
-  bool menu = false;
-  bool isDark = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,130 +29,273 @@ class _MyWidgetState extends State<AppBarView> {
             // mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SizedBox(width: constraints.maxWidth * 0.07),
-              SizedBox(
-                width: constraints.maxWidth * 0.06,
-                child: TextButton(
-                  onPressed: () => context.goNamed('/home'),
-                  child: const Text(
-                    'Asosiy',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-              ),
-              // const SizedBox(width: 15),
-              SizedBox(
-                width: constraints.maxWidth * 0.07,
-                child: TextButton(
-                  onPressed: () => context.goNamed('/catalog'),
-                  child: const Text(
-                    'Katalog',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-              ),
-              // const SizedBox(width: 15),
-              SizedBox(
-                width: constraints.maxWidth * 0.09,
-                child: TextButton(
-                  onPressed: () => context.goNamed('/video-view'),
-                  child: const Text(
-                    'Video sharhlar',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-              ),
-              // const SizedBox(width: 15),
-              SizedBox(
-                width: constraints.maxWidth * 0.075,
-                child: TextButton(
-                  onPressed: () {
-                    context.goNamed('/contact');
-                  },
-                  child: const Text(
-                    'Kontaktlar',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-              ),
-              // const SizedBox(width: 15),
-              SizedBox(
-                width: constraints.maxWidth * 0.075,
-                child: TextButton(
-                  onPressed: () {
-                    context.goNamed('/employment');
-                  },
-                  child: const Text(
-                    'Bandlik',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-              ),
-              // const SizedBox(width: 15),
-              Link(
-                uri: Uri.parse('https://telegram.me/Dafna_mebel_bot'),
-                builder: (context, followLink) => SizedBox(
-                  width: constraints.maxWidth * 0.09,
+              MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    asosiy = false;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    asosiy = true;
+                  });
+                },
+                child: SizedBox(
+                  width: constraints.maxWidth * 0.06,
                   child: TextButton(
-                    onPressed: followLink,
-                    child: const Text(
-                      'Fikr Qoldiring',
+                    onPressed: () => context.goNamed('/home'),
+                    child: Text(
+                      'Asosiy',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w300,
+                        decoration: asosiy == false
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                        decorationColor: Colors.white,
+                        decorationThickness: 1.5,
                       ),
                     ),
                   ),
                 ),
               ),
               // const SizedBox(width: 15),
-              Container(
-                alignment: Alignment.center,
-                height: 25,
-                width: constraints.maxWidth * 0.1,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.red,
+              MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    katalog = false;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    katalog = true;
+                  });
+                },
+                child: SizedBox(
+                  width: constraints.maxWidth * 0.07,
+                  child: TextButton(
+                    onPressed: () => context.goNamed('/catalog'),
+                    child: Text(
+                      'Katalog',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300,
+                        decoration: katalog == false
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                        decorationColor: Colors.white,
+                        decorationThickness: 1.5,
+                      ),
+                    ),
+                  ),
                 ),
-                child: const Text(
-                  'Chegirmalar',
-                  style: TextStyle(
+              ),
+              // const SizedBox(width: 15),
+              MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    video = false;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    video = true;
+                  });
+                },
+                child: SizedBox(
+                  width: constraints.maxWidth * 0.09,
+                  child: TextButton(
+                    onPressed: () => context.goNamed('/video-view'),
+                    child: Text(
+                      'Video sharhlar',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300,
+                        decoration: video == false
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                        decorationColor: Colors.white,
+                        decorationThickness: 1.5,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              // const SizedBox(width: 15),
+              MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    kontakt = false;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    kontakt = true;
+                  });
+                },
+                child: SizedBox(
+                  width: constraints.maxWidth * 0.075,
+                  child: TextButton(
+                    onPressed: () {
+                      context.goNamed('/contact');
+                    },
+                    child: Text(
+                      'Kontaktlar',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300,
+                        decoration: kontakt == false
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                        decorationColor: Colors.white,
+                        decorationThickness: 1.5,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              // const SizedBox(width: 15),
+              MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    bandlik = false;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    bandlik = true;
+                  });
+                },
+                child: SizedBox(
+                  width: constraints.maxWidth * 0.075,
+                  child: TextButton(
+                    onPressed: () {
+                      context.goNamed('/employment');
+                    },
+                    child: Text(
+                      'Bandlik',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300,
+                        decoration: bandlik == false
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                        decorationColor: Colors.white,
+                        decorationThickness: 1.5,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              // const SizedBox(width: 15),
+              MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    fikr = false;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    fikr = true;
+                  });
+                },
+                child: Link(
+                  uri: Uri.parse('https://telegram.me/Dafna_mebel_bot'),
+                  builder: (context, followLink) => SizedBox(
+                    width: constraints.maxWidth * 0.09,
+                    child: TextButton(
+                      onPressed: followLink,
+                      child: Text(
+                        'Fikr Qoldiring',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w300,
+                          decoration: fikr == false
+                              ? TextDecoration.underline
+                              : TextDecoration.none,
+                          decorationColor: Colors.white,
+                          decorationThickness: 1.5,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              // const SizedBox(width: 15),
+              MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    chegirma = false;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    chegirma = true;
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 25,
+                  width: constraints.maxWidth * 0.1,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.red,
+                  ),
+                  child: Text(
+                    'Chegirmalar',
+                    style: TextStyle(
                       color: Colors.white,
                       fontSize: 14,
-                      fontWeight: FontWeight.w300),
+                      fontWeight: FontWeight.w300,
+                      decoration: chegirma == false
+                          ? TextDecoration.underline
+                          : TextDecoration.none,
+                      decorationColor: Colors.white,
+                      decorationThickness: 1.5,
+                    ),
+                  ),
                 ),
               ),
               SizedBox(width: constraints.maxWidth * 0.05),
               InkWell(
                 onTap: () {
-                  setState(() {
-                    _themeManager.toogleTheme(isDark);
-                  });
+                  setState(
+                    () {
+                      isDark = !isDark;
+                      _themeManager.toogleTheme(isDark);
+                    },
+                  );
                 },
                 child: Icon(isDark ? Icons.sunny : Icons.dark_mode),
               ),
               SizedBox(width: constraints.maxWidth * 0.05),
-              SizedBox(
-                width: constraints.maxWidth * 0.2,
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    '+7 (495) 120 75 59',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+              MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    number = false;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    number = true;
+                  });
+                },
+                child: SizedBox(
+                  width: constraints.maxWidth * 0.2,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      '+7 (495) 120 75 59',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        decoration: number == false
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                        decorationColor: Colors.white,
+                        decorationThickness: 3,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -242,6 +384,7 @@ class _MyWidgetState extends State<AppBarView> {
                       color: Colors.white,
                     ),
                     filled: true,
+                    hoverColor: ThemeData().unselectedWidgetColor.withAlpha(30),
                     // focusColor: const Color.fromARGB(255, 5, 52, 80),
                     fillColor: Theme.of(context).primaryColorLight,
                     border: OutlineInputBorder(
@@ -252,111 +395,159 @@ class _MyWidgetState extends State<AppBarView> {
                 ),
               ),
               SizedBox(
-                width: constraints.maxWidth * 0.04,
+                width: constraints.maxWidth * 0.02,
               ),
-              SizedBox(
-                width: constraints.maxWidth * 0.06,
-                child: InkWell(
-                  child: Column(
-                    children: const [
-                      Icon(
-                        Icons.location_on,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      Text(
-                        'Manzillar',
-                        style: TextStyle(
+              MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    adress = false;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    adress = true;
+                  });
+                },
+                child: SizedBox(
+                  width: constraints.maxWidth * 0.06,
+                  child: InkWell(
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.location_on,
                           color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w300,
+                          size: adress == false ? 25 : 20,
                         ),
-                      ),
-                    ],
+                        Text(
+                          'Manzillar',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: adress == false ? 16 : 15,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
 
-              SizedBox(
-                width: constraints.maxWidth * 0.06,
-                child: InkWell(
-                  child: Column(
-                    children: const [
-                      Icon(
-                        Icons.person,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      Text(
-                        'Ro\'yxatdan\no\'tish ',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
+              MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    register = false;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    register = true;
+                  });
+                },
+                child: SizedBox(
+                  width: constraints.maxWidth * 0.08,
+                  child: InkWell(
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.person,
                           color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w300,
+                          size: register == false ? 25 : 20,
                         ),
-                      ),
-                    ],
+                        Text(
+                          'Ro\'yxatdan\no\'tish ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: register == false ? 16 : 15,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
 
-              SizedBox(
-                width: constraints.maxWidth * 0.06,
-                child: InkWell(
-                  onTap: () {
-                    context.goNamed('/shopping-cart');
-                  },
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  child: Column(
-                    children: const [
-                      Icon(
-                        Icons.shopping_cart,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      Text(
-                        'Savat',
-                        style: TextStyle(
+              MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    shop = false;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    shop = true;
+                  });
+                },
+                child: SizedBox(
+                  width: constraints.maxWidth * 0.06,
+                  child: InkWell(
+                    onTap: () {
+                      context.goNamed('/shopping-cart');
+                    },
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.shopping_cart,
                           color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w300,
+                          size: shop == false ? 25 : 20,
                         ),
-                      ),
-                    ],
+                        Text(
+                          'Savat',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: shop == false ? 16 : 15,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
               // const SizedBox(
               //   width: 20,
               // ),
-              SizedBox(
-                width: constraints.maxWidth * 0.06,
-                child: InkWell(
-                  onTap: () {
-                    context.goNamed('/favorites');
-                  },
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  child: Column(
-                    children: const [
-                      Icon(
-                        Icons.favorite,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      Text(
-                        'Sevimlilar',
-                        style: TextStyle(
+              MouseRegion(
+                onEnter: (event) {
+                  setState(() {
+                    favorite = false;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    favorite = true;
+                  });
+                },
+                child: SizedBox(
+                  width: constraints.maxWidth * 0.06,
+                  child: InkWell(
+                    onTap: () {
+                      context.goNamed('/favorites');
+                    },
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.favorite,
                           color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w300,
+                          size: favorite == false ? 25 : 20,
                         ),
-                      ),
-                    ],
+                        Text(
+                          'Sevimlilar',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: favorite == false ? 16 : 15,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

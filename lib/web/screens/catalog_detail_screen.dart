@@ -63,13 +63,13 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                                 context.goNamed('/catalog');
                               },
                               child: Text(
-                                ' Katalog',
+                                ' Katalog ',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
-                            Text('/'),
+                            Text('/ '),
                             Text(
                               snapshot.data!['discrpition'],
                               style: TextStyle(

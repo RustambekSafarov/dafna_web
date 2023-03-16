@@ -5,7 +5,7 @@ class ThemeManager with ChangeNotifier {
 
   get themeMode => _themeMode;
 
-  toogleTheme(bool isDark) {
+  void toogleTheme(bool isDark) {
     _themeMode = isDark ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
   }
