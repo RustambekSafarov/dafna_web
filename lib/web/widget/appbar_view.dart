@@ -103,7 +103,7 @@ class _MyWidgetState extends State<AppBarView> {
                   });
                 },
                 child: SizedBox(
-                  width: constraints.maxWidth * 0.09,
+                  width: constraints.maxWidth * 0.1,
                   child: TextButton(
                     onPressed: () => context.goNamed('/video-view'),
                     child: Text(
