@@ -81,7 +81,7 @@ class ShoppingCardScreen extends StatelessWidget {
                           onTap: () {
                             context.goNamed(
                               '/product-info',
-                              extra: snapshot.data![index]['id'],
+                              extra: snapshot.data!['carts'][index]['id'],
                             );
                           },
                           child: Column(
@@ -103,7 +103,8 @@ class ShoppingCardScreen extends StatelessWidget {
                                       ),
                                       Image.network(
                                         'https://ogabek007.pythonanywhere.com/' +
-                                            snapshot.data![index]['img_url'],
+                                            snapshot.data!['carts'][index]
+                                                ['img_url'],
                                         fit: BoxFit.cover,
                                         loadingBuilder:
                                             (context, child, loadingProgress) {
@@ -122,7 +123,8 @@ class ShoppingCardScreen extends StatelessWidget {
                               SizedBox(
                                 height: 70,
                                 child: Text(
-                                  snapshot.data![index]['name'].toUpperCase(),
+                                  snapshot.data!['carts'][index]['name']
+                                      .toUpperCase(),
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                       fontSize: 15.5,
@@ -134,7 +136,7 @@ class ShoppingCardScreen extends StatelessWidget {
                                 width: 220,
                                 // padding: const EdgeInsets.all(13.0),
                                 child: Text(
-                                  snapshot.data![index]['discrpition'],
+                                  snapshot.data!['carts'][index]['discrpition'],
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                       fontSize: 13,
@@ -148,7 +150,7 @@ class ShoppingCardScreen extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      '${snapshot.data![index]['price']}',
+                                      '${snapshot.data!['carts'][index]['price']}',
                                       textAlign: TextAlign.center,
                                       style: const TextStyle(
                                         fontSize: 22,

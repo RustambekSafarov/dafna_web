@@ -362,7 +362,8 @@ class _ContactcreenState extends State<Contactcreen> {
             // const Positioned(
             //   bottom: 1,
             //   child:
-            // Footer(),
+            // Spacer(),
+            // Container(color: Colors.blue, child: Footer()),
             // ),
           ],
         ),

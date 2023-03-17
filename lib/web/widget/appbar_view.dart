@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dafna_web/web/widget/register.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
@@ -258,6 +259,9 @@ class _MyWidgetState extends State<AppBarView> {
               ),
               SizedBox(width: constraints.maxWidth * 0.05),
               InkWell(
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
                 onTap: () {
                   setState(
                     () {
@@ -331,6 +335,9 @@ class _MyWidgetState extends State<AppBarView> {
               SizedBox(
                 width: constraints.maxWidth * 0.05,
                 child: IconButton(
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
                   onPressed: () {
                     setState(
                       () {
@@ -411,6 +418,10 @@ class _MyWidgetState extends State<AppBarView> {
                 child: SizedBox(
                   width: constraints.maxWidth * 0.06,
                   child: InkWell(
+                    onTap: () {},
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
                     child: Column(
                       children: [
                         Icon(
@@ -446,6 +457,19 @@ class _MyWidgetState extends State<AppBarView> {
                 child: SizedBox(
                   width: constraints.maxWidth * 0.08,
                   child: InkWell(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    onTap: () {
+                      setState(() {
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            content: Register(),
+                          ),
+                        );
+                      });
+                    },
                     child: Column(
                       children: [
                         Icon(

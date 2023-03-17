@@ -14,3 +14,4 @@ bool shop = true;
 bool favorite = true;
 bool sponsor1 = true;
 bool sponsor2 = true;
+bool registrField = true;
