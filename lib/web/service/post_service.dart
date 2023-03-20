@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-String baseUrl = 'https://ogabek007.pythonanywhere.com/';
+String baseUrl = 'https://ogabek007.pythonanywhere.com';
 
 Future<void> addFavorite(int id) async {
   String body = jsonEncode({
@@ -9,10 +9,11 @@ Future<void> addFavorite(int id) async {
   });
 
   final response = await http.post(
-    Uri.parse('$baseUrl/dafna_api/add_love/'),
+    Uri.parse('https://ogabek007.pythonanywhere.com/dafna_app/add_love/'),
     headers: {"Content-Type": "application/json"},
     body: body,
   );
+  print(response.statusCode);
 }
 
 Future<void> addCard(int id) async {
@@ -21,8 +22,9 @@ Future<void> addCard(int id) async {
   });
 
   final response = await http.post(
-    Uri.parse('$baseUrl/dafna_api/add_cart/'),
+    Uri.parse('https://ogabek007.pythonanywhere.com/dafna_app/add_cart/'),
     headers: {"Content-Type": "application/json"},
     body: body,
   );
+  print(response.statusCode);
 }

@@ -45,7 +45,7 @@ class ShoppingCardScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    ' Sevimlilar',
+                    ' Savat',
                     style: TextStyle(
                         color: Colors.blue, fontWeight: FontWeight.bold),
                   ),
