@@ -24,6 +24,25 @@ class OverView extends StatefulWidget {
 }
 
 class _OverViewState extends State<OverView> {
+  final _scrollController = ScrollController();
+  double _scrollPosition = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      setState(() {
+        _scrollPosition = _scrollController.offset;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,6 +51,7 @@ class _OverViewState extends State<OverView> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return CustomScrollView(
+              controller: _scrollController,
               slivers: [
                 SliverToBoxAdapter(
                   child: Column(

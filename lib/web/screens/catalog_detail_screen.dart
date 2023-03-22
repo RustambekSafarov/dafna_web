@@ -185,7 +185,6 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                 }
               },
             ),
-            Spacer(),
             Container(
               alignment: Alignment.topCenter,
               color: Colors.blue,
