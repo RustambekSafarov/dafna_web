@@ -50,8 +50,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return defaultTargetPlatform == TargetPlatform.android ||
-            defaultTargetPlatform == TargetPlatform.iOS ||
-            MediaQuery.of(context).size.width < 800
+            defaultTargetPlatform == TargetPlatform.iOS
         ? MultiProvider(
             providers: [
               ChangeNotifierProvider(
