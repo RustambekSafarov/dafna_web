@@ -1,16 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:io';
-
 import 'package:dafna_web/web/models/colors.dart';
-import 'package:dafna_web/web/widget/drawer_view.dart';
 import 'package:dafna_web/web/widget/overview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
 import '../widget/appbar_view.dart';
-import '../widget/footer.dart';
+// import 'package:';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

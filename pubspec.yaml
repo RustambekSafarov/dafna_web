@@ -47,6 +47,7 @@ dependencies:
   easy_localization: ^3.0.1
   font_awesome_flutter: ^10.4.0
   flex_color_scheme: ^6.1.2
+  web_smooth_scroll: ^1.1.0
   
   
 

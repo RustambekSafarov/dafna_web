@@ -51,6 +51,7 @@ class _OverViewState extends State<OverView> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return CustomScrollView(
+              shrinkWrap: true,
               controller: _scrollController,
               slivers: [
                 SliverToBoxAdapter(
