@@ -69,7 +69,7 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
                       crossAxisCount: 2,
                       childAspectRatio: 1.3,
                     ),
-                    itemCount: snapshot.data!.length,
+                    itemCount: snapshot.data!.toList().length,
                     itemBuilder: (context, index) => InkWell(
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
@@ -120,7 +120,7 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
                 }
               },
             ),
-            Spacer(),
+            // Spacer(),
             Container(
               alignment: Alignment.topCenter,
               color: Colors.blue,
