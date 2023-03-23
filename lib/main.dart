@@ -2,6 +2,7 @@ import 'package:dafna_web/mobile/models/navigations.dart';
 import 'package:dafna_web/mobile/screens/home_screen.dart';
 import 'package:dafna_web/mobile/theme/theme_manager.dart';
 import 'package:dafna_web/web/models/navigations.dart';
+import 'package:dafna_web/web/widget/appbar_view.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
@@ -49,9 +50,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return defaultTargetPlatform == TargetPlatform.android ||
-            defaultTargetPlatform == TargetPlatform.iOS
-        ? MultiProvider(
+    return LayoutBuilder(
+      builder: (ctx, constraints) {
+        if (constraints.maxWidth < 1000 ||
+            defaultTargetPlatform == TargetPlatform.android ||
+            defaultTargetPlatform == TargetPlatform.iOS) {
+          return MultiProvider(
             providers: [
               ChangeNotifierProvider(
                 create: (context) => HomeScreenM(),
@@ -68,28 +72,39 @@ class _MyAppState extends State<MyApp> {
                 routes: MobileNavigations.route,
               ),
             ),
-          )
-        : MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            localizationsDelegates: const [
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
+          );
+        } else {
+          return MultiProvider(
+            providers: [
+              ChangeNotifierProvider(
+                create: (context) => AppBarView(),
+              )
             ],
-            supportedLocales: [
-              Locale('en'),
-              Locale('uz'),
-              Locale('ru'),
-            ],
-            title: 'Mondelux',
-            theme: FlexThemeData.light(scheme: FlexScheme.blumineBlue),
-            darkTheme: FlexThemeData.dark(scheme: FlexScheme.blueWhale),
-            themeMode: _themeManager.themeMode,
-            routerConfig: GoRouter(
-              initialLocation: '/',
-              routes: WebNavigations.route,
+            child: MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              localizationsDelegates: const [
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: [
+                Locale('en'),
+                Locale('uz'),
+                Locale('ru'),
+              ],
+              title: 'Mondelux',
+              theme: FlexThemeData.light(scheme: FlexScheme.blumineBlue),
+              darkTheme: FlexThemeData.dark(scheme: FlexScheme.blueWhale),
+              themeMode: _themeManager.themeMode,
+              routerConfig: GoRouter(
+                initialLocation: '/',
+                routes: WebNavigations.route,
+              ),
             ),
           );
+        }
+      },
+    );
   }
 }
 // some

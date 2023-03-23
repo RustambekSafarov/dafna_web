@@ -36,9 +36,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: primaryColor,
+          // backgroundColor: primaryColor,
           toolbarHeight: 120,
-          title: const AppBarView(),
+          title: AppBarView(),
         ),
         body: Center(
           child: ListView(

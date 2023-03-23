@@ -24,8 +24,8 @@ class _ContactcreenState extends State<Contactcreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
-        title: const AppBarView(),
+        // backgroundColor: primaryColor,
+        title: AppBarView(),
         toolbarHeight: 122,
       ),
       body: Center(

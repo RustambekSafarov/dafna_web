@@ -1,13 +1,9 @@
-import 'package:dafna_web/mobile/services/get_service.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 import '../models/colors.dart';
+import '../service/get_service.dart';
 import '../widget/appbar_view.dart';
 import '../widget/drawer_view.dart';
 
@@ -20,7 +16,7 @@ class ShoppingCardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        // backgroundColor: primaryColor,
         toolbarHeight: 122,
         title: AppBarView(),
       ),
@@ -53,8 +49,12 @@ class ShoppingCardScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 150, right: 150),
+              padding: const EdgeInsets.only(left: 150, right: 150, bottom: 20),
               child: Divider(),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 150, right: 150),
+              child: Text('Savat'),
             ),
             FutureBuilder(
               future: getCart(),
@@ -62,17 +62,11 @@ class ShoppingCardScreen extends StatelessWidget {
                 if (snapshot.hasData) {
                   return Padding(
                     padding:
-                        const EdgeInsets.only(left: 65, right: 65, top: 20),
-                    child: GridView.builder(
+                        const EdgeInsets.only(left: 150, right: 150, top: 20),
+                    child: ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: snapshot.data!.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 4,
-                              childAspectRatio: 0.5,
-                              mainAxisSpacing: 20,
-                              crossAxisSpacing: 20),
+                      itemCount: snapshot.data!['carts'].length,
                       itemBuilder: (context, index) {
                         return InkWell(
                           hoverColor: Colors.transparent,
@@ -84,24 +78,18 @@ class ShoppingCardScreen extends StatelessWidget {
                               extra: snapshot.data!['carts'][index]['id'],
                             );
                           },
-                          child: Column(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(15),
-                                child: SizedBox(
-                                  height: 220,
-                                  child: Stack(
-                                    children: [
-                                      Positioned(
-                                        top: 0,
-                                        right: 0,
-                                        child: IconButton(
-                                          onPressed: () {},
-                                          icon: Icon(Icons.favorite_border),
-                                        ),
-                                      ),
-                                      Image.network(
+                              Row(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: SizedBox(
+                                      height: 200,
+                                      width: 220,
+                                      child: Image.network(
                                         'https://ogabek007.pythonanywhere.com/' +
                                             snapshot.data!['carts'][index]
                                                 ['img_url'],
@@ -116,52 +104,57 @@ class ShoppingCardScreen extends StatelessWidget {
                                           );
                                         },
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 70,
-                                child: Text(
-                                  snapshot.data!['carts'][index]['name']
-                                      .toUpperCase(),
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                      fontSize: 15.5,
-                                      fontWeight: FontWeight.w900),
-                                ),
-                              ),
-                              Container(
-                                height: 100,
-                                width: 220,
-                                // padding: const EdgeInsets.all(13.0),
-                                child: Text(
-                                  snapshot.data!['carts'][index]['discrpition'],
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w300,
-                                      color: Colors.grey),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(13.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      '${snapshot.data!['carts'][index]['price']}',
+                                  SizedBox(
+                                    height: 70,
+                                    child: Text(
+                                      snapshot.data!['carts'][index]['name']
+                                          .toUpperCase(),
                                       textAlign: TextAlign.center,
                                       style: const TextStyle(
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.w700,
-                                      ),
+                                          fontSize: 15.5,
+                                          fontWeight: FontWeight.w900),
                                     ),
-                                    const Text(
-                                      ' so\'m',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w700,
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                height: 120,
+                                padding: const EdgeInsets.all(13.0),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          '${snapshot.data!['carts'][index]['price']}',
+                                          textAlign: TextAlign.center,
+                                          style: const TextStyle(
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        const Text(
+                                          ' so\'m',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    InkWell(
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.delete),
+                                          Text(
+                                            'O\'chirish',
+                                          ),
+                                        ],
                                       ),
                                     )
                                   ],

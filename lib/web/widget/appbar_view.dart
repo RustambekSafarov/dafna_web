@@ -8,8 +8,8 @@ import '../../mobile/theme/theme_manager.dart';
 import '../models/constants.dart';
 import 'drawer_view.dart';
 
-class AppBarView extends StatefulWidget {
-  const AppBarView({super.key});
+class AppBarView extends StatefulWidget with ChangeNotifier {
+  AppBarView({super.key});
 
   @override
   State<AppBarView> createState() => _MyWidgetState();
@@ -19,6 +19,7 @@ ThemeManager _themeManager = ThemeManager();
 
 class _MyWidgetState extends State<AppBarView> {
   final TextEditingController _controller = TextEditingController();
+  int ix = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -387,7 +388,7 @@ class _MyWidgetState extends State<AppBarView> {
                     // focusColor: Colors.white30,
                     hintStyle: const TextStyle(
                       // height: 50,
-                      fontSize: 11,
+                      fontSize: 11.8,
                       color: Colors.white,
                     ),
                     filled: true,

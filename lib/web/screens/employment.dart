@@ -16,9 +16,9 @@ class Employment extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        // backgroundColor: primaryColor,
         toolbarHeight: 122,
-        title: const AppBarView(),
+        title: AppBarView(),
       ),
       body: ListView(
         children: [

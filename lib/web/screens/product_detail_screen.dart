@@ -34,9 +34,9 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        // backgroundColor: primaryColor,
         toolbarHeight: 122,
-        title: const AppBarView(),
+        title: AppBarView(),
       ),
       body: Center(
         child: ListView(

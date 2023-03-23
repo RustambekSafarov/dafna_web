@@ -15,7 +15,7 @@ class Savollar extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 122,
-        title: const AppBarView(),
+        title: AppBarView(),
       ),
       body: ListView(
         children: [

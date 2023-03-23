@@ -35,7 +35,7 @@ class _VideoViewScreenState extends State<VideoViewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        // backgroundColor: primaryColor,
         toolbarHeight: 122,
         title: AppBarView(),
       ),

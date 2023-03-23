@@ -182,7 +182,7 @@ Future<List> getSearch(String value) async {
 
 Future<Map> getCart() async {
   final response = await http.get(
-    Uri.parse('$baseUrl/dafna_app/get_cart/'),
+    Uri.parse('https://ogabek007.pythonanywhere.com/dafna_app/get_cart/'),
     headers: {
       "Content-Type": "application/json",
     },

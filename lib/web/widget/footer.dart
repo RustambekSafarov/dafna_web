@@ -289,7 +289,7 @@ class _FooterState extends State<Footer> {
                     height: 18,
                     width: 50,
                     child: Image.network(
-                        'https://mebel.dafna.uz/img/social/2.png')),
+                        'https://telegra.ph/file/e4396e52c6970eae01e66.png')),
                 const SizedBox(
                   width: 10,
                 ),
@@ -297,7 +297,7 @@ class _FooterState extends State<Footer> {
                     height: 18,
                     width: 50,
                     child: Image.network(
-                        'https://mebel.dafna.uz/img/social/4.png')),
+                        'https://telegra.ph/file/f656cbd86238fe149c5da.png')),
                 const SizedBox(
                   width: 10,
                 ),
@@ -305,7 +305,7 @@ class _FooterState extends State<Footer> {
                     height: 18,
                     width: 50,
                     child: Image.network(
-                        'https://mebel.dafna.uz/img/social/5.png')),
+                        'https://telegra.ph/file/b36cd0a4f2280d5c6f5c6.png')),
               ],
             ),
           )

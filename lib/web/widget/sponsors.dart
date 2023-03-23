@@ -58,7 +58,7 @@ class _SponsorsState extends State<Sponsors> {
                             ? BoxFit.fitHeight
                             : BoxFit.fitWidth,
                         image: NetworkImage(
-                            'https://mebel.dafna.uz/img/Today/eman-banner.png'),
+                            'https://telegra.ph/file/ac6a1c228d7d9d7677095.pnghttps://mebel.dafna.uz/img/Today/eman-banner.png'),
                       ),
                     ),
                   ),
@@ -103,7 +103,7 @@ class _SponsorsState extends State<Sponsors> {
                             ? BoxFit.fitHeight
                             : BoxFit.fitWidth,
                         image: const NetworkImage(
-                            'https://mebel.dafna.uz/img/Today/aiko-banner.jpg'),
+                            'https://telegra.ph/file/85ba7f7f2f9e37c90adb8.png'),
                       ),
                     ),
                   ),

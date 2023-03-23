@@ -25,9 +25,9 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
     String productTypeName = '';
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        // backgroundColor: primaryColor,
         toolbarHeight: 120,
-        title: const AppBarView(),
+        title: AppBarView(),
       ),
       body: Center(
         child: ListView(
