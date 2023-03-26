@@ -288,27 +288,25 @@ class _MyWidgetState extends State<AppBarView> {
                 },
                 child: SizedBox(
                   width: constraints.maxWidth * 0.2,
-                  child: TextButton(
-                    onPressed: () async {
-                      if (await canLaunchUrl(Uri.parse('tel:+74951207559'))) {
-                        await launchUrl(Uri.parse('tel:+74951207559'));
-                      } else {
-                        throw 'Could not launch +74951207559';
-                      }
-                    },
-                    child: Text(
-                      '+7 (495) 120 75 59',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        decoration: number == false
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
-                        decorationColor: Colors.white,
-                        decorationThickness: 3,
-                      ),
-                    ),
-                  ),
+                  child: Link(
+                      uri: Uri.parse('tel:+74951207559'),
+                      builder: (context, followLink) {
+                        return TextButton(
+                          onPressed: followLink,
+                          child: Text(
+                            '+7 (495) 120 75 59',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              decoration: number == false
+                                  ? TextDecoration.underline
+                                  : TextDecoration.none,
+                              decorationColor: Colors.white,
+                              decorationThickness: 3,
+                            ),
+                          ),
+                        );
+                      }),
                 ),
               ),
             ],
