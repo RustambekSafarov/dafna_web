@@ -4,6 +4,7 @@ import 'package:dafna_web/web/widget/register.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../mobile/theme/theme_manager.dart';
 import '../models/constants.dart';
 import 'drawer_view.dart';
@@ -288,7 +289,13 @@ class _MyWidgetState extends State<AppBarView> {
                 child: SizedBox(
                   width: constraints.maxWidth * 0.2,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      if (await canLaunchUrl(Uri.parse('tel:+74951207559'))) {
+                        await launchUrl(Uri.parse('tel:+74951207559'));
+                      } else {
+                        throw 'Could not launch +74951207559';
+                      }
+                    },
                     child: Text(
                       '+7 (495) 120 75 59',
                       style: TextStyle(

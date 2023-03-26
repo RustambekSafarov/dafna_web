@@ -1,15 +1,9 @@
-import 'package:dafna_web/web/service/get_service.dart';
 import 'package:dafna_web/web/widget/appbar_view.dart';
-import 'package:dafna_web/web/widget/drawer_view.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-import '../models/colors.dart';
+import '../../services/get_service.dart';
 
 class SearchResultScreen extends StatelessWidget {
   String value;

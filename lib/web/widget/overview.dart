@@ -1,14 +1,9 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
-import 'dart:io' show Platform;
 import 'package:dafna_web/web/models/ideas_photos.dart';
-import 'package:dafna_web/web/widget/ideas_photos.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
-import 'package:url_launcher/link.dart';
-import 'package:url_launcher/url_launcher.dart';
-import '../service/get_service.dart';
+import '../../services/get_service.dart';
 import '../widget/footer.dart';
 import '../widget/new_products.dart';
 import '../widget/recommended.dart';

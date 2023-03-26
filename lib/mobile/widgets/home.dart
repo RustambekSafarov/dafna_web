@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 
-import '../services/get_service.dart';
+import '../../services/get_service.dart';
 import 'ideas_photos.dart';
 import 'new_products.dart';
 import 'recommended.dart';

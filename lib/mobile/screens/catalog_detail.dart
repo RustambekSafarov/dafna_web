@@ -5,7 +5,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../services/get_service.dart';
+import '../../services/get_service.dart';
 
 class CatalogDetailScreenM extends StatefulWidget {
   int? catalogId;

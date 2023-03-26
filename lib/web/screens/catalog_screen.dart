@@ -1,18 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:io';
-
 import 'package:dafna_web/web/widget/footer.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-import '../models/colors.dart';
-import '../service/get_service.dart';
+import '../../services/get_service.dart';
 import '../widget/appbar_view.dart';
-import '../widget/drawer_view.dart';
 
 class CatalogScreen extends StatelessWidget with ChangeNotifier {
   CatalogScreen({super.key});

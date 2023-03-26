@@ -7,8 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/link.dart';
 
-import '../models/colors.dart';
-import '../service/get_service.dart';
+import '../../services/get_service.dart';
 import '../widget/appbar_view.dart';
 
 class Contactcreen extends StatefulWidget {

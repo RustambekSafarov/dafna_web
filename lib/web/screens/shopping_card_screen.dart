@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 
-import '../models/colors.dart';
-import '../service/get_service.dart';
+import '../../services/get_service.dart';
 import '../widget/appbar_view.dart';
-import '../widget/drawer_view.dart';
 
 class ShoppingCardScreen extends StatelessWidget {
   ShoppingCardScreen({super.key});

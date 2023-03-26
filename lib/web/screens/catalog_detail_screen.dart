@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dafna_web/web/screens/catalog_screen.dart';
-import 'package:dafna_web/web/service/get_service.dart';
 import 'package:dafna_web/web/widget/appbar_view.dart';
 import 'package:dafna_web/web/widget/footer.dart';
 import 'package:flutter/foundation.dart';
@@ -11,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../services/get_service.dart';
 import '../models/colors.dart';
 import '../widget/drawer_view.dart';
 

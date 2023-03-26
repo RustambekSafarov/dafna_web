@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 
-import '../services/get_service.dart';
-import '../services/post_service.dart';
+import '../../services/get_service.dart';
+import '../../services/post_service.dart';
 
 class ProductDetailScreenM extends StatefulWidget {
   int? id;

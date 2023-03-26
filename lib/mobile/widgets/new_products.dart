@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../services/get_service.dart';
+import '../../services/get_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NewProducts extends StatefulWidget with ChangeNotifier {

@@ -1,19 +1,13 @@
 // ignore_for_file: unused_local_variable, no_leading_underscores_for_local_identifiers
 
-import 'package:dafna_web/web/service/get_service.dart';
 import 'package:dafna_web/web/widget/appbar_view.dart';
-import 'package:dafna_web/web/widget/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/link.dart';
-import 'package:youtube_player_iframe/youtube_player_iframe.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'package:webview_flutter_android/webview_flutter_android.dart';
-import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
-import '../models/colors.dart';
+import '../../services/get_service.dart';
 
 class VideoViewScreen extends StatefulWidget {
   VideoViewScreen({super.key});
