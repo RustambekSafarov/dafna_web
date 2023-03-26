@@ -10,7 +10,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-import '../theme/theme_manager.dart';
+import '../../theme/theme_manager.dart';
 import '../widgets/drawer_view.dart';
 
 class HomeScreenM extends StatefulWidget with ChangeNotifier {
