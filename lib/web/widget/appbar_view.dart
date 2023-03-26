@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../mobile/theme/theme_manager.dart';
+import '../../theme/theme_manager.dart';
 import '../models/constants.dart';
 import 'drawer_view.dart';
 
