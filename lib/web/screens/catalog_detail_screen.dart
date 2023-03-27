@@ -26,7 +26,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
     return Scaffold(
       appBar: AppBar(
         // backgroundColor: primaryColor,
-        toolbarHeight: 120,
+        toolbarHeight: 120.1,
         title: AppBarView(),
       ),
       body: Center(
