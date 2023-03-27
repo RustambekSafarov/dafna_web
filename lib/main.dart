@@ -1,6 +1,5 @@
 import 'package:dafna_web/mobile/models/navigations.dart';
 import 'package:dafna_web/mobile/screens/home_screen.dart';
-import 'package:dafna_web/theme/theme_controller.dart';
 import 'package:dafna_web/theme/theme_manager.dart';
 import 'package:dafna_web/web/models/navigations.dart';
 import 'package:dafna_web/web/widget/appbar_view.dart';
