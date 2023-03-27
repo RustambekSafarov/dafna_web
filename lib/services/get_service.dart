@@ -190,3 +190,13 @@ Future<Map> getCart() async {
   Map data = jsonDecode(response.body);
   return data;
 }
+
+// DELETE CART BY ID
+
+Future<void> deleteCart(int id) async {
+  String prodData = jsonEncode({'id': id});
+  final response = await http.get(
+    Uri.parse('$baseUrl/dafna_app/delete_cart/$id/'),
+    headers: {"Content-Type": "application/json"},
+  );
+}
