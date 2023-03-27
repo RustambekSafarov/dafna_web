@@ -94,7 +94,7 @@ class _MyAppState extends State<MyApp> {
                 Locale('uz'),
                 Locale('ru'),
               ],
-              title: 'Mondelux',
+              title: 'Mondelux.uz',
               theme: FlexThemeData.light(scheme: FlexScheme.blumineBlue),
               darkTheme: FlexThemeData.dark(scheme: FlexScheme.blueWhale),
               themeMode: _themeManager.themeMode,
