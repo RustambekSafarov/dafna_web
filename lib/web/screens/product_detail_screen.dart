@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:dafna_web/web/widget/footer.dart';
 import 'package:dafna_web/web/widget/recommended.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +18,6 @@ class ProductInfoScreen extends StatefulWidget {
 }
 
 class _ProductInfoScreenState extends State<ProductInfoScreen> {
-  final TextEditingController _controller = TextEditingController();
   bool isFavorite = false;
   @override
   Widget build(BuildContext context) {
@@ -44,15 +45,12 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                           Expanded(
                             // flex: 1,
                             child: Container(
-                              padding:
-                                  const EdgeInsets.only(top: 50, bottom: 30),
+                              padding: const EdgeInsets.only(top: 50, bottom: 30),
                               height: 430,
                               width: 410,
                               child: Image.network(
-                                'https://ogabek007.pythonanywhere.com/' +
-                                    snapshot.data!['img_url'],
-                                loadingBuilder:
-                                    (context, child, loadingProgress) {
+                                'https://ogabek007.pythonanywhere.com/' + snapshot.data!['img_url'],
+                                loadingBuilder: (context, child, loadingProgress) {
                                   if (loadingProgress == null) {
                                     return child;
                                   }
@@ -70,22 +68,17 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  padding: const EdgeInsets.only(
-                                      top: 50, bottom: 30),
+                                  padding: const EdgeInsets.only(top: 50, bottom: 30),
                                   child: Text(
                                     snapshot.data!['name'],
-                                    style: const TextStyle(
-                                        fontSize: 28,
-                                        fontWeight: FontWeight.w600),
+                                    style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
                                   ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(bottom: 20),
                                   child: Text(
                                     '${snapshot.data!['price']} so\'m',
-                                    style: const TextStyle(
-                                        fontSize: 28,
-                                        fontWeight: FontWeight.bold),
+                                    style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                                   ),
                                 ),
                                 Row(
@@ -109,9 +102,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                           addFavorite(snapshot.data!['id']);
                                         });
                                       },
-                                      icon: Icon(snapshot.data!['like'] == false
-                                          ? Icons.favorite_border
-                                          : Icons.favorite),
+                                      icon: Icon(snapshot.data!['like'] == false ? Icons.favorite_border : Icons.favorite),
                                     )
                                   ],
                                 ),
@@ -123,51 +114,42 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                     Column(
                                       children: [
                                         Container(
-                                          padding:
-                                              const EdgeInsets.only(right: 10),
+                                          padding: const EdgeInsets.only(right: 10),
                                           height: 24,
                                           // width: 24,
-                                          child: Image.network(
-                                              'https://telegra.ph/file/c8009fb888a661be7f599.png'),
+                                          child: Image.network('https://telegra.ph/file/c8009fb888a661be7f599.png'),
                                         ),
                                         const SizedBox(
                                           height: 20,
                                         ),
                                         Container(
-                                          padding:
-                                              const EdgeInsets.only(right: 10),
+                                          padding: const EdgeInsets.only(right: 10),
                                           height: 24,
                                           // width: 30,
-                                          child: Image.network(
-                                              'https://telegra.ph/file/d7cc492c5fac52487f428.png'),
+                                          child: Image.network('https://telegra.ph/file/d7cc492c5fac52487f428.png'),
                                         ),
                                         const SizedBox(
                                           height: 20,
                                         ),
                                         Container(
-                                          padding:
-                                              const EdgeInsets.only(right: 10),
+                                          padding: const EdgeInsets.only(right: 10),
                                           height: 24,
                                           // width: 30,
-                                          child: Image.network(
-                                              'https://telegra.ph/file/b3bd00aaa9edaca19fb5f.png'),
+                                          child: Image.network('https://telegra.ph/file/b3bd00aaa9edaca19fb5f.png'),
                                         ),
                                         const SizedBox(
                                           height: 20,
                                         ),
                                         Container(
-                                          padding:
-                                              const EdgeInsets.only(right: 10),
+                                          padding: const EdgeInsets.only(right: 10),
                                           height: 24,
                                           // width: 30,
-                                          child: Image.network(
-                                              'https://telegra.ph/file/762fe0d491764eb3c5c2a.png'),
+                                          child: Image.network('https://telegra.ph/file/762fe0d491764eb3c5c2a.png'),
                                         ),
                                       ],
                                     ),
                                     Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: const [
                                         Text(
                                           'Buyurtma berishdan oldin, etkazib berish shartlarini operatorlar bilan tekshiring',
@@ -218,9 +200,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                       padding: const EdgeInsets.all(20.0),
                                       child: Text(
                                         snapshot.data!['discrpition'],
-                                        style: const TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500),
+                                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                                       ),
                                     ),
                                   ),
@@ -245,8 +225,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                         padding: EdgeInsets.only(left: 65, top: 45, bottom: 35),
                         child: Text(
                           'Ehtimol, sizni qiziqtiradi:',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       ),
                       Recommendations(),
@@ -262,8 +241,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                       ),
                     ],
                   );
-                } else if (snapshot.connectionState ==
-                    ConnectionState.waiting) {
+                } else if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
                     child: SpinKitHourGlass(
                       size: 30,

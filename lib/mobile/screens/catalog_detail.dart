@@ -21,12 +21,12 @@ class _CatalogDetailScreenMState extends State<CatalogDetailScreenM> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Prodouct types'),
+        title: const Text('Prodouct types'),
         leading: InkWell(
             onTap: () {
               context.goNamed('/home');
             },
-            child: Icon(Icons.arrow_back_ios)),
+            child: const Icon(Icons.arrow_back_ios)),
       ),
       body: ListView(
         children: [
@@ -55,22 +55,16 @@ class _CatalogDetailScreenMState extends State<CatalogDetailScreenM> {
                       shrinkWrap: true,
                       itemCount: snapshot.data!['prodouct_typt'].length,
                       itemBuilder: (context, index) {
-                        final productTypeId =
-                            snapshot.data!['prodouct_typt'][index]['id'];
+                        final productTypeId = snapshot.data!['prodouct_typt'][index]['id'];
 
                         final productId = snapshot.data!['id'];
-                        final productTypeName =
-                            snapshot.data!['prodouct_typt'][index]['name'];
+                        final productTypeName = snapshot.data!['prodouct_typt'][index]['name'];
                         return InkWell(
                           splashColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           hoverColor: Colors.transparent,
                           onTap: () {
-                            context.goNamed('/product', extra: [
-                              productTypeId,
-                              productId,
-                              productTypeName
-                            ]);
+                            context.goNamed('/product', extra: [productTypeId, productId, productTypeName]);
                           },
                           child: Column(
                             children: [
@@ -80,11 +74,8 @@ class _CatalogDetailScreenMState extends State<CatalogDetailScreenM> {
                                   width: 200,
                                   height: 150,
                                   child: Image.network(
-                                    'https://ogabek007.pythonanywhere.com/' +
-                                        snapshot.data!['prodouct_typt'][index]
-                                            ['img_url'],
-                                    loadingBuilder:
-                                        (context, child, loadingProgress) {
+                                    'https://ogabek007.pythonanywhere.com/${snapshot.data!['prodouct_typt'][index]['img_url']}',
+                                    loadingBuilder: (context, child, loadingProgress) {
                                       if (loadingProgress == null) {
                                         return child;
                                       }
@@ -99,8 +90,7 @@ class _CatalogDetailScreenMState extends State<CatalogDetailScreenM> {
                                 height: 15,
                               ),
                               Text(
-                                snapshot.data!['prodouct_typt'][index]['name']
-                                    .toUpperCase(),
+                                snapshot.data!['prodouct_typt'][index]['name'].toUpperCase(),
                                 style: GoogleFonts.poppins(
                                   fontSize: 14.5,
                                   fontWeight: FontWeight.bold,
@@ -122,7 +112,7 @@ class _CatalogDetailScreenMState extends State<CatalogDetailScreenM> {
                   ),
                 );
               } else {
-                return Center(
+                return const Center(
                   child: Text('Network Error!'),
                 );
               }

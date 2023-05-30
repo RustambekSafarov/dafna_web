@@ -1,6 +1,4 @@
-import 'dart:io';
-
-import 'package:dafna_web/web/screens/catalog_screen.dart';
+// ignore_for_file: must_be_immutable
 import 'package:dafna_web/web/widget/appbar_view.dart';
 import 'package:dafna_web/web/widget/footer.dart';
 import 'package:flutter/foundation.dart';
@@ -11,18 +9,14 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../services/get_service.dart';
-import '../models/colors.dart';
-import '../widget/drawer_view.dart';
 
 class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
   int? catalogId;
   CatalogDetailScreen({super.key, required this.catalogId});
   static const routeName = '/catalog-detail';
-  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    String productTypeName = '';
     return Scaffold(
       appBar: AppBar(
         // backgroundColor: primaryColor,
@@ -51,9 +45,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                                 },
                                 child: Text(
                                   'Asosiy ',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
+                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ),
@@ -64,17 +56,13 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                               },
                               child: Text(
                                 ' Katalog ',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
+                                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                               ),
                             ),
                             Text('/ '),
                             Text(
                               snapshot.data!['discrpition'],
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.bold),
+                              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
@@ -84,12 +72,10 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                         child: Divider(),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                            left: 65, top: 40, bottom: 40),
+                        padding: const EdgeInsets.only(left: 65, top: 40, bottom: 40),
                         child: Text(
                           snapshot.data!['discrpition'],
-                          style: const TextStyle(
-                              fontSize: 23, fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                         ),
                       ),
                       Padding(
@@ -97,30 +83,23 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                         child: GridView.builder(
                           shrinkWrap: true,
                           itemCount: snapshot.data!['prodouct_typt'].length,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 5,
                             mainAxisSpacing: 15,
                             crossAxisSpacing: 15,
                             childAspectRatio: 0.75,
                           ),
                           itemBuilder: (context, index) {
-                            final productTypeId =
-                                snapshot.data!['prodouct_typt'][index]['id'];
+                            final productTypeId = snapshot.data!['prodouct_typt'][index]['id'];
 
                             final productId = snapshot.data!['id'];
-                            final productTypeName =
-                                snapshot.data!['prodouct_typt'][index]['name'];
+                            final productTypeName = snapshot.data!['prodouct_typt'][index]['name'];
                             return InkWell(
                               splashColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               hoverColor: Colors.transparent,
                               onTap: () {
-                                context.goNamed('/product-detail', extra: [
-                                  productTypeId,
-                                  productId,
-                                  productTypeName
-                                ]);
+                                context.goNamed('/product-detail', extra: [productTypeId, productId, productTypeName]);
                               },
                               child: Column(
                                 children: [
@@ -130,11 +109,8 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                                       width: 200,
                                       height: 150,
                                       child: Image.network(
-                                        'https://ogabek007.pythonanywhere.com/' +
-                                            snapshot.data!['prodouct_typt']
-                                                [index]['img_url'],
-                                        loadingBuilder:
-                                            (context, child, loadingProgress) {
+                                        'https://ogabek007.pythonanywhere.com/' + snapshot.data!['prodouct_typt'][index]['img_url'],
+                                        loadingBuilder: (context, child, loadingProgress) {
                                           if (loadingProgress == null) {
                                             return child;
                                           }
@@ -149,9 +125,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                                     height: 15,
                                   ),
                                   Text(
-                                    snapshot.data!['prodouct_typt'][index]
-                                            ['name']
-                                        .toUpperCase(),
+                                    snapshot.data!['prodouct_typt'][index]['name'].toUpperCase(),
                                     style: GoogleFonts.poppins(
                                       fontSize: 14.5,
                                       fontWeight: FontWeight.bold,
@@ -166,8 +140,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                       ),
                     ],
                   );
-                } else if (snapshot.connectionState ==
-                    ConnectionState.waiting) {
+                } else if (snapshot.connectionState == ConnectionState.waiting) {
                   return const SizedBox(
                     height: 500,
                     child: Center(
@@ -195,8 +168,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
           ],
         ),
       ),
-      bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android ||
-              defaultTargetPlatform == TargetPlatform.iOS
+      bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.iOS
           ? BottomAppBar(
               color: Colors.blue,
               child: Row(

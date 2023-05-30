@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:dafna_web/mobile/models/navigations.dart';
 import 'package:dafna_web/mobile/screens/home_screen.dart';
 import 'package:dafna_web/theme/theme_manager.dart';
@@ -8,7 +10,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -53,9 +54,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (ctx, constraints) {
-        if (constraints.maxWidth < 1000 ||
-            defaultTargetPlatform == TargetPlatform.android ||
-            defaultTargetPlatform == TargetPlatform.iOS) {
+        if (constraints.maxWidth < 1000 || defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.iOS) {
           return MultiProvider(
             providers: [
               ChangeNotifierProvider(

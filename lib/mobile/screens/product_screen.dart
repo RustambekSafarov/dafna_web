@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
@@ -43,8 +45,7 @@ class _ProductScreenMState extends State<ProductScreenM> {
                 if (snapshot.hasData) {
                   id = widget.productTypeId!;
                   return Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15, right: 15, top: 20),
+                    padding: const EdgeInsets.only(left: 15, right: 15, top: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -123,20 +124,16 @@ class _ProductScreenMState extends State<ProductScreenM> {
                         ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: snapshot
-                              .data!['prodouct_type']['prodoucts'].length,
+                          itemCount: snapshot.data!['prodouct_type']['prodoucts'].length,
                           itemBuilder: (context, index) {
-                            widget.productTypeId =
-                                snapshot.data!['prodouct_type']['prodoucts']
-                                    [index]['id'];
+                            widget.productTypeId = snapshot.data!['prodouct_type']['prodoucts'][index]['id'];
 
                             return InkWell(
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               splashColor: Colors.transparent,
                               onTap: () {
-                                context.goNamed('/product-detail',
-                                    extra: widget.productTypeId);
+                                context.goNamed('/product-detail', extra: widget.productTypeId);
                               },
                               child: Column(
                                 children: [
@@ -154,14 +151,9 @@ class _ProductScreenMState extends State<ProductScreenM> {
                                             width: 220,
                                             height: 150,
                                             child: Image.network(
-                                              'https://ogabek007.pythonanywhere.com/' +
-                                                  snapshot.data![
-                                                              'prodouct_type']
-                                                          ['prodoucts'][index]
-                                                      ['img_url'],
+                                              'https://ogabek007.pythonanywhere.com/' + snapshot.data!['prodouct_type']['prodoucts'][index]['img_url'],
                                               // fit: BoxFit.cover,
-                                              loadingBuilder: (context, child,
-                                                  loadingProgress) {
+                                              loadingBuilder: (context, child, loadingProgress) {
                                                 if (loadingProgress == null) {
                                                   return child;
                                                 }
@@ -178,13 +170,9 @@ class _ProductScreenMState extends State<ProductScreenM> {
                                   SizedBox(
                                     height: 70,
                                     child: Text(
-                                      snapshot.data!['prodouct_type']
-                                              ['prodoucts'][index]['name']
-                                          .toUpperCase(),
+                                      snapshot.data!['prodouct_type']['prodoucts'][index]['name'].toUpperCase(),
                                       textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                          fontSize: 15.5,
-                                          fontWeight: FontWeight.w900),
+                                      style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w900),
                                     ),
                                   ),
                                   Container(
@@ -192,20 +180,15 @@ class _ProductScreenMState extends State<ProductScreenM> {
                                     width: 220,
                                     // padding: const EdgeInsets.all(13.0),
                                     child: Text(
-                                      snapshot.data!['prodouct_type']
-                                          ['prodoucts'][index]['discrpition'],
+                                      snapshot.data!['prodouct_type']['prodoucts'][index]['discrpition'],
                                       textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w300,
-                                          color: Colors.grey),
+                                      style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w300, color: Colors.grey),
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(13.0),
                                     child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           '${snapshot.data!['prodouct_type']['prodoucts'][index]['price']}',
@@ -233,8 +216,7 @@ class _ProductScreenMState extends State<ProductScreenM> {
                       ],
                     ),
                   );
-                } else if (snapshot.connectionState ==
-                    ConnectionState.waiting) {
+                } else if (snapshot.connectionState == ConnectionState.waiting) {
                   return const SizedBox(
                     height: 500,
                     child: Center(

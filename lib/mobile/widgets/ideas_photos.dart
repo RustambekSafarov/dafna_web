@@ -1,10 +1,5 @@
-import 'dart:io';
-
 import 'package:dafna_web/web/models/ideas_photos.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class IdeasPhotosM extends StatelessWidget {
   const IdeasPhotosM({super.key});
@@ -14,8 +9,8 @@ class IdeasPhotosM extends StatelessWidget {
     return GridView.builder(
       itemCount: forGrid.length ~/ 4,
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 5,
         mainAxisSpacing: 5,

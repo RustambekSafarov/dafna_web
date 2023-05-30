@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:go_router/go_router.dart';
@@ -12,7 +12,7 @@ import '../../services/get_service.dart';
 class Recommendations extends StatefulWidget with ChangeNotifier {
   static const routeName = '/productPage';
 
-  static final String id = 'introPage';
+  static const String id = 'introPage';
   Recommendations({super.key});
 
   @override
@@ -20,16 +20,12 @@ class Recommendations extends StatefulWidget with ChangeNotifier {
 }
 
 class _IntroPageState extends State<Recommendations> {
-  @override
-  // ignore: override_on_non_overriding_member
-  final PageController _controller = PageController();
   final controller = PageController();
   int activeIndex = 0;
 
   void _onDotClicked(int index) {
     // Move to the clicked dot's page
-    controller.animateToPage(index,
-        duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
+    controller.animateToPage(index, duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
   }
 
   @override
@@ -70,8 +66,7 @@ class _IntroPageState extends State<Recommendations> {
                                   image: DecorationImage(
                                     fit: BoxFit.fitWidth,
                                     image: NetworkImage(
-                                      'https://ogabek007.pythonanywhere.com/' +
-                                          snapshot.data![index]['img_url'],
+                                      'https://ogabek007.pythonanywhere.com/${snapshot.data![index]['img_url']}',
                                     ),
                                   ),
                                 ),
@@ -99,8 +94,7 @@ class _IntroPageState extends State<Recommendations> {
                               Text(
                                 '${snapshot.data![index]['price']} so`m',
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold),
+                                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),

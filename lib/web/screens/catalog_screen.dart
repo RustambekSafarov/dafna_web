@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable
 
 import 'package:dafna_web/web/widget/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../services/get_service.dart';
@@ -12,7 +11,6 @@ import '../widget/appbar_view.dart';
 class CatalogScreen extends StatelessWidget with ChangeNotifier {
   CatalogScreen({super.key});
   static const routeName = '/catalog';
-  final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,15 +34,13 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
                       },
                       child: Text(
                         'Asosiy /',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
                   Text(
                     ' Katalog',
-                    style: TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -59,8 +55,7 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
                 if (snapshot.hasData) {
                   return GridView.builder(
                     shrinkWrap: true,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 1.3,
                     ),
@@ -78,8 +73,7 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(30),
                           child: Image.network(
-                            'https://ogabek007.pythonanywhere.com/' +
-                                snapshot.data![index]['img_url'],
+                            'https://ogabek007.pythonanywhere.com/' + snapshot.data![index]['img_url'],
                             fit: BoxFit.fitWidth,
                             loadingBuilder: (context, child, loadingProgress) {
                               if (loadingProgress == null) {
@@ -94,8 +88,7 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
                       ),
                     ),
                   );
-                } else if (snapshot.connectionState ==
-                    ConnectionState.waiting) {
+                } else if (snapshot.connectionState == ConnectionState.waiting) {
                   return const SizedBox(
                     height: 500,
                     child: Center(

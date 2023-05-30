@@ -1,8 +1,5 @@
 import 'package:dafna_web/web/models/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -16,20 +13,20 @@ class _RegisterState extends State<Register> {
   String hint = '+9989';
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height * 0.35,
       width: MediaQuery.of(context).size.width * 0.55,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 50, left: 50),
+          const Padding(
+            padding: EdgeInsets.only(top: 50, left: 50),
             child: Text(
               'Saytga kiring',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -57,10 +54,8 @@ class _RegisterState extends State<Register> {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       prefixText: prefix,
-                      hintText: registrField == false
-                          ? hint
-                          : 'Telefon raqam kiriting',
-                      border: OutlineInputBorder(),
+                      hintText: registrField == false ? hint : 'Telefon raqam kiriting',
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
@@ -74,11 +69,11 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
                 onPressed: () {},
-                child: Text('Kodni yuborish'),
+                child: const Text('Kodni yuborish'),
               ),
             ],
           ),
-          Spacer(),
+          const Spacer(),
         ],
       ),
     );

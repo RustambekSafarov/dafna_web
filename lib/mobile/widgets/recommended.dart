@@ -1,7 +1,6 @@
-import 'dart:io';
+// ignore_for_file: must_be_immutable
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../services/get_service.dart';
@@ -12,7 +11,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 class RecommendationsM extends StatefulWidget with ChangeNotifier {
   static const routeName = '/productPage';
 
-  static final String id = 'introPage';
+  static const String id = 'introPage';
   RecommendationsM({super.key});
 
   @override
@@ -22,14 +21,12 @@ class RecommendationsM extends StatefulWidget with ChangeNotifier {
 class _IntroPageState extends State<RecommendationsM> {
   @override
   // ignore: override_on_non_overriding_member
-  final PageController _controller = PageController();
   final controller = PageController();
   int activeIndex = 0;
 
   void _onDotClicked(int index) {
     // Move to the clicked dot's page
-    controller.animateToPage(index,
-        duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
+    controller.animateToPage(index, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
   }
 
   @override
@@ -70,8 +67,7 @@ class _IntroPageState extends State<RecommendationsM> {
                                   image: DecorationImage(
                                     fit: BoxFit.fitWidth,
                                     image: NetworkImage(
-                                      'https://ogabek007.pythonanywhere.com/' +
-                                          snapshot.data![index]['img_url'],
+                                      'https://ogabek007.pythonanywhere.com/${snapshot.data![index]['img_url']}',
                                     ),
                                   ),
                                 ),
@@ -99,8 +95,7 @@ class _IntroPageState extends State<RecommendationsM> {
                               Text(
                                 '${snapshot.data![index]['price']} so`m',
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold),
+                                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
@@ -134,7 +129,7 @@ class _IntroPageState extends State<RecommendationsM> {
                   _onDotClicked(i);
                 },
                 count: snapshot.data!.length,
-                effect: WormEffect(
+                effect: const WormEffect(
                   activeDotColor: Colors.blue,
                   dotColor: Color.fromARGB(255, 143, 210, 255),
                   dotHeight: 7,

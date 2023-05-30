@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
 
@@ -205,7 +203,7 @@ class _FooterState extends State<Footer> {
                             ),
                           );
                         }),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Link(
                         uri: Uri.parse('https://www.facebook.com/dafnamebel'),
                         builder: (context, followLink) {
@@ -225,9 +223,9 @@ class _FooterState extends State<Footer> {
                 const SizedBox(
                   width: 80,
                 ),
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       'Kontaktlar',
                       style: TextStyle(
@@ -285,27 +283,15 @@ class _FooterState extends State<Footer> {
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 595),
             child: Row(
               children: [
-                SizedBox(
-                    height: 18,
-                    width: 50,
-                    child: Image.network(
-                        'https://telegra.ph/file/e4396e52c6970eae01e66.png')),
+                SizedBox(height: 18, width: 50, child: Image.network('https://telegra.ph/file/e4396e52c6970eae01e66.png')),
                 const SizedBox(
                   width: 10,
                 ),
-                SizedBox(
-                    height: 18,
-                    width: 50,
-                    child: Image.network(
-                        'https://telegra.ph/file/f656cbd86238fe149c5da.png')),
+                SizedBox(height: 18, width: 50, child: Image.network('https://telegra.ph/file/f656cbd86238fe149c5da.png')),
                 const SizedBox(
                   width: 10,
                 ),
-                SizedBox(
-                    height: 18,
-                    width: 50,
-                    child: Image.network(
-                        'https://telegra.ph/file/b36cd0a4f2280d5c6f5c6.png')),
+                SizedBox(height: 18, width: 50, child: Image.network('https://telegra.ph/file/b36cd0a4f2280d5c6f5c6.png')),
               ],
             ),
           )

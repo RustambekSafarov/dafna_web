@@ -1,9 +1,5 @@
-import 'dart:io';
-
 import 'package:dafna_web/web/models/constants.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Sponsors extends StatefulWidget {
@@ -19,7 +15,7 @@ class _SponsorsState extends State<Sponsors> {
     return FittedBox(
       fit: BoxFit.none,
       child: Padding(
-        padding: EdgeInsets.only(top: 50, bottom: 50),
+        padding: const EdgeInsets.only(top: 50, bottom: 50),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -54,18 +50,15 @@ class _SponsorsState extends State<Sponsors> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
-                        fit: sponsor1 == false
-                            ? BoxFit.fitHeight
-                            : BoxFit.fitWidth,
-                        image: NetworkImage(
-                            'https://telegra.ph/file/ac6a1c228d7d9d7677095.pnghttps://mebel.dafna.uz/img/Today/eman-banner.png'),
+                        fit: sponsor1 == false ? BoxFit.fitHeight : BoxFit.fitWidth,
+                        image: const NetworkImage('https://telegra.ph/file/ac6a1c228d7d9d7677095.pnghttps://mebel.dafna.uz/img/Today/eman-banner.png'),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 90,
             ),
             MouseRegion(
@@ -80,7 +73,7 @@ class _SponsorsState extends State<Sponsors> {
                 });
               },
               child: AnimatedContainer(
-                duration: Duration(microseconds: 9555),
+                duration: const Duration(microseconds: 9555),
                 width: 500,
                 height: 300,
                 child: InkWell(
@@ -99,11 +92,8 @@ class _SponsorsState extends State<Sponsors> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
-                        fit: sponsor2 == false
-                            ? BoxFit.fitHeight
-                            : BoxFit.fitWidth,
-                        image: const NetworkImage(
-                            'https://telegra.ph/file/85ba7f7f2f9e37c90adb8.png'),
+                        fit: sponsor2 == false ? BoxFit.fitHeight : BoxFit.fitWidth,
+                        image: const NetworkImage('https://telegra.ph/file/85ba7f7f2f9e37c90adb8.png'),
                       ),
                     ),
                   ),

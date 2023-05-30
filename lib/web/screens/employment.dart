@@ -4,7 +4,6 @@ import 'package:dafna_web/web/widget/appbar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../models/colors.dart';
 import '../widget/footer.dart';
 
 class Employment extends StatelessWidget {
@@ -34,15 +33,13 @@ class Employment extends StatelessWidget {
                     },
                     child: Text(
                       'Asosiy /',
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
                 Text(
                   ' Bandlik',
-                  style: TextStyle(
-                      color: Colors.blue, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -59,8 +56,7 @@ class Employment extends StatelessWidget {
             ),
           ),
           Padding(
-            padding:
-                const EdgeInsets.only(left: 65, right: 65, top: 25, bottom: 25),
+            padding: const EdgeInsets.only(left: 65, right: 65, top: 25, bottom: 25),
             child: Image.network(
               'https://telegra.ph/file/c50c369ffa0cba19ca2e6.jpg',
               loadingBuilder: (context, child, loadingProgress) {

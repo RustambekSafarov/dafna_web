@@ -1,8 +1,4 @@
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SponsorsM extends StatelessWidget {
@@ -13,7 +9,7 @@ class SponsorsM extends StatelessWidget {
     return FittedBox(
       fit: BoxFit.none,
       child: Padding(
-        padding: EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 20),
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -36,13 +32,12 @@ class SponsorsM extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   image: const DecorationImage(
                     fit: BoxFit.fitWidth,
-                    image: NetworkImage(
-                        'https://mebel.dafna.uz/img/Today/eman-banner.png'),
+                    image: NetworkImage('https://mebel.dafna.uz/img/Today/eman-banner.png'),
                   ),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
             InkWell(
@@ -64,8 +59,7 @@ class SponsorsM extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   image: const DecorationImage(
                     fit: BoxFit.fitWidth,
-                    image: NetworkImage(
-                        'https://mebel.dafna.uz/img/Today/aiko-banner.jpg'),
+                    image: NetworkImage('https://mebel.dafna.uz/img/Today/aiko-banner.jpg'),
                   ),
                 ),
               ),

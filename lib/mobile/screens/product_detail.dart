@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
@@ -40,8 +42,7 @@ class _ProductDetailScreenMState extends State<ProductDetailScreenM> {
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Image.network(
-                        'https://ogabek007.pythonanywhere.com/' +
-                            snapshot.data!['img_url'],
+                        'https://ogabek007.pythonanywhere.com/' + snapshot.data!['img_url'],
                         loadingBuilder: (context, child, loadingProgress) {
                           if (loadingProgress == null) {
                             return child;
@@ -56,16 +57,14 @@ class _ProductDetailScreenMState extends State<ProductDetailScreenM> {
                       padding: const EdgeInsets.only(top: 50, bottom: 30),
                       child: Text(
                         snapshot.data!['name'],
-                        style: const TextStyle(
-                            fontSize: 28, fontWeight: FontWeight.w600),
+                        style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 20),
                       child: Text(
                         '${snapshot.data!['price']} so\'m',
-                        style: const TextStyle(
-                            fontSize: 28, fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Row(
@@ -90,9 +89,7 @@ class _ProductDetailScreenMState extends State<ProductDetailScreenM> {
                               addFavorite(snapshot.data!['id']);
                             });
                           },
-                          icon: Icon(snapshot.data!['like'] == false
-                              ? Icons.favorite_border
-                              : Icons.favorite),
+                          icon: Icon(snapshot.data!['like'] == false ? Icons.favorite_border : Icons.favorite),
                         )
                       ],
                     ),
@@ -106,8 +103,7 @@ class _ProductDetailScreenMState extends State<ProductDetailScreenM> {
                                 padding: const EdgeInsets.only(right: 10),
                                 height: 15,
                                 // width: 24,
-                                child: Image.network(
-                                    'https://telegra.ph/file/c8009fb888a661be7f599.png'),
+                                child: Image.network('https://telegra.ph/file/c8009fb888a661be7f599.png'),
                               ),
                               const SizedBox(
                                 height: 10,
@@ -116,8 +112,7 @@ class _ProductDetailScreenMState extends State<ProductDetailScreenM> {
                                 padding: const EdgeInsets.only(right: 10),
                                 height: 15,
                                 // width: 30,
-                                child: Image.network(
-                                    'https://telegra.ph/file/d7cc492c5fac52487f428.png'),
+                                child: Image.network('https://telegra.ph/file/d7cc492c5fac52487f428.png'),
                               ),
                               const SizedBox(
                                 height: 10,
@@ -126,8 +121,7 @@ class _ProductDetailScreenMState extends State<ProductDetailScreenM> {
                                 padding: const EdgeInsets.only(right: 10),
                                 height: 15,
                                 // width: 30,
-                                child: Image.network(
-                                    'https://telegra.ph/file/b3bd00aaa9edaca19fb5f.png'),
+                                child: Image.network('https://telegra.ph/file/b3bd00aaa9edaca19fb5f.png'),
                               ),
                               const SizedBox(
                                 height: 10,
@@ -136,8 +130,7 @@ class _ProductDetailScreenMState extends State<ProductDetailScreenM> {
                                 padding: const EdgeInsets.only(right: 10),
                                 height: 15,
                                 // width: 30,
-                                child: Image.network(
-                                    'https://telegra.ph/file/762fe0d491764eb3c5c2a.png'),
+                                child: Image.network('https://telegra.ph/file/762fe0d491764eb3c5c2a.png'),
                               ),
                             ],
                           ),
@@ -205,8 +198,7 @@ class _ProductDetailScreenMState extends State<ProductDetailScreenM> {
                               padding: const EdgeInsets.all(20.0),
                               child: Text(
                                 snapshot.data!['discrpition'],
-                                style: const TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
+                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                               ),
                             )),
                       ),

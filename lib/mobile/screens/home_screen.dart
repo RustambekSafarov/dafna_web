@@ -1,12 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, must_be_immutable
 
 import 'package:dafna_web/mobile/widgets/catalog.dart';
 import 'package:dafna_web/mobile/widgets/favorite.dart';
 import 'package:dafna_web/mobile/widgets/home.dart';
 import 'package:dafna_web/mobile/widgets/shopping.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 

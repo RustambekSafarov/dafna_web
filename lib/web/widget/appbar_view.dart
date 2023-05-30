@@ -1,10 +1,9 @@
-import 'dart:io';
+// ignore_for_file: must_be_immutable
 
 import 'package:dafna_web/web/widget/register.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../../theme/theme_manager.dart';
 import '../models/constants.dart';
 import 'drawer_view.dart';
@@ -52,9 +51,7 @@ class _MyWidgetState extends State<AppBarView> {
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w300,
-                        decoration: asosiy == false
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
+                        decoration: asosiy == false ? TextDecoration.underline : TextDecoration.none,
                         decorationColor: Colors.white,
                         decorationThickness: 1.5,
                       ),
@@ -83,9 +80,7 @@ class _MyWidgetState extends State<AppBarView> {
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w300,
-                        decoration: katalog == false
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
+                        decoration: katalog == false ? TextDecoration.underline : TextDecoration.none,
                         decorationColor: Colors.white,
                         decorationThickness: 1.5,
                       ),
@@ -114,9 +109,7 @@ class _MyWidgetState extends State<AppBarView> {
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w300,
-                        decoration: video == false
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
+                        decoration: video == false ? TextDecoration.underline : TextDecoration.none,
                         decorationColor: Colors.white,
                         decorationThickness: 1.5,
                       ),
@@ -147,9 +140,7 @@ class _MyWidgetState extends State<AppBarView> {
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w300,
-                        decoration: kontakt == false
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
+                        decoration: kontakt == false ? TextDecoration.underline : TextDecoration.none,
                         decorationColor: Colors.white,
                         decorationThickness: 1.5,
                       ),
@@ -180,9 +171,7 @@ class _MyWidgetState extends State<AppBarView> {
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w300,
-                        decoration: bandlik == false
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
+                        decoration: bandlik == false ? TextDecoration.underline : TextDecoration.none,
                         decorationColor: Colors.white,
                         decorationThickness: 1.5,
                       ),
@@ -213,9 +202,7 @@ class _MyWidgetState extends State<AppBarView> {
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w300,
-                          decoration: fikr == false
-                              ? TextDecoration.underline
-                              : TextDecoration.none,
+                          decoration: fikr == false ? TextDecoration.underline : TextDecoration.none,
                           decorationColor: Colors.white,
                           decorationThickness: 1.5,
                         ),
@@ -250,9 +237,7 @@ class _MyWidgetState extends State<AppBarView> {
                       color: Colors.white,
                       fontSize: 14,
                       fontWeight: FontWeight.w300,
-                      decoration: chegirma == false
-                          ? TextDecoration.underline
-                          : TextDecoration.none,
+                      decoration: chegirma == false ? TextDecoration.underline : TextDecoration.none,
                       decorationColor: Colors.white,
                       decorationThickness: 1.5,
                     ),
@@ -298,9 +283,7 @@ class _MyWidgetState extends State<AppBarView> {
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.white,
-                              decoration: number == false
-                                  ? TextDecoration.underline
-                                  : TextDecoration.none,
+                              decoration: number == false ? TextDecoration.underline : TextDecoration.none,
                               decorationColor: Colors.white,
                               decorationThickness: 3,
                             ),

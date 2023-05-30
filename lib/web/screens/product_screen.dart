@@ -26,7 +26,6 @@ class ProductDetailScreen extends StatefulWidget with ChangeNotifier {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
-  final TextEditingController _controller = TextEditingController();
   int number = 0;
   int? id;
   @override
@@ -45,8 +44,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 padding: const EdgeInsets.only(left: 65, top: 40, bottom: 40),
                 child: Text(
                   widget.productTypeName!,
-                  style: const TextStyle(
-                      fontSize: 23, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                 ),
               ),
               Row(
@@ -73,23 +71,18 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     // widget.productTypeId = snapshot
                                     //     .data!['prodouct_typt'][index]['id'];
                                     number = index;
-                                    widget.productTypeName = snapshot
-                                        .data!['prodouct_typt'][index]['name'];
-                                    widget.productTypeId = snapshot
-                                        .data!['prodouct_typt'][index]['id'];
+                                    widget.productTypeName = snapshot.data!['prodouct_typt'][index]['name'];
+                                    widget.productTypeId = snapshot.data!['prodouct_typt'][index]['id'];
                                   });
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
-                                    color: number == index
-                                        ? Colors.lightBlue
-                                        : null,
+                                    color: number == index ? Colors.lightBlue : null,
                                   ),
                                   padding: const EdgeInsets.all(5.0),
                                   child: Text(
-                                    snapshot.data!['prodouct_typt'][index]
-                                        ['name'],
+                                    snapshot.data!['prodouct_typt'][index]['name'],
                                     style: const TextStyle(
                                       fontSize: 14.5,
                                       fontWeight: FontWeight.w300,
@@ -99,8 +92,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               ),
                             ),
                           );
-                        } else if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
+                        } else if (snapshot.connectionState == ConnectionState.waiting) {
                           return const Center(
                             child: SpinKitHourGlass(
                               size: 30,
@@ -121,8 +113,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         if (snapshot.hasData) {
                           id = widget.productTypeId!;
                           return Padding(
-                            padding: const EdgeInsets.only(
-                                left: 15, right: 65, top: 20),
+                            padding: const EdgeInsets.only(left: 15, right: 65, top: 20),
                             child: Column(
                               children: [
                                 Row(
@@ -141,12 +132,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                         height: 35,
                                         width: 85,
                                         decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
+                                          borderRadius: BorderRadius.circular(5),
                                           color: Colors.blue,
                                         ),
-                                        child:
-                                            Center(child: Text('Mashhurlik')),
+                                        child: Center(child: Text('Mashhurlik')),
                                       ),
                                     ),
                                     InkWell(
@@ -159,8 +148,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                         height: 35,
                                         width: 65,
                                         decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
+                                          borderRadius: BorderRadius.circular(5),
                                           color: Colors.blue,
                                         ),
                                         child: Center(child: Text('Yangi')),
@@ -176,8 +164,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                         height: 35,
                                         width: 65,
                                         decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
+                                          borderRadius: BorderRadius.circular(5),
                                           color: Colors.blue,
                                         ),
                                         child: Center(child: Text('Narxi')),
@@ -193,8 +180,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                         height: 35,
                                         width: 65,
                                         decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
+                                          borderRadius: BorderRadius.circular(5),
                                           color: Colors.blue,
                                         ),
                                         child: Center(child: Text('Chegirma')),
@@ -206,38 +192,25 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   height: 20,
                                 ),
                                 GridView.builder(
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
+                                    physics: const NeverScrollableScrollPhysics(),
                                     shrinkWrap: true,
-                                    itemCount: snapshot
-                                        .data!['prodouct_type']['prodoucts']
-                                        .length,
-                                    gridDelegate:
-                                        const SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 4,
-                                            childAspectRatio: 0.5,
-                                            mainAxisSpacing: 20,
-                                            crossAxisSpacing: 20),
+                                    itemCount: snapshot.data!['prodouct_type']['prodoucts'].length,
+                                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, childAspectRatio: 0.5, mainAxisSpacing: 20, crossAxisSpacing: 20),
                                     itemBuilder: (context, index) {
-                                      widget.productTypeId =
-                                          snapshot.data!['prodouct_type']
-                                              ['prodoucts'][index]['id'];
+                                      widget.productTypeId = snapshot.data!['prodouct_type']['prodoucts'][index]['id'];
 
                                       return InkWell(
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         splashColor: Colors.transparent,
                                         onTap: () {
-                                          context.goNamed('/product-info',
-                                              extra: widget.productTypeId);
+                                          context.goNamed('/product-info', extra: widget.productTypeId);
                                         },
                                         child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
                                           children: [
                                             ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(15),
+                                              borderRadius: BorderRadius.circular(15),
                                               child: SizedBox(
                                                 height: 220,
                                                 child: Stack(
@@ -247,22 +220,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                                       right: 0,
                                                       child: IconButton(
                                                         onPressed: () {},
-                                                        icon: Icon(Icons
-                                                            .favorite_border),
+                                                        icon: Icon(Icons.favorite_border),
                                                       ),
                                                     ),
                                                     Image.network(
-                                                      'https://ogabek007.pythonanywhere.com/' +
-                                                          snapshot.data![
-                                                                      'prodouct_type']
-                                                                  ['prodoucts'][
-                                                              index]['img_url'],
+                                                      'https://ogabek007.pythonanywhere.com/' + snapshot.data!['prodouct_type']['prodoucts'][index]['img_url'],
                                                       fit: BoxFit.cover,
-                                                      loadingBuilder: (context,
-                                                          child,
-                                                          loadingProgress) {
-                                                        if (loadingProgress ==
-                                                            null) {
+                                                      loadingBuilder: (context, child, loadingProgress) {
+                                                        if (loadingProgress == null) {
                                                           return child;
                                                         }
                                                         return Image.network(
@@ -277,15 +242,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                             SizedBox(
                                               height: 70,
                                               child: Text(
-                                                snapshot.data!['prodouct_type']
-                                                        ['prodoucts'][index]
-                                                        ['name']
-                                                    .toUpperCase(),
+                                                snapshot.data!['prodouct_type']['prodoucts'][index]['name'].toUpperCase(),
                                                 textAlign: TextAlign.center,
-                                                style: const TextStyle(
-                                                    fontSize: 15.5,
-                                                    fontWeight:
-                                                        FontWeight.w900),
+                                                style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w900),
                                               ),
                                             ),
                                             Container(
@@ -293,38 +252,29 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                               width: 220,
                                               // padding: const EdgeInsets.all(13.0),
                                               child: Text(
-                                                snapshot.data!['prodouct_type']
-                                                        ['prodoucts'][index]
-                                                    ['discrpition'],
+                                                snapshot.data!['prodouct_type']['prodoucts'][index]['discrpition'],
                                                 textAlign: TextAlign.center,
-                                                style: const TextStyle(
-                                                    fontSize: 13,
-                                                    fontWeight: FontWeight.w300,
-                                                    color: Colors.grey),
+                                                style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w300, color: Colors.grey),
                                               ),
                                             ),
                                             Padding(
-                                              padding:
-                                                  const EdgeInsets.all(13.0),
+                                              padding: const EdgeInsets.all(13.0),
                                               child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
                                                   Text(
                                                     '${snapshot.data!['prodouct_type']['prodoucts'][index]['price']}',
                                                     textAlign: TextAlign.center,
                                                     style: const TextStyle(
                                                       fontSize: 22,
-                                                      fontWeight:
-                                                          FontWeight.w700,
+                                                      fontWeight: FontWeight.w700,
                                                     ),
                                                   ),
                                                   const Text(
                                                     ' so\'m',
                                                     style: TextStyle(
                                                       fontSize: 18,
-                                                      fontWeight:
-                                                          FontWeight.w700,
+                                                      fontWeight: FontWeight.w700,
                                                     ),
                                                   )
                                                 ],
@@ -337,8 +287,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               ],
                             ),
                           );
-                        } else if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
+                        } else if (snapshot.connectionState == ConnectionState.waiting) {
                           return const SizedBox(
                             height: 500,
                             child: Center(
@@ -362,8 +311,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             ],
           ),
         ),
-        bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android ||
-                defaultTargetPlatform == TargetPlatform.iOS
+        bottomNavigationBar: defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.iOS
             ? BottomAppBar(
                 color: Colors.blue,
                 child: Row(

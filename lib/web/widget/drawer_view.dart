@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatefulWidget {
@@ -9,24 +11,7 @@ class MainDrawer extends StatefulWidget {
 
 class _MainDrawerState extends State<MainDrawer> {
   int number = 0;
-  final List<dynamic> _item = [
-    'Chegirma zonasi',
-    'Divanlar',
-    'Ofis stollari',
-    'Kafe stollari',
-    'Badiiy mebil',
-    'Ovqatlanish stollari',
-    'Kreslolar',
-    'Tortmali Sandiqlar',
-    'Dekorlar',
-    'To\'qimachilik',
-    'CULTi dan lazzatlar',
-    'AKIO',
-    'Ofis mebillari',
-    'Uy uchun mebillar',
-    'Mehmonxona jihozlari',
-    'Aksessuarlar mebillar '
-  ];
+  final List<dynamic> _item = ['Chegirma zonasi', 'Divanlar', 'Ofis stollari', 'Kafe stollari', 'Badiiy mebil', 'Ovqatlanish stollari', 'Kreslolar', 'Tortmali Sandiqlar', 'Dekorlar', 'To\'qimachilik', 'CULTi dan lazzatlar', 'AKIO', 'Ofis mebillari', 'Uy uchun mebillar', 'Mehmonxona jihozlari', 'Aksessuarlar mebillar '];
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +35,7 @@ class _MainDrawerState extends State<MainDrawer> {
               alignment: Alignment.centerLeft,
               width: 250,
               height: 50,
-              padding: EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 color: number == index ? Colors.orange : null,
@@ -83,7 +68,7 @@ class _MainDrawerInState extends State<MainDrawerIn> {
       width: 700,
       height: 600,
       color: Colors.white,
-      child: Text(''),
+      child: const Text(''),
     );
   }
 }

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 
@@ -44,8 +42,7 @@ class FavoriteWidget extends StatelessWidget {
                             ),
                           ),
                           Image.network(
-                            'https://ogabek007.pythonanywhere.com/' +
-                                snapshot.data![index]['img_url'],
+                            'https://ogabek007.pythonanywhere.com/' + snapshot.data![index]['img_url'],
                             fit: BoxFit.cover,
                             loadingBuilder: (context, child, loadingProgress) {
                               if (loadingProgress == null) {
@@ -65,8 +62,7 @@ class FavoriteWidget extends StatelessWidget {
                     child: Text(
                       snapshot.data![index]['name'].toUpperCase(),
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          fontSize: 15.5, fontWeight: FontWeight.w900),
+                      style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w900),
                     ),
                   ),
                   Container(
@@ -76,10 +72,7 @@ class FavoriteWidget extends StatelessWidget {
                     child: Text(
                       snapshot.data![index]['discrpition'],
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.grey),
+                      style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w300, color: Colors.grey),
                     ),
                   ),
                   Padding(

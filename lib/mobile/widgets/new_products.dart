@@ -1,7 +1,6 @@
-import 'dart:io';
+// ignore_for_file: must_be_immutable
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
@@ -25,8 +24,7 @@ class _IntroPageState extends State<NewProducts> {
 
   void _onDotClicked(int index) {
     // Move to the clicked dot's page
-    controller.animateToPage(index,
-        duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
+    controller.animateToPage(index, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
   }
 
   @override
@@ -62,10 +60,8 @@ class _IntroPageState extends State<NewProducts> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
                                   child: Image.network(
-                                    'https://ogabek007.pythonanywhere.com/' +
-                                        snapshot.data![index]['img_url'],
-                                    loadingBuilder:
-                                        (context, child, loadingProgress) {
+                                    'https://ogabek007.pythonanywhere.com/${snapshot.data![index]['img_url']}',
+                                    loadingBuilder: (context, child, loadingProgress) {
                                       if (loadingProgress == null) {
                                         return child;
                                       }
@@ -100,8 +96,7 @@ class _IntroPageState extends State<NewProducts> {
                               Text(
                                 '${snapshot.data![index]['price']} so`m',
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold),
+                                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),

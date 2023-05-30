@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:dafna_web/web/widget/appbar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -9,7 +11,6 @@ class SearchResultScreen extends StatelessWidget {
   String value;
   SearchResultScreen({super.key, required this.value});
   static const routeName = '/search-result';
-  final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,15 +33,13 @@ class SearchResultScreen extends StatelessWidget {
                     },
                     child: Text(
                       'Asosiy ',
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
                 Text(
                   '/ Qidiruv natijalari',
-                  style: TextStyle(
-                      color: Colors.blue, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -57,19 +56,14 @@ class SearchResultScreen extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: snapshot.data!.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
-                      childAspectRatio: 0.5,
-                      mainAxisSpacing: 20,
-                      crossAxisSpacing: 20),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, childAspectRatio: 0.5, mainAxisSpacing: 20, crossAxisSpacing: 20),
                   itemBuilder: (context, index) {
                     return InkWell(
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       splashColor: Colors.transparent,
                       onTap: () {
-                        context.goNamed('/product-info',
-                            extra: snapshot.data![index]['id']);
+                        context.goNamed('/product-info', extra: snapshot.data![index]['id']);
                       },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,8 +83,7 @@ class SearchResultScreen extends StatelessWidget {
                                     ),
                                   ),
                                   Image.network(
-                                    'https://ogabek007.pythonanywhere.com/' +
-                                        snapshot.data![index]['img_url'],
+                                    'https://ogabek007.pythonanywhere.com/' + snapshot.data![index]['img_url'],
                                     fit: BoxFit.cover,
                                   ),
                                 ],
@@ -102,8 +95,7 @@ class SearchResultScreen extends StatelessWidget {
                             child: Text(
                               snapshot.data![index]['name'].toUpperCase(),
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                  fontSize: 15.5, fontWeight: FontWeight.w900),
+                              style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w900),
                             ),
                           ),
                           Container(
@@ -113,10 +105,7 @@ class SearchResultScreen extends StatelessWidget {
                             child: Text(
                               snapshot.data![index]['discrpition'],
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w300,
-                                  color: Colors.grey),
+                              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w300, color: Colors.grey),
                             ),
                           ),
                           Padding(

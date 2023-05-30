@@ -5,12 +5,10 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../services/get_service.dart';
-import '../widget/drawer_view.dart';
 
 class FavoritesScreen extends StatelessWidget {
   FavoritesScreen({super.key});
   static const routeName = '/favorites';
-  final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,15 +32,13 @@ class FavoritesScreen extends StatelessWidget {
                       },
                       child: Text(
                         'Asosiy /',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
                   Text(
                     ' Sevimlilar',
-                    style: TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -66,18 +62,12 @@ class FavoritesScreen extends StatelessWidget {
                           ),
                         )
                       : Padding(
-                          padding: const EdgeInsets.only(
-                              left: 65, right: 65, top: 20),
+                          padding: const EdgeInsets.only(left: 65, right: 65, top: 20),
                           child: GridView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: snapshot.data!.length,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 4,
-                                    childAspectRatio: 0.5,
-                                    mainAxisSpacing: 20,
-                                    crossAxisSpacing: 20),
+                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, childAspectRatio: 0.5, mainAxisSpacing: 20, crossAxisSpacing: 20),
                             itemBuilder: (context, index) {
                               return InkWell(
                                 hoverColor: Colors.transparent,
@@ -103,17 +93,13 @@ class FavoritesScreen extends StatelessWidget {
                                               right: 0,
                                               child: IconButton(
                                                 onPressed: () {},
-                                                icon:
-                                                    Icon(Icons.favorite_border),
+                                                icon: Icon(Icons.favorite_border),
                                               ),
                                             ),
                                             Image.network(
-                                              'https://ogabek007.pythonanywhere.com/' +
-                                                  snapshot.data![index]
-                                                      ['img_url'],
+                                              'https://ogabek007.pythonanywhere.com/' + snapshot.data![index]['img_url'],
                                               fit: BoxFit.cover,
-                                              loadingBuilder: (context, child,
-                                                  loadingProgress) {
+                                              loadingBuilder: (context, child, loadingProgress) {
                                                 if (loadingProgress == null) {
                                                   return child;
                                                 }
@@ -129,12 +115,9 @@ class FavoritesScreen extends StatelessWidget {
                                     SizedBox(
                                       height: 70,
                                       child: Text(
-                                        snapshot.data![index]['name']
-                                            .toUpperCase(),
+                                        snapshot.data![index]['name'].toUpperCase(),
                                         textAlign: TextAlign.center,
-                                        style: const TextStyle(
-                                            fontSize: 15.5,
-                                            fontWeight: FontWeight.w900),
+                                        style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w900),
                                       ),
                                     ),
                                     Container(
@@ -144,17 +127,13 @@ class FavoritesScreen extends StatelessWidget {
                                       child: Text(
                                         snapshot.data![index]['discrpition'],
                                         textAlign: TextAlign.center,
-                                        style: const TextStyle(
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.w300,
-                                            color: Colors.grey),
+                                        style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w300, color: Colors.grey),
                                       ),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.all(13.0),
                                       child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             '${snapshot.data![index]['price']}',
@@ -180,8 +159,7 @@ class FavoritesScreen extends StatelessWidget {
                             },
                           ),
                         );
-                } else if (snapshot.connectionState ==
-                    ConnectionState.waiting) {
+                } else if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
                     child: SpinKitHourGlass(
                       size: 30,

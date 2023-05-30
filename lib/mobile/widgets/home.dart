@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 
@@ -28,8 +26,7 @@ class HomeWidget extends StatelessWidget {
                   width: double.infinity,
                   child: Image(
                     fit: BoxFit.fitWidth,
-                    image: NetworkImage(
-                        'https://pg-edtr.archiproducts.com/desktop_1454x870_6c141cf8-889f-4604-890c-f8a1ec5644ad.jpg'),
+                    image: NetworkImage('https://pg-edtr.archiproducts.com/desktop_1454x870_6c141cf8-889f-4604-890c-f8a1ec5644ad.jpg'),
                   ),
                 ),
                 // Image.network(
@@ -64,8 +61,7 @@ class HomeWidget extends StatelessWidget {
                       highlightColor: Colors.transparent,
                       splashColor: Colors.transparent,
                       onTap: () {
-                        context.goNamed('/catalog-detail',
-                            extra: snapshot.data![index]['id']);
+                        context.goNamed('/catalog-detail', extra: snapshot.data![index]['id']);
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(0),

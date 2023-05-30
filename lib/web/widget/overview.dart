@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, must_be_immutable
 import 'package:dafna_web/web/models/ideas_photos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -20,15 +20,12 @@ class OverView extends StatefulWidget {
 
 class _OverViewState extends State<OverView> {
   final _scrollController = ScrollController();
-  double _scrollPosition = 0;
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(() {
-      setState(() {
-        _scrollPosition = _scrollController.offset;
-      });
+      setState(() {});
     });
   }
 
@@ -46,6 +43,7 @@ class _OverViewState extends State<OverView> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Scrollbar(
+              thumbVisibility: true,
               child: CustomScrollView(
                 shrinkWrap: true,
                 controller: _scrollController,
@@ -55,13 +53,12 @@ class _OverViewState extends State<OverView> {
                       children: [
                         InkWell(
                           onTap: () {},
-                          child: Container(
+                          child: SizedBox(
                             height: 600,
                             width: double.infinity,
                             child: Image(
                               fit: BoxFit.fitWidth,
-                              image: NetworkImage(
-                                  'https://pg-edtr.archiproducts.com/desktop_1454x870_6c141cf8-889f-4604-890c-f8a1ec5644ad.jpg'),
+                              image: NetworkImage('https://pg-edtr.archiproducts.com/desktop_1454x870_6c141cf8-889f-4604-890c-f8a1ec5644ad.jpg'),
                             ),
                           ),
                           // Image.network(
@@ -73,8 +70,7 @@ class _OverViewState extends State<OverView> {
                           children: const [
                             SizedBox(
                               width: 100,
-                              child: Divider(
-                                  color: Colors.orangeAccent, thickness: 5),
+                              child: Divider(color: Colors.orangeAccent, thickness: 5),
                             )
                           ],
                         ),
@@ -86,8 +82,7 @@ class _OverViewState extends State<OverView> {
                   SliverPadding(
                     padding: EdgeInsets.only(left: 55, right: 55),
                     sliver: SliverGrid(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 4,
                         childAspectRatio: 1.4,
                       ),
@@ -98,8 +93,7 @@ class _OverViewState extends State<OverView> {
                           highlightColor: Colors.transparent,
                           splashColor: Colors.transparent,
                           onTap: () {
-                            context.goNamed('/catalog-detail',
-                                extra: snapshot.data![index]['id']);
+                            context.goNamed('/catalog-detail', extra: snapshot.data![index]['id']);
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
@@ -113,8 +107,7 @@ class _OverViewState extends State<OverView> {
                                   //   fit: BoxFit.fitWidth,
                                   // ),
                                   Image.network(
-                                'https://ogabek007.pythonanywhere.com/' +
-                                    snapshot.data![index]['img_url'],
+                                'https://ogabek007.pythonanywhere.com/${snapshot.data![index]['img_url']}',
                                 fit: BoxFit.fitWidth,
                               ),
                             ),
@@ -128,8 +121,7 @@ class _OverViewState extends State<OverView> {
                     sliver: SliverToBoxAdapter(
                       child: Text(
                         'Yangi',
-                        style: TextStyle(
-                            fontSize: 23, fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -141,8 +133,7 @@ class _OverViewState extends State<OverView> {
                     sliver: SliverToBoxAdapter(
                       child: Text(
                         'Tavsiyalar',
-                        style: TextStyle(
-                            fontSize: 23, fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
